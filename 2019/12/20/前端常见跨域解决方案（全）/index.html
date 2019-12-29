@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2019-12-20T12:06:29.000Z">
-<meta property="article:modified_time" content="2019-12-28T12:13:42.429Z">
+<meta property="article:modified_time" content="2019-12-29T03:06:13.712Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary">
@@ -116,6 +116,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -312,28 +316,23 @@
         <div class="buttons is-centered">
             
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_Qrcode_image_URL.JPG" alt="支付宝"></div>
+</a>
 
                 
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_Qrcode_image_URL.JPG" alt="微信"></div>
+</a>
 
                 
         </div>
@@ -490,8 +489,6 @@
 </div>
     
         
-    
-        
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
@@ -524,6 +521,92 @@
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#什么是跨域？">
+        <span class="has-mr-6">1</span>
+        <span>什么是跨域？</span>
+        </a></li><li>
+        <a class="is-flex" href="#常见跨域场景">
+        <span class="has-mr-6">2</span>
+        <span>常见跨域场景</span>
+        </a></li><li>
+        <a class="is-flex" href="#跨域解决方案">
+        <span class="has-mr-6">3</span>
+        <span>跨域解决方案</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#一、-通过jsonp跨域">
+        <span class="has-mr-6">3.1</span>
+        <span>一、 通过jsonp跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#二、-document-domain-iframe跨域">
+        <span class="has-mr-6">3.2</span>
+        <span>二、 document.domain + iframe跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#三、-location-hash-iframe跨域">
+        <span class="has-mr-6">3.3</span>
+        <span>三、 location.hash + iframe跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#四、-window-name-iframe跨域">
+        <span class="has-mr-6">3.4</span>
+        <span>四、 window.name + iframe跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#五、-postMessage跨域">
+        <span class="has-mr-6">3.5</span>
+        <span>五、 postMessage跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#六、-跨域资源共享（CORS）">
+        <span class="has-mr-6">3.6</span>
+        <span>六、 跨域资源共享（CORS）</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1、-前端设置：">
+        <span class="has-mr-6">3.6.1</span>
+        <span>1、 前端设置：</span>
+        </a></li><li>
+        <a class="is-flex" href="#2、-服务端设置：">
+        <span class="has-mr-6">3.6.2</span>
+        <span>2、 服务端设置：</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#七、-nginx代理跨域">
+        <span class="has-mr-6">3.7</span>
+        <span>七、 nginx代理跨域</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1、-nginx配置解决iconfont跨域">
+        <span class="has-mr-6">3.7.1</span>
+        <span>1、 nginx配置解决iconfont跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#2、-nginx反向代理接口跨域">
+        <span class="has-mr-6">3.7.2</span>
+        <span>2、 nginx反向代理接口跨域</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#八、-Nodejs中间件代理跨域">
+        <span class="has-mr-6">3.8</span>
+        <span>八、 Nodejs中间件代理跨域</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1、-非vue框架的跨域（2次跨域）">
+        <span class="has-mr-6">3.8.1</span>
+        <span>1、 非vue框架的跨域（2次跨域）</span>
+        </a></li><li>
+        <a class="is-flex" href="#2、-vue框架的跨域（1次跨域）">
+        <span class="has-mr-6">3.8.2</span>
+        <span>2、 vue框架的跨域（1次跨域）</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#九、-WebSocket协议跨域">
+        <span class="has-mr-6">3.9</span>
+        <span>九、 WebSocket协议跨域</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
         
             <div class="card widget">
     <div class="card-content">
@@ -685,6 +768,92 @@
 
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#什么是跨域？">
+        <span class="has-mr-6">1</span>
+        <span>什么是跨域？</span>
+        </a></li><li>
+        <a class="is-flex" href="#常见跨域场景">
+        <span class="has-mr-6">2</span>
+        <span>常见跨域场景</span>
+        </a></li><li>
+        <a class="is-flex" href="#跨域解决方案">
+        <span class="has-mr-6">3</span>
+        <span>跨域解决方案</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#一、-通过jsonp跨域">
+        <span class="has-mr-6">3.1</span>
+        <span>一、 通过jsonp跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#二、-document-domain-iframe跨域">
+        <span class="has-mr-6">3.2</span>
+        <span>二、 document.domain + iframe跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#三、-location-hash-iframe跨域">
+        <span class="has-mr-6">3.3</span>
+        <span>三、 location.hash + iframe跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#四、-window-name-iframe跨域">
+        <span class="has-mr-6">3.4</span>
+        <span>四、 window.name + iframe跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#五、-postMessage跨域">
+        <span class="has-mr-6">3.5</span>
+        <span>五、 postMessage跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#六、-跨域资源共享（CORS）">
+        <span class="has-mr-6">3.6</span>
+        <span>六、 跨域资源共享（CORS）</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1、-前端设置：">
+        <span class="has-mr-6">3.6.1</span>
+        <span>1、 前端设置：</span>
+        </a></li><li>
+        <a class="is-flex" href="#2、-服务端设置：">
+        <span class="has-mr-6">3.6.2</span>
+        <span>2、 服务端设置：</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#七、-nginx代理跨域">
+        <span class="has-mr-6">3.7</span>
+        <span>七、 nginx代理跨域</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1、-nginx配置解决iconfont跨域">
+        <span class="has-mr-6">3.7.1</span>
+        <span>1、 nginx配置解决iconfont跨域</span>
+        </a></li><li>
+        <a class="is-flex" href="#2、-nginx反向代理接口跨域">
+        <span class="has-mr-6">3.7.2</span>
+        <span>2、 nginx反向代理接口跨域</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#八、-Nodejs中间件代理跨域">
+        <span class="has-mr-6">3.8</span>
+        <span>八、 Nodejs中间件代理跨域</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1、-非vue框架的跨域（2次跨域）">
+        <span class="has-mr-6">3.8.1</span>
+        <span>1、 非vue框架的跨域（2次跨域）</span>
+        </a></li><li>
+        <a class="is-flex" href="#2、-vue框架的跨域（1次跨域）">
+        <span class="has-mr-6">3.8.2</span>
+        <span>2、 vue框架的跨域（1次跨域）</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#九、-WebSocket协议跨域">
+        <span class="has-mr-6">3.9</span>
+        <span>九、 WebSocket协议跨域</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
