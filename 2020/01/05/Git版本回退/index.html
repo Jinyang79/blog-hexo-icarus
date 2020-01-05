@@ -12,16 +12,16 @@
 <title>Git版本回退 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="（参考廖雪峰的Git教程） 版本回退(已经git add file 并且已经 git commit -m 但没推送云端 想回到上个版本或其他版本) 回退版本❗git reset –hard 版本号&#x2F;HEAD^ ：命令回退到指定的版本号&#x2F;上一次 ❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位 ❗ 用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEA">
+    <meta name="description" content="(参考廖雪峰的Git教程) (已经git add file 并且 git commit -m 提交信息 但没推送云端 想回到上个版本或其他版本) 回退版本 ❗git reset --hard 版本号&#x2F;HEAD^ ：命令回退到指定的版本号&#x2F;上一次 ❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位 ❗ 用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git版本回退">
-<meta property="og:url" content="http://yoursite.com/2020/01/05/Git%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="（参考廖雪峰的Git教程） 版本回退(已经git add file 并且已经 git commit -m 但没推送云端 想回到上个版本或其他版本) 回退版本❗git reset –hard 版本号&#x2F;HEAD^ ：命令回退到指定的版本号&#x2F;上一次 ❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位 ❗ 用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEA">
+<meta property="og:description" content="(参考廖雪峰的Git教程) (已经git add file 并且 git commit -m 提交信息 但没推送云端 想回到上个版本或其他版本) 回退版本 ❗git reset --hard 版本号&#x2F;HEAD^ ：命令回退到指定的版本号&#x2F;上一次 ❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位 ❗ 用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HE">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-05T04:32:49.000Z">
-<meta property="article:modified_time" content="2020-01-05T05:32:25.215Z">
+<meta property="article:modified_time" content="2020-01-05T05:49:43.860Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -84,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/codehub.ico" alt="Git版本回退" height="28">
+                <img src="/images/goldsheep.png" alt="Git版本回退" height="28">
             
             </a>
         </div>
@@ -120,6 +120,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -150,7 +154,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 445 个字)
+                    3 分钟 读完 (大约 444 个字)
                 </span>
                 
                 
@@ -168,24 +172,28 @@
             
         </h1>
         <div class="content">
-            <p>（参考廖雪峰的Git教程）</p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><p>(已经git add file 并且已经 git commit -m 但没推送云端 想回到上个版本或其他版本)</p>
-<h3 id="回退版本❗"><a href="#回退版本❗" class="headerlink" title="回退版本❗"></a>回退版本❗</h3><p>git reset –hard 版本号/HEAD^ ：命令回退到指定的版本号/上一次</p>
+            <p>(参考廖雪峰的Git教程)</p>
+<p>(已经git add file 并且 git commit -m 提交信息 但没推送云端 想回到上个版本或其他版本)</p>
+<h2 id="回退版本-❗"><a href="#回退版本-❗" class="headerlink" title="回退版本 ❗"></a>回退版本 ❗</h2><p><code>git reset --hard 版本号/HEAD^</code> ：命令回退到指定的版本号/上一次</p>
 <p>❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位</p>
 <p>❗ 用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
-<h3 id="查看提交历史版本号信息"><a href="#查看提交历史版本号信息" class="headerlink" title="查看提交历史版本号信息"></a>查看提交历史版本号信息</h3><p><code>git log</code> ：命令显示从最近到最远的提交日志</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="查看提交历史版本号信息"><a href="#查看提交历史版本号信息" class="headerlink" title="查看提交历史版本号信息"></a>查看提交历史版本号信息</h2><p><code>git log</code> ：命令显示从最近到最远的提交日志</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git log</span><br><span class="line">commit commit id（版本号） (HEAD -&gt; master)</span><br><span class="line">Author: 提交作者</span><br><span class="line">Date:   提交时间</span><br><span class="line"></span><br><span class="line">    提交的内容</span><br></pre></td></tr></table></figure>
 
 <p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git log -<span class="literal">-pretty</span>=oneline</span><br><span class="line">commit id（上次版本号） (HEAD -&gt; master) 上次提交的内容</span><br><span class="line">commit id（上上次版本号）                 上上次提交的内容</span><br><span class="line">commit id（上上上次版本号）               上上上次提交的内容</span><br></pre></td></tr></table></figure>
 
 <p>坑❗ 输入q退出查看记录</p>
-<h3 id="后悔药💊"><a href="#后悔药💊" class="headerlink" title="后悔药💊"></a>后悔药💊</h3><p>在Git中，总是有后悔药可以吃的。当你用<code>$ git reset --hard HEAD^</code>回退到上个版本时，再想恢复原来，就必须找到原来的commit id（版本号）。Git提供了一个命令<code>git reflog</code>用来记录你的每一次命令：</p>
+<hr>
+<h2 id="后悔药💊"><a href="#后悔药💊" class="headerlink" title="后悔药💊"></a>后悔药💊</h2><p>在Git中，总是有后悔药可以吃的。当你用<code>$ git reset --hard HEAD^</code>回退到上个版本时，再想恢复原来，就必须找到原来的commit id（版本号）。Git提供了一个命令<code>git reflog</code>用来记录你的每一次命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git reflog</span><br><span class="line">e475afc HEAD<span class="selector-tag">@</span>&#123;<span class="number">1</span>&#125;: reset: moving to HEAD^</span><br><span class="line">版本号 (HEAD -&gt; master) HEAD<span class="selector-tag">@</span>&#123;<span class="number">2</span>&#125;: commit: 提交信息</span><br></pre></td></tr></table></figure>
 
 <p>❗ 输入q退出查看记录</p>
-<p>然后可以通过<code>git reset --hard 版本号</code> 恢复啦</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+<p>然后可以通过<code>git reset --hard 版本号</code> 恢复啦😁</p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -307,7 +315,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            4
+                            3
                         </p>
                     </a>
                 </div>
@@ -384,20 +392,12 @@
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/Git/">
-            <span class="level-start">
-                <span class="level-item">Git</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Git%E6%93%8D%E4%BD%9C/">
             <span class="level-start">
                 <span class="level-item">Git操作</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/blog/">
@@ -434,6 +434,30 @@
         <div class="column-right-shadow is-hidden-widescreen ">
         
             
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#回退版本-❗">
+        <span class="has-mr-6">1</span>
+        <span>回退版本 ❗</span>
+        </a></li><li>
+        <a class="is-flex" href="#查看提交历史版本号信息">
+        <span class="has-mr-6">2</span>
+        <span>查看提交历史版本号信息</span>
+        </a></li><li>
+        <a class="is-flex" href="#后悔药💊">
+        <span class="has-mr-6">3</span>
+        <span>后悔药💊</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
         
             <div class="card widget">
     <div class="card-content">
@@ -446,7 +470,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T04:32:49.000Z">2020-01-05</time></div>
-                    <a href="/2020/01/05/Git%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
+                    <a href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
                     </p>
@@ -636,6 +660,30 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#回退版本-❗">
+        <span class="has-mr-6">1</span>
+        <span>回退版本 ❗</span>
+        </a></li><li>
+        <a class="is-flex" href="#查看提交历史版本号信息">
+        <span class="has-mr-6">2</span>
+        <span>查看提交历史版本号信息</span>
+        </a></li><li>
+        <a class="is-flex" href="#后悔药💊">
+        <span class="has-mr-6">3</span>
+        <span>后悔药💊</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -648,7 +696,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T04:32:49.000Z">2020-01-05</time></div>
-                    <a href="/2020/01/05/Git%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
+                    <a href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
                     </p>
@@ -838,7 +886,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/codehub.ico" alt="Git版本回退" height="28">
+          <img src="/images/goldsheep.png" alt="Git版本回退" height="28">
           
         </a>
         <p class="is-size-7">

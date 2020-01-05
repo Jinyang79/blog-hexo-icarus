@@ -79,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/codehub.ico" alt="Jinyang&#39;s blog" height="28">
+                <img src="/images/goldsheep.png" alt="Jinyang&#39;s blog" height="28">
             
             </a>
         </div>
@@ -157,7 +157,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 445 个字)
+                    3 分钟 读完 (大约 444 个字)
                 </span>
                 
                 
@@ -166,30 +166,88 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/05/Git%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/">Git版本回退</a>
+                <a class="has-link-black-ter" href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/">Git版本回退</a>
             
         </h1>
         <div class="content">
-            <p>（参考廖雪峰的Git教程）</p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><p>(已经git add file 并且已经 git commit -m 但没推送云端 想回到上个版本或其他版本)</p>
-<h3 id="回退版本❗"><a href="#回退版本❗" class="headerlink" title="回退版本❗"></a>回退版本❗</h3><p>git reset –hard 版本号/HEAD^ ：命令回退到指定的版本号/上一次</p>
+            <p>(参考廖雪峰的Git教程)</p>
+<p>(已经git add file 并且 git commit -m 提交信息 但没推送云端 想回到上个版本或其他版本)</p>
+<h2 id="回退版本-❗"><a href="#回退版本-❗" class="headerlink" title="回退版本 ❗"></a>回退版本 ❗</h2><p><code>git reset --hard 版本号/HEAD^</code> ：命令回退到指定的版本号/上一次</p>
 <p>❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位</p>
 <p>❗ 用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
-<h3 id="查看提交历史版本号信息"><a href="#查看提交历史版本号信息" class="headerlink" title="查看提交历史版本号信息"></a>查看提交历史版本号信息</h3><p><code>git log</code> ：命令显示从最近到最远的提交日志</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git log</span><br><span class="line">commit commit id（版本号） (HEAD -&gt; master)</span><br><span class="line">Author: 提交作者</span><br><span class="line">Date:   提交时间</span><br><span class="line"></span><br><span class="line">    提交的内容</span><br></pre></td></tr></table></figure>
-
-<p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git log -<span class="literal">-pretty</span>=oneline</span><br><span class="line">commit id（上次版本号） (HEAD -&gt; master) 上次提交的内容</span><br><span class="line">commit id（上上次版本号）                 上上次提交的内容</span><br><span class="line">commit id（上上上次版本号）               上上上次提交的内容</span><br></pre></td></tr></table></figure>
-
-<p>坑❗ 输入q退出查看记录</p>
-<h3 id="后悔药💊"><a href="#后悔药💊" class="headerlink" title="后悔药💊"></a>后悔药💊</h3><p>在Git中，总是有后悔药可以吃的。当你用<code>$ git reset --hard HEAD^</code>回退到上个版本时，再想恢复原来，就必须找到原来的commit id（版本号）。Git提供了一个命令<code>git reflog</code>用来记录你的每一次命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git reflog</span><br><span class="line">e475afc HEAD<span class="selector-tag">@</span>&#123;<span class="number">1</span>&#125;: reset: moving to HEAD^</span><br><span class="line">版本号 (HEAD -&gt; master) HEAD<span class="selector-tag">@</span>&#123;<span class="number">2</span>&#125;: commit: 提交信息</span><br></pre></td></tr></table></figure>
-
-<p>❗ 输入q退出查看记录</p>
-<p>然后可以通过<code>git reset --hard 版本号</code> 恢复啦</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-15T09:06:29.000Z">2019-12-15</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 270 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/15/Git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">Git常用操作</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Git操作解释"><a href="#Git操作解释" class="headerlink" title="Git操作解释"></a>Git操作解释</h2><ul>
+<li><code>git status</code>    查看当前项目中源代码的状态</li>
+<li><code>git add .</code>     全部添加到暂存区</li>
+<li><code>git commit -m &quot;提交信息&quot;</code>   把暂存区所有代码提交到本地仓库中</li>
+<li><code>git branch</code>    查看分支    *当前处于分支</li>
+<li><code>git branch 分支名</code> 创建分支</li>
+<li><code>git checkout 分支名</code>   切换分支</li>
+<li><code>git checkout -b 分支名</code>  创建并切换到分支</li>
+<li><code>git merge 分支名</code>          合并分支（合并到本地，云端并没有）</li>
+<li><code>git push</code>  把本地分支中最新的代码推送到远程仓库中 默认master主分支</li>
+<li><code>git push -u origin 分支名</code> 第一次推送到此分支的时候使用
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/12/15/Git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -259,7 +317,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            4
+                            3
                         </p>
                     </a>
                 </div>
@@ -336,20 +394,12 @@
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/Git/">
-            <span class="level-start">
-                <span class="level-item">Git</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Git%E6%93%8D%E4%BD%9C/">
             <span class="level-start">
                 <span class="level-item">Git操作</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/blog/">
@@ -398,7 +448,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T04:32:49.000Z">2020-01-05</time></div>
-                    <a href="/2020/01/05/Git%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
+                    <a href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
                     </p>
@@ -600,7 +650,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T04:32:49.000Z">2020-01-05</time></div>
-                    <a href="/2020/01/05/Git%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
+                    <a href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
                     </p>
@@ -790,7 +840,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/codehub.ico" alt="Jinyang&#39;s blog" height="28">
+          <img src="/images/goldsheep.png" alt="Jinyang&#39;s blog" height="28">
           
         </a>
         <p class="is-size-7">
