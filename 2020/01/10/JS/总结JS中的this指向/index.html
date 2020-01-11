@@ -9,21 +9,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>学习笔记 - Jinyang&#39;s blog</title>
+<title>JS中的this指向 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="Git常见操作 git status    查看当前项目中源代码的状态  git add .     全部添加到暂存区  git commit -m &quot;提交信息&quot;   把暂存区所有代码提交到本地仓库中  git branch    查看分支    *当前处于分支  git branch 分支名 创建分支  git checkout 分支名   切换分支  git checkou">
-<meta property="og:type" content="article">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/11/30/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="JS中的this指向">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/JS/%E6%80%BB%E7%BB%93JS%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="Git常见操作 git status    查看当前项目中源代码的状态  git add .     全部添加到暂存区  git commit -m &quot;提交信息&quot;   把暂存区所有代码提交到本地仓库中  git branch    查看分支    *当前处于分支  git branch 分支名 创建分支  git checkout 分支名   切换分支  git checkou">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2019-11-30T05:06:29.000Z">
-<meta property="article:modified_time" content="2020-01-03T05:46:44.441Z">
+<meta property="article:published_time" content="2020-01-10T11:40:40.236Z">
+<meta property="article:modified_time" content="2020-01-11T12:11:00.478Z">
 <meta property="article:author" content="Jinyang">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="this">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -84,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="学习笔记" height="28">
+                <img src="/images/goldsheep.png" alt="JS中的this指向" height="28">
             
             </a>
         </div>
@@ -120,6 +119,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -140,17 +143,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z">2019-11-30</time>
+                <time class="level-item has-text-grey" datetime="2020-01-10T11:40:40.236Z">2020-01-10</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+                <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1000 个字)
+                    几秒 读完 (大约 0 个字)
                 </span>
                 
                 
@@ -164,103 +167,18 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                学习笔记
+                JS中的this指向
             
         </h1>
         <div class="content">
-            <h2 id="Git常见操作"><a href="#Git常见操作" class="headerlink" title="Git常见操作"></a>Git常见操作</h2><ul>
-<li><p><code>git status</code>    查看当前项目中源代码的状态</p>
-</li>
-<li><p><code>git add .</code>     全部添加到暂存区</p>
-</li>
-<li><p><code>git commit -m &quot;提交信息&quot;</code>   把暂存区所有代码提交到本地仓库中</p>
-</li>
-<li><p><code>git branch</code>    查看分支    *当前处于分支</p>
-</li>
-<li><p><code>git branch 分支名</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名</code>   切换分支</p>
-</li>
-<li><p><code>git checkout -b 分支名</code>  创建并切换到分支</p>
-</li>
-<li><p><code>git merge 分支名</code>          合并分支（合并到本地，云端并没有）</p>
-</li>
-<li><p><code>git push</code>  把本地分支中最新的代码推送到远程仓库中 默认master主分支</p>
-</li>
-<li><p><code>git push -u origin 分支名</code> 第一次推送到此分支的时候使用</p>
-</li>
-<li><h4 id="分支（login）合并到主分支（master）"><a href="#分支（login）合并到主分支（master）" class="headerlink" title="分支（login）合并到主分支（master）"></a>分支（login）合并到主分支（master）</h4></li>
-<li><p>1.切换到主分支 <code>git checkout master</code></p>
-</li>
-<li><p>2.合并分支 <code>git merge login</code></p>
-</li>
-<li><p>3.推送到云端（仓库）<code>git push</code> </p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="get和post请求区别-还有哪些http-method"><a href="#get和post请求区别-还有哪些http-method" class="headerlink" title="get和post请求区别 还有哪些http method"></a>get和post请求区别 还有哪些http method</h2><ul>
-<li><p>get和post本质上没有区别，他们都是http的请求方式，基于tcp协议，但因为在不同的浏览器实现，就有了不同。</p>
-</li>
-<li><p>get请求的数据放在url上，post请求的数据放在http的包体内，所以说post相对get更安全。</p>
-</li>
-<li><p>get是通过URL提交数据，因此get提交数据根据url长度有关，不同的浏览器不同，一般是2k，而post理论上是没有限制的。</p>
-</li>
-<li><p>get幂等，post不幂等。 幂等是指同一个请求方法执行多次和仅执行一次的效果完全相同。</p>
-</li>
-<li><p>GET在浏览器回退时是无害的，POST会再次提交请求。</p>
-</li>
-<li><p>GET请求只能进行url编码，而POST支持多种编码方式。</p>
-</li>
-<li><p>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</p>
-</li>
-<li><p>GET只接受ASCII字符的参数的数据类型，而POST没有限制</p>
-</li>
-<li><p>那么，post那么好为什么还用get？get效率高！。</p>
-</li>
-<li><p>其他请求方式（http method）</p>
-</li>
-<li><p>head、put、delete、trace、connect、options</p>
-</li>
-</ul>
-<h2 id="vue的computed属性和methods区别"><a href="#vue的computed属性和methods区别" class="headerlink" title="vue的computed属性和methods区别"></a>vue的computed属性和methods区别</h2><p>最大的区别是缓存</p>
-<p>计算属性是基于它们的依赖进行缓存的</p>
-<p>方法不存在缓存</p>
-<ul>
-<li><code>computed</code>是响应式的，<code>methods</code>并非响应式。</li>
-<li>调用方式不一样，<code>computed</code>定义的成员像属性一样访问，<code>methods</code>定义的成员必须以函数形式调用。</li>
-<li><code>computed</code>是带缓存的，只有其引用的响应式属性发生改变时才会重新计算，而<code>methods</code>里的函数在每次调用时都要执行。</li>
-<li><code>computed</code>中的成员可以只定义一个函数作为只读属性，也可以定义<code>get/set</code>变成可读写属性，这点是<code>methods</code>中的成员做不到的</li>
-</ul>
-<h3 id="初始化数据"><a href="#初始化数据" class="headerlink" title="初始化数据"></a>初始化数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">string:<span class="string">''</span>,</span><br><span class="line"><span class="comment">// 数组</span></span><br><span class="line">array:[],</span><br><span class="line"><span class="comment">// 数字</span></span><br><span class="line">number：<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="vue过滤器"><a href="#vue过滤器" class="headerlink" title="vue过滤器"></a>vue过滤器</h3><p>p237</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>p239</p>
-<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line"></span><br><span class="line"> render: h &#x3D;&gt; h(App)</span><br><span class="line"></span><br><span class="line">&#125;).$mount(&#39;#app&#39;)</span><br></pre></td></tr></table></figure>
-
-<p>render: h =&gt; h(App)  渲染到APP组件</p>
-<p>$mount(‘#app’) 挂载到#app上</p>
-<p>这是Vue 2.0新增的函数，可以直接给绑定节点渲染一个vue组件，如果在Vue 1.x下，就应该使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    components: &#123; App &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>然后在页面中写入标记：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;app&gt;&lt;&#x2F;app&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><p>trim() 方法用于删除字符串的头尾空格。</p>
-<p>trim() 方法不会改变原始字符串。</p>
-<h3 id="ES6，Array-find-和findIndex-函数的用法"><a href="#ES6，Array-find-和findIndex-函数的用法" class="headerlink" title="ES6，Array.find()和findIndex()函数的用法]"></a>ES6，Array.find()和findIndex()函数的用法]</h3><p>ES6为Array增加了find()，findIndex函数。</p>
-<p>find()函数用来查找目标元素，找到就返回该元素，找不到返回undefined。</p>
-<p>findIndex()函数也是查找目标元素，找到就返回元素的位置，找不到就返回-1。</p>
-<h3 id="json"><a href="#json" class="headerlink" title="json"></a>json</h3><p><code>**JSON.parse()**</code> 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。</p>
-<p><code>**JSON.stringify()**</code> 方法将一个 JavaScript 值（对象或者数组）转换为一个 JSON 字符串。</p>
-
+            
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Git/" rel="tag">Git</a>
+                    <a class="has-link-grey -link" href="/tags/JS/" rel="tag">JS</a>, <a class="has-link-grey -link" href="/tags/this/" rel="tag">this</a>
                 </div>
             </div>
         </div>
@@ -307,16 +225,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/11/30/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/11/JS/JavaScript%E9%97%AD%E5%8C%85%EF%BC%88Closure%EF%BC%89/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">学习日记</span>
+                <span class="level-item">JavaScript闭包（Closure）</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/30/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                <span class="level-item">常见前端面试题</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/05/vue%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92/">
+                <span class="level-item">Vue路线规划</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -391,7 +309,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            12
+                            18
                         </p>
                     </a>
                 </div>
@@ -403,7 +321,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            3
+                            7
                         </p>
                     </a>
                 </div>
@@ -415,7 +333,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            9
+                            12
                         </p>
                     </a>
                 </div>
@@ -476,7 +394,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">前端面试题</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E6%AF%95%E8%AE%BE/" style="font-size: 10px;">毕设</a>
+        <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/Icarus/" style="font-size: 10px;">Icarus</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 15px;">学习日记</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
     </div>
 </div>
     
@@ -496,6 +414,27 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Icarus/">
+                        <span class="tag">Icarus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue-js/">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/blog/">
                         <span class="tag">blog</span>
                         <span class="tag is-grey">1</span>
@@ -505,7 +444,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -519,6 +458,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/jQuery/">
                         <span class="tag">jQuery</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/this/">
+                        <span class="tag">this</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -531,22 +477,15 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="tag">前端面试题</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
                         <span class="tag">学习日记</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%AF%95%E8%AE%BE/">
-                        <span class="tag">毕设</span>
+                    <a class="tags has-addons" href="/tags/%E9%97%AD%E5%8C%85/">
+                        <span class="tag">闭包</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -560,12 +499,52 @@
         <div class="column-right-shadow is-hidden-widescreen ">
         
             
+
         
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-11T12:06:23.726Z">2020-01-11</time></div>
+                    <a href="/2020/01/11/JS/%E6%B5%85%E6%8B%B7%E8%B4%9D&%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浅拷贝&amp;深拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-11T08:24:51.180Z">2020-01-11</time></div>
+                    <a href="/2020/01/11/JS/JavaScript%E9%97%AD%E5%8C%85%EF%BC%88Closure%EF%BC%89/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript闭包（Closure）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-10T11:40:40.236Z">2020-01-10</time></div>
+                    <a href="/2020/01/10/JS/%E6%80%BB%E7%BB%93JS%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JS中的this指向</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -584,49 +563,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T04:32:49.000Z">2020-01-05</time></div>
-                    <a href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T05:36:27.000Z">2020-01-05</time></div>
+                    <a href="/2020/01/05/Vue.js/vue%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue路线规划</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-04T05:06:20.000Z">2020-01-04</time></div>
-                    <a href="/2020/01/04/%E5%9F%BA%E4%BA%8Evue&elementui%E7%9A%84%E6%AF%95%E8%AE%BE/" class="title has-link-black-ter is-size-6 has-text-weight-normal">毕业设计三级提纲</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-31T12:06:29.000Z">2019-12-31</time></div>
-                    <a href="/2019/12/31/jQuery%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">jQuery笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-27T12:50:29.000Z">2019-12-27</time></div>
-                    <a href="/2019/12/27/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E4%B8%8A%E4%BC%A0Github/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用hexo搭建博客并上传Github</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/blog/">blog</a>
+                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
                     </p>
                 </div>
             </div>
@@ -652,6 +592,22 @@
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/JS/">
+            <span class="level-start">
+                <span class="level-item">JS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Vue-js/">
+            <span class="level-start">
+                <span class="level-item">Vue.js</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -660,12 +616,28 @@
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/jQuery/">
+            <span class="level-start">
+                <span class="level-item">jQuery</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/web%E5%89%8D%E7%AB%AF/">
             <span class="level-start">
                 <span class="level-item">web前端</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+            <span class="level-start">
+                <span class="level-item">学习日记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li>
             </ul>
@@ -687,7 +659,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -698,7 +670,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -709,7 +681,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -731,12 +703,52 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
+
     
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-11T12:06:23.726Z">2020-01-11</time></div>
+                    <a href="/2020/01/11/JS/%E6%B5%85%E6%8B%B7%E8%B4%9D&%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">浅拷贝&amp;深拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-11T08:24:51.180Z">2020-01-11</time></div>
+                    <a href="/2020/01/11/JS/JavaScript%E9%97%AD%E5%8C%85%EF%BC%88Closure%EF%BC%89/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript闭包（Closure）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-10T11:40:40.236Z">2020-01-10</time></div>
+                    <a href="/2020/01/10/JS/%E6%80%BB%E7%BB%93JS%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JS中的this指向</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -755,49 +767,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T04:32:49.000Z">2020-01-05</time></div>
-                    <a href="/2020/01/05/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git版本回退</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-05T05:36:27.000Z">2020-01-05</time></div>
+                    <a href="/2020/01/05/Vue.js/vue%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue路线规划</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-04T05:06:20.000Z">2020-01-04</time></div>
-                    <a href="/2020/01/04/%E5%9F%BA%E4%BA%8Evue&elementui%E7%9A%84%E6%AF%95%E8%AE%BE/" class="title has-link-black-ter is-size-6 has-text-weight-normal">毕业设计三级提纲</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-31T12:06:29.000Z">2019-12-31</time></div>
-                    <a href="/2019/12/31/jQuery%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">jQuery笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-27T12:50:29.000Z">2019-12-27</time></div>
-                    <a href="/2019/12/27/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E4%B8%8A%E4%BC%A0Github/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用hexo搭建博客并上传Github</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/blog/">blog</a>
+                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
                     </p>
                 </div>
             </div>
@@ -823,6 +796,22 @@
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/JS/">
+            <span class="level-start">
+                <span class="level-item">JS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Vue-js/">
+            <span class="level-start">
+                <span class="level-item">Vue.js</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -831,12 +820,28 @@
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/jQuery/">
+            <span class="level-start">
+                <span class="level-item">jQuery</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/web%E5%89%8D%E7%AB%AF/">
             <span class="level-start">
                 <span class="level-item">web前端</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+            <span class="level-start">
+                <span class="level-item">学习日记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li>
             </ul>
@@ -858,7 +863,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -869,7 +874,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -880,7 +885,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -902,7 +907,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="学习笔记" height="28">
+          <img src="/images/goldsheep.png" alt="JS中的this指向" height="28">
           
         </a>
         <p class="is-size-7">
