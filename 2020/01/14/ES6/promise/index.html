@@ -9,19 +9,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>promise(常用方法) - Jinyang&#39;s blog</title>
+<title>Promise(常用方法) - Jinyang&#39;s blog</title>
 
 
     <meta name="description" content="参考原文 http:&#x2F;&#x2F;es6.ruanyifeng.com&#x2F;#docs&#x2F;promise Promise 的含义Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。 从语法上讲，Promise是一个对象，从它可以获取异步操作的信息 主要好处：  可以避免多层异步通用嵌套问题（回调地狱）。 Promise对象提供了简洁的API，使得控制异步操作更加容易。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="promise(常用方法)">
+<meta property="og:title" content="Promise(常用方法)">
 <meta property="og:url" content="http://yoursite.com/2020/01/14/ES6/promise/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
 <meta property="og:description" content="参考原文 http:&#x2F;&#x2F;es6.ruanyifeng.com&#x2F;#docs&#x2F;promise Promise 的含义Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。 从语法上讲，Promise是一个对象，从它可以获取异步操作的信息 主要好处：  可以避免多层异步通用嵌套问题（回调地狱）。 Promise对象提供了简洁的API，使得控制异步操作更加容易。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-14T05:29:18.312Z">
-<meta property="article:modified_time" content="2020-01-14T09:34:50.279Z">
+<meta property="article:modified_time" content="2020-01-15T08:32:48.133Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="promise">
 <meta property="article:tag" content="ES6">
@@ -85,7 +85,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="promise(常用方法)" height="28">
+                <img src="/images/goldsheep.png" alt="Promise(常用方法)" height="28">
             
             </a>
         </div>
@@ -120,6 +120,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -165,7 +169,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                promise(常用方法)
+                Promise(常用方法)
             
         </h1>
         <div class="content">
@@ -176,7 +180,6 @@
 <ul>
 <li>可以避免多层异步通用嵌套问题（回调地狱）。</li>
 <li>Promise对象提供了简洁的API，使得控制异步操作更加容易。<a id="more"></a>
-
 
 </li>
 </ul>
@@ -361,7 +364,7 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/logo.png" alt="Jinyang">
+                        <img class="" src="/images/GitHub_loge1.jpg" alt="Jinyang">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -587,6 +590,62 @@
         <div class="column-right-shadow is-hidden-widescreen ">
         
             
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Promise-的含义">
+        <span class="has-mr-6">1</span>
+        <span>Promise 的含义</span>
+        </a></li><li>
+        <a class="is-flex" href="#基本用法">
+        <span class="has-mr-6">2</span>
+        <span>基本用法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#在原生JS中发送Ajax的用法">
+        <span class="has-mr-6">2.1</span>
+        <span>在原生JS中发送Ajax的用法</span>
+        </a></li><li>
+        <a class="is-flex" href="#在jQuery中发送Ajax的用法">
+        <span class="has-mr-6">2.2</span>
+        <span>在jQuery中发送Ajax的用法</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#实例方法">
+        <span class="has-mr-6">3</span>
+        <span>实例方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Promise-prototype-then">
+        <span class="has-mr-6">3.1</span>
+        <span>Promise.prototype.then()</span>
+        </a></li><li>
+        <a class="is-flex" href="#Promise-prototype-catch">
+        <span class="has-mr-6">3.2</span>
+        <span>Promise.prototype.catch()</span>
+        </a></li><li>
+        <a class="is-flex" href="#Promise-prototype-finally">
+        <span class="has-mr-6">3.3</span>
+        <span>Promise.prototype.finally()</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#对象方法">
+        <span class="has-mr-6">4</span>
+        <span>对象方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Promise-all">
+        <span class="has-mr-6">4.1</span>
+        <span>Promise.all()</span>
+        </a></li><li>
+        <a class="is-flex" href="#Promise-race">
+        <span class="has-mr-6">4.2</span>
+        <span>Promise.race()</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
         
             <div class="card widget">
     <div class="card-content">
@@ -599,7 +658,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T05:29:18.312Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/ES6/promise/" class="title has-link-black-ter is-size-6 has-text-weight-normal">promise(常用方法)</a>
+                    <a href="/2020/01/14/ES6/promise/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Promise(常用方法)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
                     </p>
@@ -782,6 +841,62 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Promise-的含义">
+        <span class="has-mr-6">1</span>
+        <span>Promise 的含义</span>
+        </a></li><li>
+        <a class="is-flex" href="#基本用法">
+        <span class="has-mr-6">2</span>
+        <span>基本用法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#在原生JS中发送Ajax的用法">
+        <span class="has-mr-6">2.1</span>
+        <span>在原生JS中发送Ajax的用法</span>
+        </a></li><li>
+        <a class="is-flex" href="#在jQuery中发送Ajax的用法">
+        <span class="has-mr-6">2.2</span>
+        <span>在jQuery中发送Ajax的用法</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#实例方法">
+        <span class="has-mr-6">3</span>
+        <span>实例方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Promise-prototype-then">
+        <span class="has-mr-6">3.1</span>
+        <span>Promise.prototype.then()</span>
+        </a></li><li>
+        <a class="is-flex" href="#Promise-prototype-catch">
+        <span class="has-mr-6">3.2</span>
+        <span>Promise.prototype.catch()</span>
+        </a></li><li>
+        <a class="is-flex" href="#Promise-prototype-finally">
+        <span class="has-mr-6">3.3</span>
+        <span>Promise.prototype.finally()</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#对象方法">
+        <span class="has-mr-6">4</span>
+        <span>对象方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Promise-all">
+        <span class="has-mr-6">4.1</span>
+        <span>Promise.all()</span>
+        </a></li><li>
+        <a class="is-flex" href="#Promise-race">
+        <span class="has-mr-6">4.2</span>
+        <span>Promise.race()</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -794,7 +909,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T05:29:18.312Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/ES6/promise/" class="title has-link-black-ter is-size-6 has-text-weight-normal">promise(常用方法)</a>
+                    <a href="/2020/01/14/ES6/promise/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Promise(常用方法)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
                     </p>
@@ -977,7 +1092,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="promise(常用方法)" height="28">
+          <img src="/images/goldsheep.png" alt="Promise(常用方法)" height="28">
           
         </a>
         <p class="is-size-7">
