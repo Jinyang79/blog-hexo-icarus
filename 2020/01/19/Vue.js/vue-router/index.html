@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-19T04:02:07.274Z">
-<meta property="article:modified_time" content="2020-01-19T15:28:20.922Z">
+<meta property="article:modified_time" content="2020-01-24T05:27:48.871Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="vue-router">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 868 个字)
+                    6 分钟 读完 (大约 870 个字)
                 </span>
                 
                 
@@ -211,7 +211,7 @@
 
 <p><strong>cdn</strong></p>
 <p><a href="https://unpkg.com/vue-router/dist/vue-router.js">https://unpkg.com/vue-router/dist/vue-router.js</a></p>
-<h3 id="2-引入安装"><a href="#2-引入安装" class="headerlink" title="2.引入安装"></a>2.引入安装</h3><p>下载完成后 在<code>router/index.js</code> 文件中引入</p>
+<h3 id="2-引入安装"><a href="#2-引入安装" class="headerlink" title="2.引入安装"></a>2.引入安装</h3><p>下载完成后 在<code>router/index.js</code> 文件中引入安装</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-创建路由对象并配置路由规则"><a href="#3-创建路由对象并配置路由规则" class="headerlink" title="3.创建路由对象并配置路由规则"></a>3.创建路由对象并配置路由规则</h3><p><code>router/index.js</code></p>
@@ -227,7 +227,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  router,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="6-渲染"><a href="#6-渲染" class="headerlink" title="6.渲染"></a>6.渲染</h3><p><code>src/App.vue</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;nav&quot;&gt;</span><br><span class="line">    &lt;!-- 使用 router-link 组件来导航. --&gt;</span><br><span class="line">    &lt;!-- 通过传入 &#96;to&#96; 属性指定链接. --&gt;</span><br><span class="line">    &lt;!-- &lt;router-link&gt; 默认会被渲染成一个 &#96;&lt;a&gt;&#96; 标签 --&gt;</span><br><span class="line">      &lt;router-link to&#x3D;&quot;&#x2F;&quot;&gt;Home&lt;&#x2F;router-link&gt; |</span><br><span class="line">      &lt;router-link to&#x3D;&quot;&#x2F;about&quot;&gt;About&lt;&#x2F;router-link&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;!-- 路由出口 --&gt;</span><br><span class="line">  &lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span><br><span class="line">  &lt;router-view&gt;&lt;&#x2F;router-view&gt; &lt;!-- 简写&lt;router-view&#x2F;&gt; --&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用 router-link 组件来导航. --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通过传入 `to` 属性指定链接. --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 路由出口 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span> <span class="comment">&lt;!-- 简写&lt;router-view/&gt; --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -283,9 +283,9 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/20/Vue.js/vuex/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/21/Vue.js/vuex/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Vue.js/vuex</span>
+                <span class="level-item">Vuex</span>
             </a>
         </div>
         
@@ -391,7 +391,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            15
+                            16
                         </p>
                     </a>
                 </div>
@@ -445,7 +445,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 16.67px;">Git</a> <a href="/tags/Icarus/" style="font-size: 10px;">Icarus</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 13.33px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
+        <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 16.67px;">Git</a> <a href="/tags/Icarus/" style="font-size: 10px;">Icarus</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 13.33px;">vue-router</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
     </div>
 </div>
     
@@ -488,7 +488,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Vue-js/">
                         <span class="tag">Vue.js</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -545,6 +545,13 @@
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vuex/">
+                        <span class="tag">vuex</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -646,10 +653,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-20T15:20:45.193Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/Vue.js/vuex/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue.js/vuex</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-21T06:49:33.607Z">2020-01-21</time></div>
+                    <a href="/2020/01/21/Vue.js/vuex/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vuex</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
                     </p>
                 </div>
             </div>
@@ -748,7 +755,7 @@
                 <span class="level-item">Vue.js</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/blog/">
@@ -913,10 +920,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-20T15:20:45.193Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/Vue.js/vuex/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue.js/vuex</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-21T06:49:33.607Z">2020-01-21</time></div>
+                    <a href="/2020/01/21/Vue.js/vuex/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vuex</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
                     </p>
                 </div>
             </div>
@@ -1015,7 +1022,7 @@
                 <span class="level-item">Vue.js</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/blog/">
