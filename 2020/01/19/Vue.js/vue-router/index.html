@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-19T04:02:07.274Z">
-<meta property="article:modified_time" content="2020-01-24T05:27:48.871Z">
+<meta property="article:modified_time" content="2020-01-24T14:37:50.135Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="vue-router">
@@ -138,7 +138,7 @@
   <section class="section">
     <div class="container">
       <div class="columns">
-        <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+        <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
@@ -178,30 +178,28 @@
 <p><a href="https://juejin.im/post/5b0281b851882542845257e7">https://juejin.im/post/5b0281b851882542845257e7</a></p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Vue Router 是 <a href="http://cn.vuejs.org/">Vue.js</a> 官方的路由管理器。<strong>也就是SPA（单页应用）的路径管理器</strong>。</p>
 <a id="more"></a>
-<p>vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射</p>
-<p>起来。<strong>路由模块的本质 就是建立起url和页面之间的映射关系</strong>。<strong>实质上就是路劲的切</strong></p>
-<p><strong>换，也就是组件之间的切换</strong>。</p>
+<p>vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。</p>
+<p><strong>路由模块的本质就是建立起url和页面之间的映射关系。实质上就是路劲的切换，也就是组件之间的切换。</strong></p>
 <p>传统的页面应用，是用一些超链接来实现页面切换和跳转的。</p>
-<p>至于我们为啥不能用a标签，这是因为用Vue做的都是单页应用（<strong>当你的项目准备打包</strong></p>
-<p><strong>时，运行<code>npm run build</code>时，就会生成dist文件夹，这里面只有静态资源和一个</strong></p>
-<p><strong>index.html页面</strong>），所以你写的标签是不起作用的，你必须使用vue-router来进行管</p>
-<p>理。</p>
+<p>至于我们为啥不能用a标签，这是因为用Vue做的都是单页应用（<strong>当你的项目准备打包</strong> <strong>时，运行npm run build</strong></p>
+<p><strong>时，就会生成dist文件夹，这里面只有静态资源和一个</strong> <strong>index.html页面</strong>），所以你写的标签是不起作用的，</p>
+<p>你必须使用vue-router来进行管理。</p>
 <hr>
-<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>SPA(single page application):单一页面应用程序，只有一个完整的页面；它在加载页</p>
-<p>面时，不会加载整个页面，而是只更新某个指定的容器中内容。</p>
-<p><strong>单页面应用(SPA)的核心之一是: 更新视图而不重新请求页面</strong>; vue-router在实现单页面</p>
-<p>前端路由时，提供了两种方式：Hash模式和History模式。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>SPA(single page application):单一页面应用程序，只有一个完整的页面；它在加载页面时，不会加载整个页面，</p>
+<p>而是只更新某个指定的容器中内容。</p>
+<p><strong>单页面应用(SPA)的核心之一是: 更新视图而不重新请求页面</strong>; vue-router在实现单页面前端路由时，提供了两种方</p>
+<p>式：Hash模式和History模式。</p>
 <p>根据mode参数来决定采用哪一种方式。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 router/index.js 文件中</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span>, <span class="comment">// 默认是 hash</span></span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-Hash模式"><a href="#1-Hash模式" class="headerlink" title="1.Hash模式"></a>1.Hash模式</h2><p><code>vue-router</code> 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL，于是当 URL 改变时，页面不会重新加载。</p>
+<h2 id="1-Hash模式"><a href="#1-Hash模式" class="headerlink" title="1.Hash模式"></a>1.Hash模式</h2><p><code>vue-router</code> 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL，于是当 URL 改变时，页面不会重</p>
+<p>新加载。</p>
 <p>例如 <code>http://yoursite.com/user/#/id</code></p>
 <p><strong>hash 模式的原理是 onhashchange 事件(监测hash值变化)，可以在 window 对象上监听这个事件</strong>。</p>
 <h2 id="2-HTML5-History-模式"><a href="#2-HTML5-History-模式" class="headerlink" title="2.HTML5 History 模式"></a>2.HTML5 History 模式</h2><p>如果不想要很丑的 hash（路径有 #），我们可以用路由的 <strong>history 模式</strong>，这种模式充分利用</p>
 <p><code>history.pushState</code> API 来完成 URL 跳转而无须重新加载页面。</p>
-<p>当你使用 history 模式时，URL 就像正常的 url，例如 <code>http://yoursite.com/user/id</code>，也好</p>
-<p>看！</p>
-<p>不过这种模式要玩好，还需要后台配置支持。具体操作见官网文档[<a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html">https://router.vuejs.org/zh/guide/essentials/history-mode.html</a></p>
+<p>当你使用 history 模式时，URL 就像正常的 url，例如 <code>http://yoursite.com/user/id</code>，也好看！不过这种模式</p>
+<p>要玩好，还需要后台配置支持。具体操作见官网文档[<a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html">https://router.vuejs.org/zh/guide/essentials/history-mode.html</a></p>
 <hr>
 <h1 id="vue-router使用方式"><a href="#vue-router使用方式" class="headerlink" title="vue-router使用方式"></a>vue-router使用方式</h1><h2 id="通过-vue-cli-直接配置"><a href="#通过-vue-cli-直接配置" class="headerlink" title="通过 vue-cli 直接配置"></a>通过 vue-cli 直接配置</h2><p>生成的 router/index.js 直接使用</p>
 <h2 id="通过包管理工具手动配置"><a href="#通过包管理工具手动配置" class="headerlink" title="通过包管理工具手动配置"></a>通过包管理工具手动配置</h2><p>（基于vue-cli自动生成的目录）</p>
@@ -328,9 +326,10 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
+<div
+  class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+  
+  
 <div class="card widget">
     <div class="card-content">
         <nav class="level">
@@ -439,153 +438,16 @@
         
     </div>
 </div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 16.67px;">Git</a> <a href="/tags/Icarus/" style="font-size: 10px;">Icarus</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 13.33px;">vue-router</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/ES6/">
-                        <span class="tag">ES6</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Git/">
-                        <span class="tag">Git</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Icarus/">
-                        <span class="tag">Icarus</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/JS/">
-                        <span class="tag">JS</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Vue-js/">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/blog/">
-                        <span class="tag">blog</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/http/">
-                        <span class="tag">http</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/jQuery/">
-                        <span class="tag">jQuery</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/promise/">
-                        <span class="tag">promise</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/this/">
-                        <span class="tag">this</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/vue-cli/">
-                        <span class="tag">vue-cli</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/vue-router/">
-                        <span class="tag">vue-router</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/vuex/">
-                        <span class="tag">vuex</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-                        <span class="tag">学习日记</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%97%AD%E5%8C%85/">
-                        <span class="tag">闭包</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-            
+  
+  
 
-    <div class="card widget" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
+<div class="card widget column-left is-sticky" id="toc" style="max-height: 680px; overflow: auto;">
+  <div class="card-content">
+    <div class="menu">
+      <h3 class="menu-label">
+        目录
+      </h3>
+      <ul class="menu-list"><li>
         <a class="is-flex" href="#简介">
         <span class="has-mr-6">1</span>
         <span>简介</span>
@@ -638,471 +500,19 @@
         <span class="has-mr-6">3.2.6</span>
         <span>6.渲染</span>
         </a></li></ul></li></ul></li></ul>
-            </div>
-        </div>
     </div>
+  </div>
+</div>
 
-        
-            <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-21T06:49:33.607Z">2020-01-21</time></div>
-                    <a href="/2020/01/21/Vue.js/vuex/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vuex</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T04:02:07.274Z">2020-01-19</time></div>
-                    <a href="/2020/01/19/Vue.js/vue-router/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue Router</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T14:30:10.647Z">2020-01-18</time></div>
-                    <a href="/2020/01/18/Vue.js/vue%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue扫盲</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-17T08:46:19.453Z">2020-01-17</time></div>
-                    <a href="/2020/01/17/Vue.js/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue生命周期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T05:29:18.312Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/ES6/promise/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Promise(常用方法)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/ES6/">
-            <span class="level-start">
-                <span class="level-item">ES6</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Git%E6%93%8D%E4%BD%9C/">
-            <span class="level-start">
-                <span class="level-item">Git操作</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/JS/">
-            <span class="level-start">
-                <span class="level-item">JS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Vue-js/">
-            <span class="level-start">
-                <span class="level-item">Vue.js</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/blog/">
-            <span class="level-start">
-                <span class="level-item">blog</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/web%E5%89%8D%E7%AB%AF/">
-            <span class="level-start">
-                <span class="level-item">web前端</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-            <span class="level-start">
-                <span class="level-item">学习日记</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">11</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-        
-        </div>
+  
+  
+  <div class="column-right-shadow is-hidden-widescreen ">
     
+  </div>
+  
 </div>
 
         
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-
-    <div class="card widget" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#简介">
-        <span class="has-mr-6">1</span>
-        <span>简介</span>
-        </a></li><li>
-        <a class="is-flex" href="#实现原理">
-        <span class="has-mr-6">2</span>
-        <span>实现原理</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1-Hash模式">
-        <span class="has-mr-6">2.1</span>
-        <span>1.Hash模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-HTML5-History-模式">
-        <span class="has-mr-6">2.2</span>
-        <span>2.HTML5 History 模式</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#vue-router使用方式">
-        <span class="has-mr-6">3</span>
-        <span>vue-router使用方式</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#通过-vue-cli-直接配置">
-        <span class="has-mr-6">3.1</span>
-        <span>通过 vue-cli 直接配置</span>
-        </a></li><li>
-        <a class="is-flex" href="#通过包管理工具手动配置">
-        <span class="has-mr-6">3.2</span>
-        <span>通过包管理工具手动配置</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1-下载">
-        <span class="has-mr-6">3.2.1</span>
-        <span>1.下载</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-引入安装">
-        <span class="has-mr-6">3.2.2</span>
-        <span>2.引入安装</span>
-        </a></li><li>
-        <a class="is-flex" href="#3-创建路由对象并配置路由规则">
-        <span class="has-mr-6">3.2.3</span>
-        <span>3.创建路由对象并配置路由规则</span>
-        </a></li><li>
-        <a class="is-flex" href="#4-导出routes-导入main-js">
-        <span class="has-mr-6">3.2.4</span>
-        <span>4.导出routes 导入main.js</span>
-        </a></li><li>
-        <a class="is-flex" href="#5-挂载">
-        <span class="has-mr-6">3.2.5</span>
-        <span>5.挂载</span>
-        </a></li><li>
-        <a class="is-flex" href="#6-渲染">
-        <span class="has-mr-6">3.2.6</span>
-        <span>6.渲染</span>
-        </a></li></ul></li></ul></li></ul>
-            </div>
-        </div>
-    </div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-21T06:49:33.607Z">2020-01-21</time></div>
-                    <a href="/2020/01/21/Vue.js/vuex/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vuex</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T04:02:07.274Z">2020-01-19</time></div>
-                    <a href="/2020/01/19/Vue.js/vue-router/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue Router</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T14:30:10.647Z">2020-01-18</time></div>
-                    <a href="/2020/01/18/Vue.js/vue%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue扫盲</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-17T08:46:19.453Z">2020-01-17</time></div>
-                    <a href="/2020/01/17/Vue.js/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue生命周期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T05:29:18.312Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/ES6/promise/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Promise(常用方法)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/ES6/">
-            <span class="level-start">
-                <span class="level-item">ES6</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Git%E6%93%8D%E4%BD%9C/">
-            <span class="level-start">
-                <span class="level-item">Git操作</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/JS/">
-            <span class="level-start">
-                <span class="level-item">JS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Vue-js/">
-            <span class="level-start">
-                <span class="level-item">Vue.js</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/blog/">
-            <span class="level-start">
-                <span class="level-item">blog</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/web%E5%89%8D%E7%AB%AF/">
-            <span class="level-start">
-                <span class="level-item">web前端</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-            <span class="level-start">
-                <span class="level-item">学习日记</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">11</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
       </div>
     </div>
   </section>
