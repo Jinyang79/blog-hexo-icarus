@@ -20,8 +20,16 @@ textarea {
     max-width: 960px;
     width: 960px;
   }
+  .is-3-column .container {
+    max-width: 1216px;
+    width: 1216px;
+  }
 }
 @media screen and (min-width: 1472px) {
+  .is-3-column .container {
+    max-width: 1344px;
+    width: 1344px;
+  }
   .is-2-column .container {
     max-width: 1152px;
     width: 1152px;
@@ -198,10 +206,18 @@ img.thumbnail {
   top: calc(0.3rem + 9px);
 }
 .article .article-meta {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+.article .title {
+  margin: 0.2rem 0 0.8rem;
+}
+.article .fa {
+  font-size: 1.65rem;
+  margin-right: 0.6rem;
 }
 .article .content {
   font-size: 1.1rem;
+  letter-spacing: 0.02rem;
 }
 .article .content blockquote.pullquote {
   float: right;
@@ -536,4 +552,7 @@ figure.highlight .section {
 }
 .gist .file {
   all: initial;
+}
+.article {
+  counter-reset: section;
 }
