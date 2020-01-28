@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-17T08:46:19.453Z">
-<meta property="article:modified_time" content="2020-01-20T07:25:53.895Z">
+<meta property="article:modified_time" content="2020-01-28T14:03:21.723Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
@@ -152,8 +152,8 @@
         <time class="level-item has-text-grey" datetime="2020-01-17T08:46:19.453Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-01-17</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-20T07:25:53.895Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-20</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-28T14:03:21.723Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-01-28</time>
         
         
         <div class="level-item">
@@ -166,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          9 分钟 读完 (大约 1413 个字)
+          5 分钟 读完 (大约 806 个字)
         </span>
         
         
@@ -196,58 +196,48 @@
 <hr>
 <h1 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><p>表示 实例完成被创建出来之前，会执行它</p>
 <p><strong>注意：在beforeCreate 生命周期函数执行的时候，data 和 methods 中的数据都没有初始化</strong></p>
-<h3 id="Created"><a href="#Created" class="headerlink" title="Created"></a>Created</h3><p>在 created 中 data 和 methods 都已经初始化好了</p>
+<h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><p>在 created 中 data 和 methods 都已经初始化好了</p>
 <p><strong>如果要调用 methods 中的方法 或者操作 data 中的数据，最早 只能在created 中操作</strong></p>
 <hr>
 <h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><p>表示 模板已经在内存中编辑完成了，但是尚未把模板渲染到页面中</p>
 <p>在 beforeMount 执行的时候 页面中的元素 还没有被真正替换过来 只是之前写的一些模板字符串</p>
-<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>表示 内存中的模板 已经真实的挂载到了页面中 用户已经可以看到渲染好的页面</p>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><p>表示 内存中的模板 已经真实的挂载到了页面中 用户已经可以看到渲染好的页面</p>
 <p>注意 mounte d 是 实例创建期间的最后一个生命周期函数 当执行完mounted 就表示 实例已经被完全创建好了 此时 如果没有其它操作的话 这个实例 静静的 躺在内存中 一动不动</p>
 <p><strong>如果要通过某些插件操作页面上的DOM节点了 最早要在mounted中进行</strong></p>
 <p>此时 组件已经脱离了创建阶段 进入到了运行阶段</p>
 <hr>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p><strong>只有当 data 数据改变 可以执行0 或 无限次</strong></p>
 <h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><p>页面显示的数据 还是旧的 此时 data数据是最新的 页面和最新数据不同步</p>
-<h3 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h3><p>页面和 data 最新数据已经同步 都是最新的</p>
+<h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><p>页面和 data 最新数据已经同步 都是最新的</p>
 <hr>
 <h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><h3 id="beforeDestoy"><a href="#beforeDestoy" class="headerlink" title="beforeDestoy"></a>beforeDestoy</h3><p>当执行 beforeDestroy钩子函数的时候, Vue实例就已经从运行阶段，进入到了销毁阶段<br>当执行 beforeDestroy 的时候,实例身上所有 data 和所有的 methods , 以及过滤器.指令…都处于可用状态,此时。还没有真正执行销毁的过程</p>
-<h3 id="Destoyed"><a href="#Destoyed" class="headerlink" title="Destoyed"></a>Destoyed</h3><p>当执行到destroyed函数的时候,组件已经被完全销毁了,此时,组件中所有的数据、方法、指令、 过滤…都已经不可用了</p>
+<h3 id="destoyed"><a href="#destoyed" class="headerlink" title="destoyed"></a>destoyed</h3><p>当执行到destroyed函数的时候,组件已经被完全销毁了,此时,组件中所有的数据、方法、指令、 过滤…都已经不可用了</p>
 <hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li><a href="https://cn.vuejs.org/v2/api/#beforeCreate">beforeCreate</a> 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。</li>
-</ul>
-<ul>
-<li><a href="https://cn.vuejs.org/v2/api/#created">created</a>在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，<code>$el</code> 属性目前尚不可用。</li>
-</ul>
-<ul>
-<li><a href="https://cn.vuejs.org/v2/api/#beforeMount">beforeMount</a>在挂载开始之前被调用：相关的 <code>render</code> 函数首次被调用。</li>
-</ul>
-<ul>
-<li><p><a href="https://cn.vuejs.org/v2/api/#mounted">mounted</a>实例被挂载后调用，这时 <code>el</code> 被新创建的 <code>vm.$el</code> 替换了。 如果根实例挂载到了一个文档内的元素上，当<code>mounted</code>被调用时<code>vm.$el</code>也在文档内。</p>
-<p>注意 <code>mounted</code> <strong>不会</strong>保证所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以在 <code>mounted</code> 内部使用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick">vm.$nextTick</a>：</p>
-</li>
-</ul>
-<ul>
-<li><a href="https://cn.vuejs.org/v2/api/#beforeUpdate">beforeUpdate</a>数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</li>
-</ul>
-<ul>
-<li><p><a href="https://cn.vuejs.org/v2/api/#updated">updated</a>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
-<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用<a href="https://cn.vuejs.org/v2/api/#computed">计算属性</a>或 <a href="https://cn.vuejs.org/v2/api/#watch">watcher</a> 取而代之。</p>
-<p>注意 <code>updated</code> <strong>不会</strong>保证所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以在 <code>updated</code> 里使用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick">vm.$nextTick</a>：</p>
-</li>
-</ul>
-<ul>
-<li><a href="https://cn.vuejs.org/v2/api/#beforeDestroy">beforeDestroy</a>实例销毁之前调用。在这一步，实例仍然完全可用。</li>
-</ul>
-<ul>
-<li><a href="https://cn.vuejs.org/v2/api/#destroyed">destroyed</a>实例销毁后调用。该钩子被调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。</li>
+<h1 id="总结使用场景（欢迎评论补充）"><a href="#总结使用场景（欢迎评论补充）" class="headerlink" title="总结使用场景（欢迎评论补充）"></a>总结使用场景（欢迎评论补充）</h1><h3 id="beforeCreate-1"><a href="#beforeCreate-1" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
+<li>请求数据</li>
+<li>添加一些loading效果，在created时进行移除 </li>
 </ul>
 <hr>
-<h1 id="使用场景（欢迎评论补充）"><a href="#使用场景（欢迎评论补充）" class="headerlink" title="使用场景（欢迎评论补充）"></a>使用场景（欢迎评论补充）</h1><p>beforeCreate 添加一些loading效果，在created时进行移除</p>
-<p>created axios请求数据，完成数据的初始化</p>
-<p>mounted 当需要操作dom的时候执行</p>
-<p>updated 当数据更新需要做统一业务处理的时候使用</p>
-
+<h3 id="created-1"><a href="#created-1" class="headerlink" title="created"></a>created</h3><ul>
+<li>请求数据，</li>
+<li>完成数据的初始化</li>
+</ul>
+<hr>
+<h3 id="mounted-1"><a href="#mounted-1" class="headerlink" title="mounted"></a>mounted</h3><ul>
+<li>请求数据 </li>
+<li>当需要操作dom的时候执行</li>
+</ul>
+<hr>
+<h3 id="beforeUpdated"><a href="#beforeUpdated" class="headerlink" title="beforeUpdated"></a>beforeUpdated</h3><hr>
+<h3 id="updated-1"><a href="#updated-1" class="headerlink" title="updated"></a>updated</h3><ul>
+<li>当数据更新需要做统一业务处理的时候使用</li>
+</ul>
+<hr>
+<h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><ul>
+<li>解绑事件</li>
+</ul>
+<hr>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3>
     </div>
     
     <hr style="margin-top: 3rem" />
@@ -495,9 +485,9 @@
         <span class="has-mr-6">4.1.1</span>
         <span>beforeCreate</span>
         </a></li><li>
-        <a class="is-flex" href="#Created">
+        <a class="is-flex" href="#created">
         <span class="has-mr-6">4.1.2</span>
-        <span>Created</span>
+        <span>created</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#挂载">
         <span class="has-mr-6">4.2</span>
@@ -507,9 +497,9 @@
         <span class="has-mr-6">4.2.1</span>
         <span>beforeMount</span>
         </a></li><li>
-        <a class="is-flex" href="#Mounted">
+        <a class="is-flex" href="#mounted">
         <span class="has-mr-6">4.2.2</span>
-        <span>Mounted</span>
+        <span>mounted</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#更新">
         <span class="has-mr-6">4.3</span>
@@ -519,9 +509,9 @@
         <span class="has-mr-6">4.3.1</span>
         <span>beforeUpdate</span>
         </a></li><li>
-        <a class="is-flex" href="#Updated">
+        <a class="is-flex" href="#updated">
         <span class="has-mr-6">4.3.2</span>
-        <span>Updated</span>
+        <span>updated</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#销毁">
         <span class="has-mr-6">4.4</span>
@@ -531,18 +521,42 @@
         <span class="has-mr-6">4.4.1</span>
         <span>beforeDestoy</span>
         </a></li><li>
-        <a class="is-flex" href="#Destoyed">
+        <a class="is-flex" href="#destoyed">
         <span class="has-mr-6">4.4.2</span>
-        <span>Destoyed</span>
+        <span>destoyed</span>
         </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#总结">
+        <a class="is-flex" href="#总结使用场景（欢迎评论补充）">
         <span class="has-mr-6">5</span>
-        <span>总结</span>
+        <span>总结使用场景（欢迎评论补充）</span>
+        </a><ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#beforeCreate-1">
+        <span class="has-mr-6">5.1.1</span>
+        <span>beforeCreate</span>
         </a></li><li>
-        <a class="is-flex" href="#使用场景（欢迎评论补充）">
-        <span class="has-mr-6">6</span>
-        <span>使用场景（欢迎评论补充）</span>
-        </a></li></ul>
+        <a class="is-flex" href="#created-1">
+        <span class="has-mr-6">5.1.2</span>
+        <span>created</span>
+        </a></li><li>
+        <a class="is-flex" href="#mounted-1">
+        <span class="has-mr-6">5.1.3</span>
+        <span>mounted</span>
+        </a></li><li>
+        <a class="is-flex" href="#beforeUpdated">
+        <span class="has-mr-6">5.1.4</span>
+        <span>beforeUpdated</span>
+        </a></li><li>
+        <a class="is-flex" href="#updated-1">
+        <span class="has-mr-6">5.1.5</span>
+        <span>updated</span>
+        </a></li><li>
+        <a class="is-flex" href="#beforeDestroy">
+        <span class="has-mr-6">5.1.6</span>
+        <span>beforeDestroy</span>
+        </a></li><li>
+        <a class="is-flex" href="#destroy">
+        <span class="has-mr-6">5.1.7</span>
+        <span>destroy</span>
+        </a></li></ul></ul></li></ul>
     </div>
   </div>
 </div>
