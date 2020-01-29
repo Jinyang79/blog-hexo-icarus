@@ -155,8 +155,8 @@
         <time class="level-item has-text-grey" datetime="2020-01-18T14:30:10.647Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-01-18</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-28T08:02:58.327Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-28</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-29T14:02:07.970Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-01-29</time>
         
         
         <div class="level-item">
@@ -169,7 +169,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          2 分钟 读完 (大约 320 个字)
+          3 分钟 读完 (大约 502 个字)
         </span>
         
         
@@ -177,7 +177,16 @@
     </div>
     
     <div class="content">
-      <h3 id="Vue-export-default中的name属性作用"><a href="#Vue-export-default中的name属性作用" class="headerlink" title="Vue: export default中的name属性作用"></a>Vue: export default中的name属性作用</h3><h3 id="name"><a href="#name" class="headerlink" title="name"></a><a href="https://cn.vuejs.org/v2/api/#name">name</a></h3><ul>
+      <h3 id="vue-cli项目部署GitHub-Pages"><a href="#vue-cli项目部署GitHub-Pages" class="headerlink" title="vue-cli项目部署GitHub Pages"></a>vue-cli项目部署GitHub Pages</h3><p>那么 <code>vue.config.js</code> 的内容应如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === <span class="string">'production'</span></span><br><span class="line">    ? <span class="string">'/my-project/dist'</span></span><br><span class="line">    : <span class="string">'/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在dist中有index.html</p>
+<hr>
+<h3 id="为什么组件中的data必须是一个函数"><a href="#为什么组件中的data必须是一个函数" class="headerlink" title="为什么组件中的data必须是一个函数"></a>为什么组件中的data必须是一个函数</h3><p>当一个<strong>组件</strong>被定义，<code>data</code> 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 </p>
+<p><code>data</code> 仍然是一个纯粹的对象，则所有的实例将<strong>共享引用</strong>同一个数据对象！通过提供 <code>data</code> 函数，每次创建一个新</p>
+<p>实例后，我们能够调用 <code>data</code> 函数，从而返回初始数据的一个全新副本数据对象。</p>
+<hr>
+<h3 id="Vue-export-default中的name属性作用"><a href="#Vue-export-default中的name属性作用" class="headerlink" title="Vue: export default中的name属性作用"></a>Vue: export default中的name属性作用</h3><h3 id="name"><a href="#name" class="headerlink" title="name"></a><a href="https://cn.vuejs.org/v2/api/#name">name</a></h3><ul>
 <li><p><strong>类型</strong>：<code>string</code></p>
 </li>
 <li><p><strong>限制</strong>：只有作为组件选项时起作用。</p>

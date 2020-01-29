@@ -12,16 +12,16 @@
 <title>Vue扫盲 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="Vue: export default中的name属性作用name 类型：string  限制：只有作为组件选项时起作用。">
+    <meta name="description" content="vue-cli项目部署GitHub Pages那么 vue.config.js 的内容应如下所示： 12345module.exports &#x3D; &amp;#123;  publicPath: process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;    ? &#39;&#x2F;my-project&#x2F;dist&#39;    : &#39;&#x2F;&#39;&amp;#125;  在dist中有index.html  为什么组件中的data">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue扫盲">
 <meta property="og:url" content="http://yoursite.com/2020/01/18/Vue.js/vue%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="Vue: export default中的name属性作用name 类型：string  限制：只有作为组件选项时起作用。">
+<meta property="og:description" content="vue-cli项目部署GitHub Pages那么 vue.config.js 的内容应如下所示： 12345module.exports &#x3D; &amp;#123;  publicPath: process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;    ? &#39;&#x2F;my-project&#x2F;dist&#39;    : &#39;&#x2F;&#39;&amp;#125;  在dist中有index.html  为什么组件中的data">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-18T14:30:10.647Z">
-<meta property="article:modified_time" content="2020-01-28T08:02:58.327Z">
+<meta property="article:modified_time" content="2020-01-29T14:02:07.970Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="vue-router">
@@ -154,8 +154,8 @@
         <time class="level-item has-text-grey" datetime="2020-01-18T14:30:10.647Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-01-18</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-28T08:02:58.327Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-28</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-29T14:02:07.970Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-01-29</time>
         
         
         <div class="level-item">
@@ -168,7 +168,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          2 分钟 读完 (大约 320 个字)
+          3 分钟 读完 (大约 502 个字)
         </span>
         
         
@@ -181,15 +181,27 @@
     </div>
     
     <div class="content">
-      <h3 id="Vue-export-default中的name属性作用"><a href="#Vue-export-default中的name属性作用" class="headerlink" title="Vue: export default中的name属性作用"></a>Vue: export default中的name属性作用</h3><h3 id="name"><a href="#name" class="headerlink" title="name"></a><a href="https://cn.vuejs.org/v2/api/#name">name</a></h3><ul>
+      <h3 id="vue-cli项目部署GitHub-Pages"><a href="#vue-cli项目部署GitHub-Pages" class="headerlink" title="vue-cli项目部署GitHub Pages"></a>vue-cli项目部署GitHub Pages</h3><p>那么 <code>vue.config.js</code> 的内容应如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === <span class="string">'production'</span></span><br><span class="line">    ? <span class="string">'/my-project/dist'</span></span><br><span class="line">    : <span class="string">'/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在dist中有index.html</p>
+<hr>
+<h3 id="为什么组件中的data必须是一个函数"><a href="#为什么组件中的data必须是一个函数" class="headerlink" title="为什么组件中的data必须是一个函数"></a>为什么组件中的data必须是一个函数</h3><p>当一个<strong>组件</strong>被定义，<code>data</code> 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 </p>
+<p><code>data</code> 仍然是一个纯粹的对象，则所有的实例将<strong>共享引用</strong>同一个数据对象！通过提供 <code>data</code> 函数，每次创建一个新</p>
+<p>实例后，我们能够调用 <code>data</code> 函数，从而返回初始数据的一个全新副本数据对象。</p>
+<hr>
+<h3 id="Vue-export-default中的name属性作用"><a href="#Vue-export-default中的name属性作用" class="headerlink" title="Vue: export default中的name属性作用"></a>Vue: export default中的name属性作用</h3><h3 id="name"><a href="#name" class="headerlink" title="name"></a><a href="https://cn.vuejs.org/v2/api/#name">name</a></h3><ul>
 <li><p><strong>类型</strong>：<code>string</code></p>
 </li>
 <li><p><strong>限制</strong>：只有作为组件选项时起作用。</p>
 <a id="more"></a>
 </li>
 <li><p><strong>详细</strong>：</p>
-<p>允许组件模板递归地调用自身。注意，组件在全局用 <code>Vue.component()</code> 注册时，全局 ID 自动作为组件的 name。</p>
-<p>指定 <code>name</code> 选项的另一个好处是便于调试。有名字的组件有更友好的警告信息。另外，当在有 <a href="https://github.com/vuejs/vue-devtools">vue-devtools</a>，未命名组件将显示成<code>&lt;AnonymousComponent&gt;</code>，这很没有语义。通过提供 <code>name</code> 选项，可以获得更有语义信息的组件树。</p>
+<p>允许组件模板递归地调用自身。注意，组件在全局用 <code>Vue.component()</code> 注册时，全局 ID 自动作为组件的 </p>
+<p>name。</p>
+<p>指定 <code>name</code> 选项的另一个好处是便于调试。有名字的组件有更友好的警告信息。另外，当在有 <a href="https://github.com/vuejs/vue-devtools">vue-devtools</a></p>
+<p>，未命名组件将显示成<code>&lt;AnonymousComponent&gt;</code>，这很没有语义。通过提供 <code>name</code> 选项，可以获得更有语义</p>
+<p>信息的组件树。</p>
 </li>
 </ul>
 <hr>
@@ -426,24 +438,32 @@
         目录
       </h3>
       <ul class="menu-list"><li>
-        <a class="is-flex" href="#Vue-export-default中的name属性作用">
+        <a class="is-flex" href="#vue-cli项目部署GitHub-Pages">
         <span class="has-mr-6">1</span>
+        <span>vue-cli项目部署GitHub Pages</span>
+        </a></li><li>
+        <a class="is-flex" href="#为什么组件中的data必须是一个函数">
+        <span class="has-mr-6">2</span>
+        <span>为什么组件中的data必须是一个函数</span>
+        </a></li><li>
+        <a class="is-flex" href="#Vue-export-default中的name属性作用">
+        <span class="has-mr-6">3</span>
         <span>Vue: export default中的name属性作用</span>
         </a></li><li>
         <a class="is-flex" href="#name">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">4</span>
         <span>name</span>
         </a></li><li>
         <a class="is-flex" href="#vue-cli-3-x-的-views-和-components有什么区别？">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">5</span>
         <span>vue-cli 3.x 的 views 和 components有什么区别？</span>
         </a></li><li>
         <a class="is-flex" href="#列表渲染中的key值">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">6</span>
         <span>列表渲染中的key值</span>
         </a></li><li>
         <a class="is-flex" href="#子路由规则的path属性不要以斜线-开头">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">7</span>
         <span>子路由规则的path属性不要以斜线/开头</span>
         </a></li></ul>
     </div>
