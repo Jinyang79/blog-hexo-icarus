@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-17T08:46:19.453Z">
-<meta property="article:modified_time" content="2020-01-28T14:03:21.723Z">
+<meta property="article:modified_time" content="2020-02-02T06:27:29.987Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
@@ -152,8 +152,8 @@
         <time class="level-item has-text-grey" datetime="2020-01-17T08:46:19.453Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-01-17</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-28T14:03:21.723Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-28</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-02T06:27:29.987Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-02</time>
         
         
         <div class="level-item">
@@ -166,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          5 分钟 读完 (大约 806 个字)
+          5 分钟 读完 (大约 805 个字)
         </span>
         
         
@@ -199,10 +199,10 @@
 <h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><p>在 created 中 data 和 methods 都已经初始化好了</p>
 <p><strong>如果要调用 methods 中的方法 或者操作 data 中的数据，最早 只能在created 中操作</strong></p>
 <hr>
-<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><p>表示 模板已经在内存中编辑完成了，但是尚未把模板渲染到页面中</p>
+<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><p><strong>表示 模板已经在内存中编辑完成了，但是尚未把模板渲染到页面中</strong></p>
 <p>在 beforeMount 执行的时候 页面中的元素 还没有被真正替换过来 只是之前写的一些模板字符串</p>
 <h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><p>表示 内存中的模板 已经真实的挂载到了页面中 用户已经可以看到渲染好的页面</p>
-<p>注意 mounte d 是 实例创建期间的最后一个生命周期函数 当执行完mounted 就表示 实例已经被完全创建好了 此时 如果没有其它操作的话 这个实例 静静的 躺在内存中 一动不动</p>
+<p>注意 mounted 是 实例创建期间的最后一个生命周期函数 当执行完mounted 就表示 实例已经被完全创建好了 此时 如果没有其它操作的话 这个实例 静静的 躺在内存中 一动不动</p>
 <p><strong>如果要通过某些插件操作页面上的DOM节点了 最早要在mounted中进行</strong></p>
 <p>此时 组件已经脱离了创建阶段 进入到了运行阶段</p>
 <hr>
