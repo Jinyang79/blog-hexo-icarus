@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-17T08:46:19.453Z">
-<meta property="article:modified_time" content="2020-02-02T06:27:29.987Z">
+<meta property="article:modified_time" content="2020-02-15T10:34:20.791Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
@@ -152,8 +152,8 @@
         <time class="level-item has-text-grey" datetime="2020-01-17T08:46:19.453Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-01-17</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-02T06:27:29.987Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-02</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-15T10:34:20.791Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-15</time>
         
         
         <div class="level-item">
@@ -210,8 +210,8 @@
 <h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><p>页面显示的数据 还是旧的 此时 data数据是最新的 页面和最新数据不同步</p>
 <h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><p>页面和 data 最新数据已经同步 都是最新的</p>
 <hr>
-<h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><h3 id="beforeDestoy"><a href="#beforeDestoy" class="headerlink" title="beforeDestoy"></a>beforeDestoy</h3><p>当执行 beforeDestroy钩子函数的时候, Vue实例就已经从运行阶段，进入到了销毁阶段<br>当执行 beforeDestroy 的时候,实例身上所有 data 和所有的 methods , 以及过滤器.指令…都处于可用状态,此时。还没有真正执行销毁的过程</p>
-<h3 id="destoyed"><a href="#destoyed" class="headerlink" title="destoyed"></a>destoyed</h3><p>当执行到destroyed函数的时候,组件已经被完全销毁了,此时,组件中所有的数据、方法、指令、 过滤…都已经不可用了</p>
+<h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><p>当执行 beforeDestroy钩子函数的时候, Vue实例就已经从运行阶段，进入到了销毁阶段<br>当执行 beforeDestroy 的时候,实例身上所有 data 和所有的 methods , 以及过滤器.指令…都处于可用状态,此时。还没有真正执行销毁的过程</p>
+<h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h3><p>当执行到destroyed函数的时候,组件已经被完全销毁了,此时,组件中所有的数据、方法、指令、 过滤…都已经不可用了</p>
 <hr>
 <h1 id="总结使用场景（欢迎评论补充）"><a href="#总结使用场景（欢迎评论补充）" class="headerlink" title="总结使用场景（欢迎评论补充）"></a>总结使用场景（欢迎评论补充）</h1><h3 id="beforeCreate-1"><a href="#beforeCreate-1" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
 <li>请求数据</li>
@@ -233,7 +233,7 @@
 <li>当数据更新需要做统一业务处理的时候使用</li>
 </ul>
 <hr>
-<h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><ul>
+<h3 id="beforeDestroy-1"><a href="#beforeDestroy-1" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><ul>
 <li>解绑事件</li>
 </ul>
 <hr>
@@ -524,13 +524,13 @@
         <span class="has-mr-6">4.4</span>
         <span>销毁</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#beforeDestoy">
+        <a class="is-flex" href="#beforeDestroy">
         <span class="has-mr-6">4.4.1</span>
-        <span>beforeDestoy</span>
+        <span>beforeDestroy</span>
         </a></li><li>
-        <a class="is-flex" href="#destoyed">
+        <a class="is-flex" href="#destroyed">
         <span class="has-mr-6">4.4.2</span>
-        <span>destoyed</span>
+        <span>destroyed</span>
         </a></li></ul></li></ul></li><li>
         <a class="is-flex" href="#总结使用场景（欢迎评论补充）">
         <span class="has-mr-6">5</span>
@@ -556,7 +556,7 @@
         <span class="has-mr-6">5.1.5</span>
         <span>updated</span>
         </a></li><li>
-        <a class="is-flex" href="#beforeDestroy">
+        <a class="is-flex" href="#beforeDestroy-1">
         <span class="has-mr-6">5.1.6</span>
         <span>beforeDestroy</span>
         </a></li><li>
