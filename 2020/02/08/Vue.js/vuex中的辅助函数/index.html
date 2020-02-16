@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-02-08T07:44:35.675Z">
-<meta property="article:modified_time" content="2020-02-10T13:24:51.390Z">
+<meta property="article:modified_time" content="2020-02-16T05:30:30.590Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="Vuex">
@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/androidstudio.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/monokai-sublime.css">
 
 
     
@@ -153,8 +153,8 @@
         <time class="level-item has-text-grey" datetime="2020-02-08T07:44:35.675Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-02-08</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-10T13:24:51.390Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-10</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-16T05:30:30.590Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-16</time>
         
         
         <div class="level-item">
@@ -183,7 +183,7 @@
       <h2 id="vuex中的辅助函数"><a href="#vuex中的辅助函数" class="headerlink" title="vuex中的辅助函数"></a>vuex中的辅助函数</h2><p>vuex提供了辅助函数处理庞大的vuex数据，mapState，mapGetters，mapMutations，mapActions，实际就是把state、getters、mutations、actions整合成一个数组，一次性返回</p>
 <p><strong>注意：mapState，mapGetters返回的是属性，所以混入到 computed 中，mapMutations，mapActions返回的是方法，只能混入到methods中</strong></p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-if&#x3D;&quot;user.userName&quot;&gt;</span><br><span class="line">    &lt;span&gt;欢迎您：&#123;&#123;user.userName&#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;mapState,mapGetters,mapMutations,mapActions&#125; from &#39;vuex&#39;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;App&#39;,</span><br><span class="line">  mounted()&#123;</span><br><span class="line">    console.log(mapGetters([&#39;user&#39;]).user.call(this))</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    ...mapGetters([&#39;user&#39;]),   </span><br><span class="line">    &#x2F;&#x2F;mapGetters([&#39;user&#39;])返回this.$store.getters.user对象，相当于以下代码</span><br><span class="line">    &#x2F;&#x2F; user()&#123;</span><br><span class="line">    &#x2F;&#x2F;   return this.$store.getters.user</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"user.userName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>欢迎您：&#123;&#123;user.userName&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123;mapState,mapGetters,mapMutations,mapActions&#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">  name: <span class="string">'App'</span>,</span></span><br><span class="line">  mounted()&#123;</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(mapGetters([<span class="string">'user'</span>]).user.call(<span class="keyword">this</span>))</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    ...mapGetters([<span class="string">'user'</span>]),   </span></span><br><span class="line"><span class="actionscript">    <span class="comment">//mapGetters(['user'])返回this.$store.getters.user对象，相当于以下代码</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// user()&#123;</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">//   return this.$store.getters.user</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// &#125;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>使用辅助函数是把vuex中的getters等函数映射到vue中，调用时使用 this.user 即可调用 this.$store.getters.user 函数，传参时正常传参</p>
 <p><strong>注意：你在组件中可以使用 this.$store.dispatch(‘xxx’) 分发 action，或者使用 mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用</strong></p>
@@ -333,7 +333,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            24
+                            25
                         </p>
                     </a>
                 </div>
@@ -345,7 +345,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            7
+                            8
                         </p>
                     </a>
                 </div>
@@ -357,7 +357,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            16
+                            18
                         </p>
                     </a>
                 </div>

@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-11T08:24:51.180Z">
-<meta property="article:modified_time" content="2020-01-11T12:11:04.366Z">
+<meta property="article:modified_time" content="2020-02-16T13:02:09.559Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="闭包">
@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/androidstudio.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/monokai-sublime.css">
 
 
     
@@ -153,8 +153,8 @@
         <time class="level-item has-text-grey" datetime="2020-01-11T08:24:51.180Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-01-11</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-11T12:11:04.366Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-11</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-16T13:02:09.559Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-16</time>
         
         
         <div class="level-item">
@@ -167,7 +167,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          4 分钟 读完 (大约 577 个字)
+          5 分钟 读完 (大约 787 个字)
         </span>
         
         
@@ -195,12 +195,20 @@
 <p>上面代码中 f2 可以访问 f1 的 n变量 也就是局部变量，于是产生了闭包，f2就是闭包函数</p>
 <hr>
 <h1 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h1><h3 id="主要作用：延申了变量的作用范围"><a href="#主要作用：延申了变量的作用范围" class="headerlink" title="主要作用：延申了变量的作用范围"></a>主要作用：延申了变量的作用范围</h3><p>它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。（等所有的函数调用完了 才会销毁）</p>
+<p>使用闭包的注意点</p>
+<p>1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
+<p>2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
 <hr>
 <h1 id="闭包经典案例"><a href="#闭包经典案例" class="headerlink" title="闭包经典案例"></a>闭包经典案例</h1><p>代码片段二。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"></span><br><span class="line">　　<span class="keyword">var</span> object = &#123;</span><br><span class="line">　　　　name : <span class="string">"My Object"</span>,</span><br><span class="line"></span><br><span class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　　　<span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">　　　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　&#125;;</span><br><span class="line"></span><br><span class="line">　　alert(object.getNameFunc()()); <span class="comment">//The Window</span></span><br></pre></td></tr></table></figure>
 
 <p>代码片段二。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"></span><br><span class="line">　　<span class="keyword">var</span> object = &#123;</span><br><span class="line">　　　　name : <span class="string">"My Object"</span>,</span><br><span class="line"></span><br><span class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　<span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　　　<span class="keyword">return</span> that.name;</span><br><span class="line">　　　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　&#125;;</span><br><span class="line"></span><br><span class="line">　　alert(object.getNameFunc()()); <span class="comment">//My Object</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="https://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">https://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html</a></p>
+</blockquote>
+
     </div>
     
     <hr style="margin-top: 3rem" />
@@ -342,7 +350,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            24
+                            25
                         </p>
                     </a>
                 </div>
@@ -354,7 +362,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            7
+                            8
                         </p>
                     </a>
                 </div>
@@ -366,7 +374,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            16
+                            18
                         </p>
                     </a>
                 </div>
