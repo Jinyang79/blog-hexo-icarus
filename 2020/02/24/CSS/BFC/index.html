@@ -9,22 +9,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>vuex中的辅助函数 - Jinyang&#39;s blog</title>
+<title>BFC - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="vuex中的辅助函数vuex提供了辅助函数处理庞大的vuex数据，mapState，mapGetters，mapMutations，mapActions，实际就是把state、getters、mutations、actions整合成一个数组，一次性返回 注意：mapState，mapGetters返回的是属性，所以混入到 computed 中，mapMutations，mapActions返回的是">
+    <meta name="description" content="什么是BFC块格式化上下文(Block Formatting Context，BFC)是Web页面的可视化CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。 你可以把它理解成一个独立的区域">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vuex中的辅助函数">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/Vue.js/vuex%E4%B8%AD%E7%9A%84%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="BFC">
+<meta property="og:url" content="http://yoursite.com/2020/02/24/CSS/BFC/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="vuex中的辅助函数vuex提供了辅助函数处理庞大的vuex数据，mapState，mapGetters，mapMutations，mapActions，实际就是把state、getters、mutations、actions整合成一个数组，一次性返回 注意：mapState，mapGetters返回的是属性，所以混入到 computed 中，mapMutations，mapActions返回的是">
+<meta property="og:description" content="什么是BFC块格式化上下文(Block Formatting Context，BFC)是Web页面的可视化CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。 你可以把它理解成一个独立的区域">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-02-08T07:44:35.675Z">
-<meta property="article:modified_time" content="2020-02-16T05:30:30.590Z">
+<meta property="article:published_time" content="2020-02-24T06:01:26.199Z">
+<meta property="article:modified_time" content="2020-02-24T13:29:24.201Z">
 <meta property="article:author" content="Jinyang">
-<meta property="article:tag" content="Vue.js">
-<meta property="article:tag" content="Vuex">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="BFC">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -85,7 +85,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="vuex中的辅助函数" height="28">
+                <img src="/images/goldsheep.png" alt="BFC" height="28">
             
             </a>
         </div>
@@ -144,22 +144,22 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <i class="fa fa-battery-full" style="color:#3273dc"></i>vuex中的辅助函数
+      <i class="fa fa-battery-full" style="color:#3273dc"></i>BFC
       
     </h1>
     
     <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
       <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2020-02-08T07:44:35.675Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2020-02-08</time>
+        <time class="level-item has-text-grey" datetime="2020-02-24T06:01:26.199Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-02-24</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-16T05:30:30.590Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-16</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-24T13:29:24.201Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-24</time>
         
         
         <div class="level-item">
           <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
+          <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
         </div>
         
         
@@ -167,7 +167,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          2 分钟 读完 (大约 279 个字)
+          4 分钟 读完 (大约 556 个字)
         </span>
         
         
@@ -180,17 +180,44 @@
     </div>
     
     <div class="content">
-      <h2 id="vuex中的辅助函数"><a href="#vuex中的辅助函数" class="headerlink" title="vuex中的辅助函数"></a>vuex中的辅助函数</h2><p>vuex提供了辅助函数处理庞大的vuex数据，mapState，mapGetters，mapMutations，mapActions，实际就是把state、getters、mutations、actions整合成一个数组，一次性返回</p>
-<p><strong>注意：mapState，mapGetters返回的是属性，所以混入到 computed 中，mapMutations，mapActions返回的是方法，只能混入到methods中</strong></p>
+      <h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>块格式化上下文(Block Formatting Context，BFC)是Web页面的可视化CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p>
+<p><strong>你可以把它理解成一个独立的区域</strong></p>
+<hr>
 <a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"user.userName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>欢迎您：&#123;&#123;user.userName&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123;mapState,mapGetters,mapMutations,mapActions&#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">  name: <span class="string">'App'</span>,</span></span><br><span class="line">  mounted()&#123;</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(mapGetters([<span class="string">'user'</span>]).user.call(<span class="keyword">this</span>))</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    ...mapGetters([<span class="string">'user'</span>]),   </span></span><br><span class="line"><span class="actionscript">    <span class="comment">//mapGetters(['user'])返回this.$store.getters.user对象，相当于以下代码</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// user()&#123;</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">//   return this.$store.getters.user</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// &#125;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>使用辅助函数是把vuex中的getters等函数映射到vue中，调用时使用 this.user 即可调用 this.$store.getters.user 函数，传参时正常传参</p>
-<p><strong>注意：你在组件中可以使用 this.$store.dispatch(‘xxx’) 分发 action，或者使用 mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions([</span><br><span class="line">      <span class="string">'increment'</span> <span class="comment">// 映射 this.increment() 为 this.$store.dispatch('increment')</span></span><br><span class="line">    ]),</span><br><span class="line">    ...mapActions(&#123;</span><br><span class="line">      add: <span class="string">'increment'</span> <span class="comment">// 映射 this.add() 为 this.$store.dispatch('increment')</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>原文链接：<a href="https://blog.csdn.net/YUHUI01/article/details/84201419">https://blog.csdn.net/YUHUI01/article/details/84201419</a></p>
+<h2 id="BFC的作用"><a href="#BFC的作用" class="headerlink" title="BFC的作用"></a>BFC的作用</h2><p>BFC形成一个完全独立的空间,让空间的子元素不会影响到外面的布局</p>
+<hr>
+<h2 id="BFC-的原理-BFC的布局规则"><a href="#BFC-的原理-BFC的布局规则" class="headerlink" title="BFC 的原理/BFC的布局规则"></a>BFC 的原理/BFC的布局规则</h2><p><code>BFC</code> 的原理，其实也就是 <code>BFC</code> 的渲染规则。包括：</p>
+<ol>
+<li>BFC <strong>内部的</strong>子元素，在垂直方向，<strong>边距会发生重叠</strong>。</li>
+<li>BFC在页面中是独立的容器，外面的元素不会影响里面的元素，反之亦然。</li>
+<li><strong>BFC区域不与旁边的<code>float box</code>区域重叠</strong>。（可以用来清除浮动带来的影响）。</li>
+<li>计算BFC的高度时，浮动的子元素也参与计算。</li>
+</ol>
+<hr>
+<h2 id="常用触发条件"><a href="#常用触发条件" class="headerlink" title="常用触发条件"></a>常用触发条件</h2><ul>
+<li><code>float</code>不为<code>none</code></li>
+<li><code>position</code>不为<code>relative</code>，<code>static</code></li>
+<li><code>overflow</code>为<code>auto scroll</code>，<code>hidden</code></li>
+<li><code>display</code>为<code>table-cell</code>，<code>inline-block</code>，<code>flex</code></li>
+</ul>
+<hr>
+<h2 id="BFC-的应用"><a href="#BFC-的应用" class="headerlink" title="BFC 的应用"></a>BFC 的应用</h2><h4 id="1-浮动元素的父元素高度塌陷"><a href="#1-浮动元素的父元素高度塌陷" class="headerlink" title="1.浮动元素的父元素高度塌陷"></a>1.浮动元素的父元素高度塌陷</h4><p><strong>问题</strong></p>
+<p>子元素全是<code>float</code>元素且父元素没有设置高度. 浮动的子元素脱离文档流,父元素检测不到子元素的存在无法被撑开,导致父元素高度塌陷,后面布局出现混乱</p>
+<p><strong>解决方案</strong></p>
+<p><a href="https://goldsheep.club/2020/02/24/CSS/清除浮动">清除浮动</a></p>
+<h4 id="2-两栏自适应布局"><a href="#2-两栏自适应布局" class="headerlink" title="2.两栏自适应布局"></a>2.两栏自适应布局</h4><p><strong>问题</strong></p>
+<p>在通过浮动实现两栏自适应布局时(左边宽度固定,右边自适应),当右侧文字高度超出左侧高度时,会出现右侧文字出现在左侧的问题</p>
+<p><strong>解决方案</strong></p>
+<p>右侧的元素创建BFC，将<code>right</code>区域添加<code>overflow</code>属性</p>
+<h4 id="3-外边距垂直方向重合"><a href="#3-外边距垂直方向重合" class="headerlink" title="3.外边距垂直方向重合"></a>3.外边距垂直方向重合</h4><p><strong>问题</strong></p>
+<p>当两个块级元素分别设置<code>margin-bottom:20px</code>,<code>margin-top:25px</code>=&gt;此时实际两个块级边框距离为最大值(25px)</p>
+<p><strong>解决方案</strong></p>
+<p>1.其中一个p元素外面包裹一层父元素，触发父元素BFC比如 <code>overflow: hidden</code></p>
+<p>2.用<code>padding</code>代替<code>margin</code></p>
+<blockquote>
+<p>参考文章：<a href="https://github.com/poetries/FE-Interview-Questions">https://github.com/poetries/FE-Interview-Questions</a></p>
+</blockquote>
 
     </div>
     
@@ -199,7 +226,7 @@
       <div class="level-start">
         <div class="level-item">
           <i class="fas fa-tags has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/tags/Vue-js/" rel="tag">Vue.js</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Vuex/" rel="tag">Vuex</a>
+          <a class="has-link-grey -link" href="/tags/BFC/" rel="tag">BFC</a>,&nbsp;<a class="has-link-grey -link" href="/tags/CSS/" rel="tag">CSS</a>
         </div>
       </div>
     </div>
@@ -247,17 +274,17 @@
     
     <div class="level-start">
       <a class="level level-item has-link-grey  article-nav-prev"
-        href="/2020/02/08/Vue.js/vue%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E5%8C%96/">
+        href="/2020/02/24/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/">
         <i class="level-item fas fa-chevron-left"></i>
-        <span class="level-item">vue时间戳转化</span>
+        <span class="level-item">清除浮动</span>
       </a>
     </div>
     
     
     <div class="level-end">
       <a class="level level-item has-link-grey  article-nav-next"
-        href="/2020/01/21/Vue.js/vuex/">
-        <span class="level-item">Vuex</span>
+        href="/2020/02/16/CSS/SCSS%E5%85%A5%E9%97%A8/">
+        <span class="level-item">SCSS入门</span>
         <i class="level-item fas fa-chevron-right"></i>
       </a>
     </div>
@@ -422,10 +449,38 @@
         目录
       </h3>
       <ul class="menu-list"><li>
-        <a class="is-flex" href="#vuex中的辅助函数">
+        <a class="is-flex" href="#什么是BFC">
         <span class="has-mr-6">1</span>
-        <span>vuex中的辅助函数</span>
-        </a></li></ul>
+        <span>什么是BFC</span>
+        </a></li><li>
+        <a class="is-flex" href="#BFC的作用">
+        <span class="has-mr-6">2</span>
+        <span>BFC的作用</span>
+        </a></li><li>
+        <a class="is-flex" href="#BFC-的原理-BFC的布局规则">
+        <span class="has-mr-6">3</span>
+        <span>BFC 的原理/BFC的布局规则</span>
+        </a></li><li>
+        <a class="is-flex" href="#常用触发条件">
+        <span class="has-mr-6">4</span>
+        <span>常用触发条件</span>
+        </a></li><li>
+        <a class="is-flex" href="#BFC-的应用">
+        <span class="has-mr-6">5</span>
+        <span>BFC 的应用</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-浮动元素的父元素高度塌陷">
+        <span class="has-mr-6">5.1</span>
+        <span>1.浮动元素的父元素高度塌陷</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-两栏自适应布局">
+        <span class="has-mr-6">5.2</span>
+        <span>2.两栏自适应布局</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-外边距垂直方向重合">
+        <span class="has-mr-6">5.3</span>
+        <span>3.外边距垂直方向重合</span>
+        </a></li></ul></li></ul>
     </div>
   </div>
 </div>
@@ -448,7 +503,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="vuex中的辅助函数" height="28">
+          <img src="/images/goldsheep.png" alt="BFC" height="28">
           
         </a>
         <p class="is-size-7">
