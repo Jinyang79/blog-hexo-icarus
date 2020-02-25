@@ -217,7 +217,8 @@ img.thumbnail {
 }
 .article .content {
   font-size: 1.1rem;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.04rem;
+  color: #212121;
 }
 .article .content blockquote.pullquote {
   float: right;
