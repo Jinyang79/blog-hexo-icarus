@@ -404,8 +404,8 @@
         <time class="level-item has-text-grey" datetime="2019-12-01T12:06:29.000Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2019-12-01</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-25T15:11:09.549Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-25</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T06:40:19.397Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
         
         
         <div class="level-item">
@@ -418,7 +418,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          3 分钟 读完 (大约 419 个字)
+          4 分钟 读完 (大约 634 个字)
         </span>
         
         
@@ -427,29 +427,80 @@
     
     <div class="content">
       <h3 id="文章页面两栏布局"><a href="#文章页面两栏布局" class="headerlink" title="文章页面两栏布局"></a>文章页面两栏布局</h3><p>主题默认是三栏布局，并且显示了很多的 <code>widget</code> ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 <code>widget</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">diff:includes/helpers/layout.js</span><br><span class="line"><span class="keyword">const</span> widgets = hexo.extend.helper.get(<span class="string">'get_config'</span>).bind(<span class="keyword">this</span>)(<span class="string">'widgets'</span>);</span><br><span class="line">-    <span class="keyword">return</span> widgets.filter(<span class="function"><span class="params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="string">'position'</span>) &amp;&amp; widget.position === position);</span><br><span class="line">+    <span class="keyword">if</span> (<span class="keyword">this</span>.page.layout !== <span class="string">'post'</span>) &#123;</span><br><span class="line">+        <span class="keyword">return</span> widgets.filter(<span class="function"><span class="params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="string">'position'</span>) &amp;&amp; widget.position === position);</span><br><span class="line">+    &#125;</span><br><span class="line">+    <span class="keyword">if</span> (position === <span class="string">'left'</span>) &#123;</span><br><span class="line">+        <span class="keyword">return</span> widgets.filter(<span class="function"><span class="params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="string">'position'</span>) &amp;&amp; (widget.type === <span class="string">'toc'</span> || widget.type === <span class="string">'profile'</span>));</span><br><span class="line">+    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">+        <span class="keyword">return</span> []</span><br><span class="line">+    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以参考上述代码，即可实现不同页面不同 <code>widget</code>。</p>
-<p>但两栏整体宽度跟三栏不同。因此强制指定为三栏布局，并且修改相应的宽度，这样所有的页面侧边栏宽度保持一致。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">diff:layout/common/widget.ejs </span><br><span class="line">&lt;% <span class="function"><span class="keyword">function</span> <span class="title">side_column_class</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">switch</span> (column_count()) &#123;</span><br><span class="line">         <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">-            <span class="keyword">return</span> <span class="string">'is-4-tablet is-4-desktop is-4-widescreen'</span>;</span><br><span class="line">+            <span class="keyword">return</span> <span class="string">'is-4-tablet is-4-desktop is-3-widescreen'</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">diff:layout/layout.ejs-<span class="xml"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"is-&lt;%= column_count() %&gt;-column"</span>&gt;</span></span></span><br><span class="line">+&lt;body class="is-3-column"&gt;</span><br><span class="line">     &lt;%- partial('common/navbar', &#123; page &#125;) %&gt;</span><br><span class="line">     &lt;% function main_column_class() &#123;</span><br><span class="line">         switch (column_count()) &#123;</span><br><span class="line">             case 1:</span><br><span class="line">                 return 'is-12';</span><br><span class="line">             case 2:</span><br><span class="line">-                return 'is-8-tablet is-8-desktop is-8-widescreen';</span><br><span class="line">+                return 'is-8-tablet is-8-desktop is-9-widescreen';</span><br></pre></td></tr></table></figure>
-
-<p>并修改在不同屏幕小大下的宽度</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">diff:source/css/style<span class="selector-class">.styl</span>     </span><br><span class="line">     <span class="selector-class">.is-2-column</span> .container</span><br><span class="line">         <span class="attribute">max-width</span>: screen-desktop - <span class="number">2</span> * gap</span><br><span class="line">         <span class="attribute">width</span>: screen-desktop - <span class="number">2</span> * gap</span><br><span class="line">+    <span class="selector-class">.is-3-column</span> .container</span><br><span class="line">+        <span class="attribute">max-width</span>: screen-widescreen - gap</span><br><span class="line">+        <span class="attribute">width</span>: screen-widescreen - gap</span><br><span class="line"> @media screen and (<span class="attribute">min-width</span>: screen-fullhd)</span><br><span class="line">+    <span class="selector-class">.is-3-column</span> .container</span><br><span class="line">+        <span class="attribute">max-width</span>: screen-fullhd - <span class="number">2</span> * gap</span><br><span class="line">+        <span class="attribute">width</span>: screen-fullhd - <span class="number">2</span> * gap</span><br><span class="line">     <span class="selector-class">.is-2-column</span> .container</span><br><span class="line">         <span class="attribute">max-width</span>: screen-widescreen - <span class="number">2</span> * gap</span><br><span class="line">         <span class="attribute">width</span>: screen-widescreen - <span class="number">2</span> * gap</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="目录粘性布局显示滚动条"><a href="#目录粘性布局显示滚动条" class="headerlink" title="目录粘性布局显示滚动条"></a>目录粘性布局显示滚动条</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">diff:layout/widget/toc.ejs</span><br><span class="line">-<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card widget"</span> <span class="attr">id</span>=<span class="string">"toc"</span>&gt;</span></span></span><br><span class="line">+&lt;div class="card widget column-left is-sticky" id="toc" style="max-height: 680px; overflow: auto;"&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h3 id="文章标题优化"><a href="#文章标题优化" class="headerlink" title="文章标题优化"></a>文章标题优化</h3><p>参考</p>
-<p><a href="https://www.alphalxy.com/2019/03/customize-icarus/#优化文章标题布局">https://www.alphalxy.com/2019/03/customize-icarus/#%E4%BC%98%E5%8C%96%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98%E5%B8%83%E5%B1%80</a></p>
-<p>代码</p>
-<p><a href="https://github.com/ppoffice/hexo-theme-icarus/commit/6b3112b69b23f95539242d7a3ad2e48e3cc21ab2">https://github.com/ppoffice/hexo-theme-icarus/commit/6b3112b69b23f95539242d7a3ad2e48e3cc21ab2</a></p>
-
     </div>
     
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2019/12/01/Blog/Icarus%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8A%80%E5%B7%A7/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/">
+        <i class="fa fa-link" style="color:#3273dc"></i>Icarus修改日记</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2019-11-30T12:50:29.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T06:40:11.503Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/blog/">blog</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          几秒 读完 (大约 33 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <h3 id="2月27日"><a href="#2月27日" class="headerlink" title="2月27日"></a>2月27日</h3><p>添加</p>
+<p>最新文章缩略图 thumbnail: 图片url</p>
+<p>隐藏文章图片 article-thumbnail: false/true</p>
+<p>推荐链接标签 links</p>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
     
     
   </div>
@@ -638,8 +689,8 @@
         <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-25T12:54:37.267Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-25</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T04:53:32.391Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
         
         
         <div class="level-item">
@@ -652,7 +703,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          18 分钟 读完 (大约 2669 个字)
+          18 分钟 读完 (大约 2726 个字)
         </span>
         
         
@@ -754,7 +805,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            28
+                            29
                         </p>
                     </a>
                 </div>
@@ -836,10 +887,46 @@
   
   <div class="card widget">
     <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            推荐链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">ES6 入门教程</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">es6.ruanyifeng.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://cn.vuejs.org/v2/api/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Vue.js API</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">cn.vuejs.org</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+  
+  <div class="card widget">
+    <div class="card-content">
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/Icarus/" style="font-size: 10px;">Icarus</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
+        <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
     </div>
 </div>
   
@@ -882,7 +969,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Icarus/">
                         <span class="tag">Icarus</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1009,6 +1096,12 @@
         
         <article class="media">
             
+            <a href="/2020/02/24/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919826.svg" alt="清除浮动">
+                </p>
+            </a>
+            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T10:57:22.656Z">2020-02-24</time></div>
@@ -1021,6 +1114,12 @@
         </article>
         
         <article class="media">
+            
+            <a href="/2020/02/24/CSS/BFC/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919826.svg" alt="BFC">
+                </p>
+            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -1035,6 +1134,12 @@
         
         <article class="media">
             
+            <a href="/2020/02/16/CSS/SCSS%E5%85%A5%E9%97%A8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919831.svg" alt="SCSS入门">
+                </p>
+            </a>
+            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-16T07:04:09.960Z">2020-02-16</time></div>
@@ -1048,6 +1153,12 @@
         
         <article class="media">
             
+            <a href="/2020/02/10/Git/Git%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://www.flaticon.com/premium-icon/icons/svg/1240/1240970.svg" alt="Git上传失败问题">
+                </p>
+            </a>
+            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T12:51:29.113Z">2020-02-10</time></div>
@@ -1060,6 +1171,12 @@
         </article>
         
         <article class="media">
+            
+            <a href="/2020/02/09/Vue.js/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://cn.vuejs.org/images/logo.png" alt="vue项目打包优化">
+                </p>
+            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -1129,7 +1246,7 @@
                 <span class="level-item">blog</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/web%E5%89%8D%E7%AB%AF/">
@@ -1200,7 +1317,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1232,6 +1349,12 @@
         
         <article class="media">
             
+            <a href="/2020/02/24/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919826.svg" alt="清除浮动">
+                </p>
+            </a>
+            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T10:57:22.656Z">2020-02-24</time></div>
@@ -1244,6 +1367,12 @@
         </article>
         
         <article class="media">
+            
+            <a href="/2020/02/24/CSS/BFC/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919826.svg" alt="BFC">
+                </p>
+            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -1258,6 +1387,12 @@
         
         <article class="media">
             
+            <a href="/2020/02/16/CSS/SCSS%E5%85%A5%E9%97%A8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919831.svg" alt="SCSS入门">
+                </p>
+            </a>
+            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-16T07:04:09.960Z">2020-02-16</time></div>
@@ -1271,6 +1406,12 @@
         
         <article class="media">
             
+            <a href="/2020/02/10/Git/Git%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://www.flaticon.com/premium-icon/icons/svg/1240/1240970.svg" alt="Git上传失败问题">
+                </p>
+            </a>
+            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T12:51:29.113Z">2020-02-10</time></div>
@@ -1283,6 +1424,12 @@
         </article>
         
         <article class="media">
+            
+            <a href="/2020/02/09/Vue.js/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://cn.vuejs.org/images/logo.png" alt="vue项目打包优化">
+                </p>
+            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -1352,7 +1499,7 @@
                 <span class="level-item">blog</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/web%E5%89%8D%E7%AB%AF/">
@@ -1423,7 +1570,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>

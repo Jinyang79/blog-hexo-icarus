@@ -12,16 +12,16 @@
 <title>Icarus主题搭建技巧 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="文章页面两栏布局主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。 1234567891011diff:includes&#x2F;helpers&#x2F;layout.jsconst widgets &#x3D; hexo.extend.helper.get(&#39;get_config&#39;).bind(this)(&#39;widgets&#39;);-">
+    <meta name="description" content="文章页面两栏布局主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Icarus主题搭建技巧">
 <meta property="og:url" content="http://yoursite.com/2019/12/01/Blog/Icarus%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="文章页面两栏布局主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。 1234567891011diff:includes&#x2F;helpers&#x2F;layout.jsconst widgets &#x3D; hexo.extend.helper.get(&#39;get_config&#39;).bind(this)(&#39;widgets&#39;);-">
+<meta property="og:description" content="文章页面两栏布局主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2019-12-01T12:06:29.000Z">
-<meta property="article:modified_time" content="2020-01-25T15:11:09.549Z">
+<meta property="article:modified_time" content="2020-02-27T06:40:19.397Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Icarus">
 <meta name="twitter:card" content="summary">
@@ -152,8 +152,8 @@
         <time class="level-item has-text-grey" datetime="2019-12-01T12:06:29.000Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2019-12-01</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-25T15:11:09.549Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-25</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T06:40:19.397Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
         
         
         <div class="level-item">
@@ -166,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          3 分钟 读完 (大约 419 个字)
+          4 分钟 读完 (大约 634 个字)
         </span>
         
         
@@ -180,6 +180,7 @@
     
     <div class="content">
       <h3 id="文章页面两栏布局"><a href="#文章页面两栏布局" class="headerlink" title="文章页面两栏布局"></a>文章页面两栏布局</h3><p>主题默认是三栏布局，并且显示了很多的 <code>widget</code> ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 <code>widget</code>。</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">diff:includes/helpers/layout.js</span><br><span class="line"><span class="keyword">const</span> widgets = hexo.extend.helper.get(<span class="string">'get_config'</span>).bind(<span class="keyword">this</span>)(<span class="string">'widgets'</span>);</span><br><span class="line">-    <span class="keyword">return</span> widgets.filter(<span class="function"><span class="params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="string">'position'</span>) &amp;&amp; widget.position === position);</span><br><span class="line">+    <span class="keyword">if</span> (<span class="keyword">this</span>.page.layout !== <span class="string">'post'</span>) &#123;</span><br><span class="line">+        <span class="keyword">return</span> widgets.filter(<span class="function"><span class="params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="string">'position'</span>) &amp;&amp; widget.position === position);</span><br><span class="line">+    &#125;</span><br><span class="line">+    <span class="keyword">if</span> (position === <span class="string">'left'</span>) &#123;</span><br><span class="line">+        <span class="keyword">return</span> widgets.filter(<span class="function"><span class="params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="string">'position'</span>) &amp;&amp; (widget.type === <span class="string">'toc'</span> || widget.type === <span class="string">'profile'</span>));</span><br><span class="line">+    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">+        <span class="keyword">return</span> []</span><br><span class="line">+    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以参考上述代码，即可实现不同页面不同 <code>widget</code>。</p>
@@ -200,6 +201,11 @@
 <p><a href="https://www.alphalxy.com/2019/03/customize-icarus/#优化文章标题布局">https://www.alphalxy.com/2019/03/customize-icarus/#%E4%BC%98%E5%8C%96%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98%E5%B8%83%E5%B1%80</a></p>
 <p>代码</p>
 <p><a href="https://github.com/ppoffice/hexo-theme-icarus/commit/6b3112b69b23f95539242d7a3ad2e48e3cc21ab2">https://github.com/ppoffice/hexo-theme-icarus/commit/6b3112b69b23f95539242d7a3ad2e48e3cc21ab2</a></p>
+<hr>
+<h3 id="可以配置文章开头是否显示图片"><a href="#可以配置文章开头是否显示图片" class="headerlink" title="可以配置文章开头是否显示图片"></a>可以配置文章开头是否显示图片</h3><p><code>Icarus</code> 支持文章设置一个图片，在文章开头、最近的文章、时间线等地方显示。但有些图放大之后会显得很不协调，因此修改以支持自定义是否显示。修改 <code>has_thumbnail</code> 方法，增加参数 <code>isArticle</code> 参数，默认 <code>false</code>，并在文章页面修改调用参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">diff:includes/helpers/page.js</span><br><span class="line">-    hexo.extend.helper.register(<span class="string">'has_thumbnail'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">post</span>) </span>&#123;</span><br><span class="line">+    hexo.extend.helper.register(<span class="string">'has_thumbnail'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">post, isArticle = false</span>) </span>&#123;</span><br><span class="line">         <span class="keyword">const</span> getConfig = hexo.extend.helper.get(<span class="string">'get_config'</span>).bind(<span class="keyword">this</span>);</span><br><span class="line">         <span class="keyword">const</span> allowThumbnail = getConfig(<span class="string">'article.thumbnail'</span>, <span class="literal">true</span>);</span><br><span class="line">         <span class="keyword">if</span> (!allowThumbnail) &#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">+        <span class="keyword">if</span> (isArticle &amp;&amp; post[<span class="string">'article-thumbnail'</span>] === <span class="literal">false</span>)&#123;</span><br><span class="line">+            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">+        &#125;</span><br><span class="line">         <span class="keyword">return</span> post.hasOwnProperty(<span class="string">'thumbnail'</span>) &amp;&amp; post.thumbnail;</span><br><span class="line">diff:layout/common/article.ejs</span><br><span class="line"> &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card"</span>&gt;</span><br><span class="line">-    <span class="xml"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">has_thumbnail</span>(<span class="attr">post</span>)) &#123; %&gt;</span></span></span><br><span class="line"><span class="xml">+    <span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">has_thumbnail</span>(<span class="attr">post</span>, <span class="attr">true</span>)) &#123; %&gt;</span></span></span><br><span class="line">     &lt;div class="card-image"&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样修改之后，如果文章 <code>meta</code> 信息中包含 <code>article-thumbnail: false</code>，就可以取消图片的显示。</p>
 
     </div>
     
@@ -265,8 +271,8 @@
     
     <div class="level-end">
       <a class="level level-item has-link-grey  article-nav-next"
-        href="/2019/11/30/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-        <span class="level-item">常见前端面试题</span>
+        href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/">
+        <span class="level-item">Icarus修改日记</span>
         <i class="level-item fas fa-chevron-right"></i>
       </a>
     </div>
@@ -342,7 +348,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            28
+                            29
                         </p>
                     </a>
                 </div>
@@ -442,6 +448,10 @@
         <a class="is-flex" href="#文章标题优化">
         <span class="has-mr-6">3</span>
         <span>文章标题优化</span>
+        </a></li><li>
+        <a class="is-flex" href="#可以配置文章开头是否显示图片">
+        <span class="has-mr-6">4</span>
+        <span>可以配置文章开头是否显示图片</span>
         </a></li></ul>
     </div>
   </div>
