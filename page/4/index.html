@@ -9,12 +9,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: http - Jinyang&#39;s blog</title>
+<title>Jinyang&#39;s blog</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Jinyang&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/http/index.html">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
@@ -128,40 +128,30 @@
   <section class="section">
     <div class="container">
       <div class="columns">
-        <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">http</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
+        <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
     
 <div class="card">
   
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <a class="has-link-black-ter" href="/2019/12/20/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E5%85%A8%EF%BC%89/">
-        <i class="fa fa-link" style="color:#3273dc"></i>前端常见跨域解决方案</a>
+      <a class="has-link-black-ter" href="/2019/12/01/Blog/Icarus%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8A%80%E5%B7%A7/">
+        <i class="fa fa-link" style="color:#3273dc"></i>Icarus主题搭建技巧</a>
       
     </h1>
     
     <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
       <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-12-20T12:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-12-20</time>
+        <time class="level-item has-text-grey" datetime="2019-12-01T12:06:29.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2019-12-01</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-01T07:20:40.541Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-01</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:40:20.011Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
         
         
         <div class="level-item">
           <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+          <a class="has-link-grey -link" href="/categories/blog/">blog</a>
         </div>
         
         
@@ -169,7 +159,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          26 分钟 读完 (大约 3936 个字)
+          4 分钟 读完 (大约 634 个字)
         </span>
         
         
@@ -177,18 +167,14 @@
     </div>
     
     <div class="content">
-      <h3 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a><strong>什么是跨域？</strong></h3><p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。</p>
-<p>广义的跨域：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>) 资源跳转： A链接、重定向、表单提交</span><br><span class="line"><span class="number">2.</span>) 资源嵌入： &lt;link&gt;、&lt;script&gt;、&lt;img&gt;、&lt;frame&gt;等dom标签，还有样式中background:url()、@font-face()等文件外链</span><br><span class="line"><span class="number">3.</span>) 脚本请求： js发起的ajax请求、dom和js对象的跨域操作等</span><br></pre></td></tr></table></figure>
-
-<p>其实我们通常所说的跨域是狭义的，是由浏览器同源策略限制的一类请求场景。</p>
+      <h3 id="文章页面两栏布局"><a href="#文章页面两栏布局" class="headerlink" title="文章页面两栏布局"></a>文章页面两栏布局</h3><p>主题默认是三栏布局，并且显示了很多的 <code>widget</code> ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 <code>widget</code>。</p>
     </div>
     
     
     <div class="level is-mobile">
       <div class="level-start">
         <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/12/20/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E5%85%A8%EF%BC%89/#more">阅读更多</a>
+          <a class="button is-size-7 is-light" href="/2019/12/01/Blog/Icarus%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8A%80%E5%B7%A7/#more">阅读更多</a>
         </div>
       </div>
     </div>
@@ -204,6 +190,247 @@
 
 
 
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/">
+        <i class="fa fa-link" style="color:#3273dc"></i>Icarus修改日记</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2019-11-30T12:50:29.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:40:37.811Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/blog/">blog</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          几秒 读完 (大约 33 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <h3 id="2月27日"><a href="#2月27日" class="headerlink" title="2月27日"></a>2月27日</h3><p>添加</p>
+<p>最新文章缩略图 thumbnail: 图片url</p>
+<p>隐藏文章图片 article-thumbnail: false/true</p>
+<p>推荐链接标签 links</p>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <i class="fa fa-link" style="color:#3273dc"></i>学习笔记</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:27:33.858Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          7 分钟 读完 (大约 1000 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2 id="Git常见操作"><a href="#Git常见操作" class="headerlink" title="Git常见操作"></a>Git常见操作</h2><ul>
+<li><p><code>git status</code>    查看当前项目中源代码的状态</p>
+</li>
+<li><p><code>git add .</code>     全部添加到暂存区</p>
+</li>
+<li><p><code>git commit -m &quot;提交信息&quot;</code>   把暂存区所有代码提交到本地仓库中</p>
+</li>
+<li><p><code>git branch</code>    查看分支    *当前处于分支</p>
+</li>
+<li><p><code>git branch 分支名</code> 创建分支</p>
+</li>
+<li><p><code>git checkout 分支名</code>   切换分支</p>
+</li>
+<li><p><code>git checkout -b 分支名</code>  创建并切换到分支</p>
+</li>
+<li><p><code>git merge 分支名</code>          合并分支（合并到本地，云端并没有）</p>
+</li>
+<li><p><code>git push</code>  把本地分支中最新的代码推送到远程仓库中 默认master主分支</p>
+</li>
+<li><p><code>git push -u origin 分支名</code> 第一次推送到此分支的时候使用</p>
+</li>
+<li><h4 id="分支（login）合并到主分支（master）"><a href="#分支（login）合并到主分支（master）" class="headerlink" title="分支（login）合并到主分支（master）"></a>分支（login）合并到主分支（master）</h4></li>
+<li><p>1.切换到主分支 <code>git checkout master</code></p>
+</li>
+<li><p>2.合并分支 <code>git merge login</code></p>
+</li>
+<li><p>3.推送到云端（仓库）<code>git push</code> </p>
+</li>
+</ul>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+        <i class="fa fa-link" style="color:#3273dc"></i>学习日记</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:27:28.104Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          18 分钟 读完 (大约 2726 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <h3 id="11月30日"><a href="#11月30日" class="headerlink" title="11月30日"></a>11月30日</h3><p>第一次使用typora写日记</p>
+<p>创建了个人网站 <a href="http://jinyang7.web3v.vip/">http://jinyang7.web3v.vip/</a> </p>
+<p>网站简历素材学习</p>
+<p>完善简历个人技能 项目经验没写</p>
+<p>明天看jQuery  完善简历</p>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/page/3/">上一页</a>
+        </div>
+        <div class="pagination-next is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/page/5/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
+            
+            <li><a class="pagination-link is-current" href="/page/4/">4</a></li>
+            
+        </ul>
+    </nav>
+</div>
 </div>
         
 
@@ -250,7 +477,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            29
+                            25
                         </p>
                     </a>
                 </div>
@@ -274,7 +501,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            20
+                            19
                         </p>
                     </a>
                 </div>
@@ -360,6 +587,28 @@
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="http://blog.poetries.top/FE-Interview-Questions/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">前端知识复习</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.poetries.top</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.cxymsg.com/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">前端开发者面试清单</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.cxymsg.com</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -371,7 +620,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
+        <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
     </div>
 </div>
   
@@ -456,13 +705,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/http/">
-                        <span class="tag">http</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -699,7 +941,7 @@
                 <span class="level-item">web前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
@@ -740,7 +982,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -751,7 +993,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -762,7 +1004,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -952,7 +1194,7 @@
                 <span class="level-item">web前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
@@ -993,7 +1235,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1004,7 +1246,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1015,7 +1257,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>

@@ -135,6 +135,346 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
+      <a class="has-link-black-ter" href="/2020/01/11/JS/JavaScript%E9%97%AD%E5%8C%85%EF%BC%88Closure%EF%BC%89/">
+        <i class="fa fa-link" style="color:#3273dc"></i>JavaScript闭包（Closure）</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2020-01-11T08:24:51.180Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-01-11</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:03:15.630Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          5 分钟 读完 (大约 787 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　alert(n);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">return</span> f2;</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="keyword">var</span> result=f1();</span><br><span class="line">　　result(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码产生了闭包</p>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2020/01/11/JS/JavaScript%E9%97%AD%E5%8C%85%EF%BC%88Closure%EF%BC%89/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2020/01/10/JS/%E6%80%BB%E7%BB%93JS%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/">
+        <i class="fa fa-link" style="color:#3273dc"></i>JS中的this指向</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2020-01-10T11:40:40.236Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-01-10</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:03:10.564Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/JS/">JS</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          3 分钟 读完 (大约 406 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <p><strong>❗以下this指向均在非严格模式下，在严格模式下，如果 <code>this</code> 没有被执行环境（execution context）定义，那它将保持为 <code>undefined</code>。</strong></p>
+<h2 id="函数this指向"><a href="#函数this指向" class="headerlink" title="函数this指向"></a>函数this指向</h2><ul>
+<li><code>this</code>指向函数运行时所在的对象，而不是函数被创建时所在的对象。</li>
+<li>匿名函数或者简单调用的函数来说，<code>this</code>指向<code>window</code>，剩下的函数调用，指向调用者。</li>
+<li>如果有<code>new</code>关键字，<code>this</code>指向<code>new</code>出来的那个对象。</li>
+<li>可以通过<code>apply</code>，<code>call</code>，<code>bind</code>改变<code>this</code>的指向。</li>
+<li>箭头函数没有this，指向取决于该箭头函数声明的位置，在哪里声明，<code>this</code>就指向哪里。</li>
+</ul>
+<hr>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2020/01/10/JS/%E6%80%BB%E7%BB%93JS%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2020/01/05/Vue.js/vue%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92/">
+        <i class="fa fa-link" style="color:#3273dc"></i>Vue路线规划</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2020-01-05T05:36:27.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-01-05</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:01:33.704Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          2 分钟 读完 (大约 283 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <h3 id="扎实的HTML-CSS-JS基础-自学"><a href="#扎实的HTML-CSS-JS基础-自学" class="headerlink" title="扎实的HTML/CSS/JS基础(自学)"></a>扎实的HTML/CSS/JS基础(自学)</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> <h5 id="HTML常用标签"><a href="#HTML常用标签" class="headerlink" title="HTML常用标签"></a>HTML常用标签</h5></li>
+</ul>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <h5 id="CSS基础语法"><a href="#CSS基础语法" class="headerlink" title="CSS基础语法"></a>CSS基础语法</h5></li>
+</ul>
+<h5 id="Scoped-CSS"><a href="#Scoped-CSS" class="headerlink" title="Scoped CSS"></a>Scoped CSS</h5><ul>
+<li><input checked="" disabled="" type="checkbox"> <h5 id="JS基础语法"><a href="#JS基础语法" class="headerlink" title="JS基础语法"></a>JS基础语法</h5></li>
+<li><input disabled="" type="checkbox"> <p>new</p>
+</li>
+</ul>
+<ul>
+<li><input disabled="" type="checkbox"> this</li>
+</ul>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2020/01/05/Vue.js/vue%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2020/01/05/Git/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/">
+        <i class="fa fa-link" style="color:#3273dc"></i>Git版本回退</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2020-01-05T04:32:49.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-01-05</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:03:32.952Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/Git%E6%93%8D%E4%BD%9C/">Git操作</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          3 分钟 读完 (大约 444 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <p>(参考廖雪峰的Git教程)</p>
+<p>(已经git add file 并且 git commit -m 提交信息 但没推送云端 想回到上个版本或其他版本)</p>
+<h2 id="回退版本-❗"><a href="#回退版本-❗" class="headerlink" title="回退版本 ❗"></a>回退版本 ❗</h2><p><code>git reset --hard 版本号/HEAD^</code> ：命令回退到指定的版本号/上一次</p>
+<p>❗ 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位</p>
+<p>❗ 用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2020/01/05/Git/Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <a class="has-link-black-ter" href="/2019/12/31/jQuery/jQuery%E7%AC%94%E8%AE%B0/">
+        <i class="fa fa-link" style="color:#3273dc"></i>jQuery笔记</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2019-12-31T12:06:29.000Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2019-12-31</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:38:12.920Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          35 分钟 读完 (大约 5178 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <p>（整理不易，若有帮助，请给个Star⭐）</p>
+<h3 id="jQuery概述"><a href="#jQuery概述" class="headerlink" title="jQuery概述"></a>jQuery概述</h3><h4 id="JavaScript库"><a href="#JavaScript库" class="headerlink" title="JavaScript库"></a>JavaScript库</h4><ul>
+<li><p>仓库:可以把很多东西放到这个仓库里面。 找东西只需要到仓库里面查找到就可以了。</p>
+</li>
+<li><p>JavaScript库:即library ,是一个封装好的特定的集合(方法和函数)。从封装大堆函数的角度理解库,就<br>是在这个库中,封装了很多预先定义好的函数在里面,比如动画animate、hide、 show ,比如获取元素等。</p>
+</li>
+<li><p>简单理解:就是一个JS 文件,面对我们原生js代码进行了封装,存放到面。这样我们可以快速高效的使用<br>这些封装好的功能了。</p>
+</li>
+<li><p>比如jQuery ,就是为了快速方便的操作DOM ,里面基本都是函数(方法)。</p>
+    </div>
+    
+    
+    <div class="level is-mobile">
+      <div class="level-start">
+        <div class="level-item">
+          <a class="button is-size-7 is-light" href="/2019/12/31/jQuery/jQuery%E7%AC%94%E8%AE%B0/#more">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
       <a class="has-link-black-ter" href="/2019/12/27/Blog/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E4%B8%8A%E4%BC%A0Github/">
         <i class="fa fa-link" style="color:#3273dc"></i>使用hexo搭建博客并上传Github</a>
       
@@ -145,8 +485,8 @@
         <time class="level-item has-text-grey" datetime="2019-12-27T12:50:29.000Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2019-12-27</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-02T09:23:57.142Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-02</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:36:48.717Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
         
         
         <div class="level-item">
@@ -202,127 +542,6 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <a class="has-link-black-ter" href="/2019/12/27/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/">
-        <i class="fa fa-link" style="color:#3273dc"></i>前端学习线路</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-12-27T10:35:56.067Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-12-27</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-27T12:01:50.017Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2019-12-27</time>
-        
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          几秒 读完 (大约 12 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><h3 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h3><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><h3 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a>jquery</h3>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/12/27/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2019/12/20/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E5%85%A8%EF%BC%89/">
-        <i class="fa fa-link" style="color:#3273dc"></i>前端常见跨域解决方案</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-12-20T12:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-12-20</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-01T07:20:40.541Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-01</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          26 分钟 读完 (大约 3936 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h3 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a><strong>什么是跨域？</strong></h3><p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。</p>
-<p>广义的跨域：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>) 资源跳转： A链接、重定向、表单提交</span><br><span class="line"><span class="number">2.</span>) 资源嵌入： &lt;link&gt;、&lt;script&gt;、&lt;img&gt;、&lt;frame&gt;等dom标签，还有样式中background:url()、@font-face()等文件外链</span><br><span class="line"><span class="number">3.</span>) 脚本请求： js发起的ajax请求、dom和js对象的跨域操作等</span><br></pre></td></tr></table></figure>
-
-<p>其实我们通常所说的跨域是狭义的，是由浏览器同源策略限制的一类请求场景。</p>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/12/20/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E5%85%A8%EF%BC%89/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
       <a class="has-link-black-ter" href="/2019/12/15/Git/Git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
         <i class="fa fa-link" style="color:#3273dc"></i>Git常用操作</a>
       
@@ -333,8 +552,8 @@
         <time class="level-item has-text-grey" datetime="2019-12-15T09:06:29.000Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2019-12-15</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-05T05:35:31.508Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-05</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:03:36.266Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
         
         
         <div class="level-item">
@@ -388,356 +607,6 @@
 
 
 
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2019/12/01/Blog/Icarus%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8A%80%E5%B7%A7/">
-        <i class="fa fa-link" style="color:#3273dc"></i>Icarus主题搭建技巧</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-12-01T12:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-12-01</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T06:40:19.397Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/blog/">blog</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          4 分钟 读完 (大约 634 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h3 id="文章页面两栏布局"><a href="#文章页面两栏布局" class="headerlink" title="文章页面两栏布局"></a>文章页面两栏布局</h3><p>主题默认是三栏布局，并且显示了很多的 <code>widget</code> ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 <code>widget</code>。</p>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/12/01/Blog/Icarus%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8A%80%E5%B7%A7/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/">
-        <i class="fa fa-link" style="color:#3273dc"></i>Icarus修改日记</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-11-30T12:50:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T06:40:11.503Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/blog/">blog</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          几秒 读完 (大约 33 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h3 id="2月27日"><a href="#2月27日" class="headerlink" title="2月27日"></a>2月27日</h3><p>添加</p>
-<p>最新文章缩略图 thumbnail: 图片url</p>
-<p>隐藏文章图片 article-thumbnail: false/true</p>
-<p>推荐链接标签 links</p>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/11/30/Blog/Icarus%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AE%B0/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2019/11/30/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-        <i class="fa fa-link" style="color:#3273dc"></i>常见前端面试题</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-11T12:03:05.514Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-11</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          24 分钟 读完 (大约 3623 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h2 id="get和post请求区别-还有哪些http-method"><a href="#get和post请求区别-还有哪些http-method" class="headerlink" title="get和post请求区别 还有哪些http method"></a>get和post请求区别 还有哪些http method</h2><p>get和post本质上没有区别，他们都是http的请求方式，基于tcp协议，但因为在不同的浏览器实现，就有了不同。</p>
-<p>get请求的数据放在url上，post请求的数据放在http的包体内，所以说post相对get更安全。</p>
-<p>get是通过URL提交数据，因此get提交数据根据url长度有关，不同的浏览器不同，一般是2k，而post理论上是没有限制的。</p>
-<p>get幂等，post不幂等。 幂等是指同一个请求方法执行多次和仅执行一次的效果完全相同。</p>
-<p>GET在浏览器回退时是无害的，POST会再次提交请求。</p>
-<p>GET请求只能进行url编码，而POST支持多种编码方式。</p>
-<p>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</p>
-<p>GET只接受ASCII字符的参数的数据类型，而POST没有限制</p>
-<p>那么，post那么好为什么还用get？get效率高！。</p>
-<p>其他请求方式（http method）</p>
-<p>head、put、delete、trace、connect、options</p>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/11/30/%E9%9D%A2%E8%AF%95%E9%A2%98/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <i class="fa fa-link" style="color:#3273dc"></i>学习笔记</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-11T12:02:36.257Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-01-11</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          7 分钟 读完 (大约 1000 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h2 id="Git常见操作"><a href="#Git常见操作" class="headerlink" title="Git常见操作"></a>Git常见操作</h2><ul>
-<li><p><code>git status</code>    查看当前项目中源代码的状态</p>
-</li>
-<li><p><code>git add .</code>     全部添加到暂存区</p>
-</li>
-<li><p><code>git commit -m &quot;提交信息&quot;</code>   把暂存区所有代码提交到本地仓库中</p>
-</li>
-<li><p><code>git branch</code>    查看分支    *当前处于分支</p>
-</li>
-<li><p><code>git branch 分支名</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名</code>   切换分支</p>
-</li>
-<li><p><code>git checkout -b 分支名</code>  创建并切换到分支</p>
-</li>
-<li><p><code>git merge 分支名</code>          合并分支（合并到本地，云端并没有）</p>
-</li>
-<li><p><code>git push</code>  把本地分支中最新的代码推送到远程仓库中 默认master主分支</p>
-</li>
-<li><p><code>git push -u origin 分支名</code> 第一次推送到此分支的时候使用</p>
-</li>
-<li><h4 id="分支（login）合并到主分支（master）"><a href="#分支（login）合并到主分支（master）" class="headerlink" title="分支（login）合并到主分支（master）"></a>分支（login）合并到主分支（master）</h4></li>
-<li><p>1.切换到主分支 <code>git checkout master</code></p>
-</li>
-<li><p>2.合并分支 <code>git merge login</code></p>
-</li>
-<li><p>3.推送到云端（仓库）<code>git push</code> </p>
-</li>
-</ul>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-        <i class="fa fa-link" style="color:#3273dc"></i>学习日记</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T04:53:32.391Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          18 分钟 读完 (大约 2726 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <h3 id="11月30日"><a href="#11月30日" class="headerlink" title="11月30日"></a>11月30日</h3><p>第一次使用typora写日记</p>
-<p>创建了个人网站 <a href="http://jinyang7.web3v.vip/">http://jinyang7.web3v.vip/</a> </p>
-<p>网站简历素材学习</p>
-<p>完善简历个人技能 项目经验没写</p>
-<p>明天看jQuery  完善简历</p>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -745,7 +614,7 @@
         <div class="pagination-previous">
             <a class="is-flex-grow has-text-black-ter" href="/page/2/">上一页</a>
         </div>
-        <div class="pagination-next is-invisible is-hidden-mobile">
+        <div class="pagination-next">
             <a class="is-flex-grow has-text-black-ter" href="/page/4/">下一页</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
@@ -755,6 +624,8 @@
             <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
             
             <li><a class="pagination-link is-current" href="/page/3/">3</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
             
         </ul>
     </nav>
@@ -805,7 +676,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            29
+                            25
                         </p>
                     </a>
                 </div>
@@ -829,7 +700,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            20
+                            19
                         </p>
                     </a>
                 </div>
@@ -915,6 +786,28 @@
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="http://blog.poetries.top/FE-Interview-Questions/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">前端知识复习</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.poetries.top</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.cxymsg.com/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">前端开发者面试清单</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.cxymsg.com</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -926,7 +819,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
+        <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
     </div>
 </div>
   
@@ -1011,13 +904,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/http/">
-                        <span class="tag">http</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1254,7 +1140,7 @@
                 <span class="level-item">web前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
@@ -1295,7 +1181,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1306,7 +1192,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1317,7 +1203,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1507,7 +1393,7 @@
                 <span class="level-item">web前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
@@ -1548,7 +1434,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1559,7 +1445,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1570,7 +1456,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
