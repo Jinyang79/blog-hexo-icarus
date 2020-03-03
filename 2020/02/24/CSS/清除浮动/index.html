@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://image.flaticon.com/icons/svg/919/919826.svg">
 <meta property="article:published_time" content="2020-02-24T10:57:22.656Z">
-<meta property="article:modified_time" content="2020-02-27T06:10:39.694Z">
+<meta property="article:modified_time" content="2020-03-03T10:39:48.264Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -152,8 +152,8 @@
         <time class="level-item has-text-grey" datetime="2020-02-24T10:57:22.656Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-02-24</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T06:10:39.694Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-03T10:39:48.264Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-03</time>
         
         
         <div class="level-item">
@@ -182,9 +182,8 @@
       <p>清除浮动可以理解为清除浮动产生的影响。当元素浮动时也就是为当前元素创建了块格式化上下文（BFC），会对周围的元素或者父元素在布局上会产生一定的影响。</p>
 <p>比如：父元素因无法自动计算高度而产生的高度塌陷；因脱离文档流而使兄弟元素错位等。</p>
 <p>要清除浮动产生的影响，其实就是在解决这两方面的问题。方法是可以通过设置父元素高度，或利用BFC，或者使用自带属性 <code>clear</code>进行清除。</p>
-<hr>
 <a id="more"></a>
-
+<hr>
 <h3 id="1-设置父元素的高度"><a href="#1-设置父元素的高度" class="headerlink" title="1. 设置父元素的高度"></a>1. 设置父元素的高度</h3><p>设置父元素的高度解决的是元素浮动产生的父元素高度塌陷问题，其内部元素浮动影响并未彻底清除，且需要进行计算然后再设置，比较固定，一旦子元素的高度发生改变，父元素的高度也需要再次计算设置，不够灵活。除非内容高度固定一成不变，否则不推荐使用。</p>
 <h3 id="2-利用BFC"><a href="#2-利用BFC" class="headerlink" title="2. 利用BFC"></a>2. 利用BFC</h3><p>根据BFC的规则计算BFC的高度时，浮动元素也参与计算, 父级元素设置为<code>overflow : hidden</code><br>该方法是需要把属性添加到父元素当中，以解决内部元素浮动影响。不能用于解决兄弟元素的浮动问题。</p>
 <hr>
@@ -335,7 +334,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            29
                         </p>
                     </a>
                 </div>
@@ -347,7 +346,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            8
+                            10
                         </p>
                     </a>
                 </div>
@@ -359,7 +358,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            19
+                            26
                         </p>
                     </a>
                 </div>
