@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<script src="/js/src/click.js"></script>
+<html  lang="zh">
+
+<head>
+  <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>mongoDB入门 - Jinyang&#39;s blog</title>
+
+
+    <meta name="description" content="MongoDB是一种面向文档的非关系型(NoSQL)数据库    术语 解释说明    database 数据库，mongoDB数据库软件中可以建立多个数据库   collection 集合，一组数据的集合，可以理解为JavaScript中的数组   document 文档，一条具体的数据， 可以理解为JavaScript中的对象   field 字段，文档中的属性名称，可以理解为JavaScri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoDB入门">
+<meta property="og:url" content="http://yoursite.com/2020/03/17/mongoDB/mongDB%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Jinyang&#39;s blog">
+<meta property="og:description" content="MongoDB是一种面向文档的非关系型(NoSQL)数据库    术语 解释说明    database 数据库，mongoDB数据库软件中可以建立多个数据库   collection 集合，一组数据的集合，可以理解为JavaScript中的数组   document 文档，一条具体的数据， 可以理解为JavaScript中的对象   field 字段，文档中的属性名称，可以理解为JavaScri">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.pngsucai.com/00/59/93/3fdb26ec225493a5.jpg">
+<meta property="article:published_time" content="2020-03-17T07:17:46.882Z">
+<meta property="article:modified_time" content="2020-03-18T13:33:58.360Z">
+<meta property="article:author" content="Jinyang">
+<meta property="article:tag" content="mongoDB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.pngsucai.com/00/59/93/3fdb26ec225493a5.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/monokai-sublime.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="is-3-column">
+  <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/goldsheep.png" alt="mongoDB入门" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Jinyang79">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+  
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
+      <i class="fa fa-battery-full" style="color:#3273dc"></i>mongoDB入门
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2020-03-17T07:17:46.882Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-03-17</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-18T13:33:58.360Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-18</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/mongoDB/">mongoDB</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          10 分钟 读完 (大约 1454 个字)
+        </span>
+        
+        
+        <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+          <i class="far fa-eye"></i>
+          <span id="busuanzi_value_page_pv">0</span>次访问
+        </span>
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <p>MongoDB是一种面向文档的非关系型(NoSQL)数据库</p>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>database</td>
+<td>数据库，mongoDB数据库软件中可以建立多个数据库</td>
+</tr>
+<tr>
+<td>collection</td>
+<td>集合，一组数据的集合，可以理解为JavaScript中的数组</td>
+</tr>
+<tr>
+<td>document</td>
+<td>文档，一条具体的数据， 可以理解为JavaScript中的对象</td>
+</tr>
+<tr>
+<td>field</td>
+<td>字段，文档中的属性名称，可以理解为JavaScript中的对象属性</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<h3 id="Mongoose第三方包"><a href="#Mongoose第三方包" class="headerlink" title="Mongoose第三方包"></a>Mongoose第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose</p>
+<h3 id="启动MongoDB"><a href="#启动MongoDB" class="headerlink" title="启动MongoDB"></a>启动MongoDB</h3><p>在命令行工具中运行net start mongoDB即可启动MongoDB,否则MongoDB将无法连接。</p>
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><p>使用mongoose提供的connect方法即可连接数据库。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect (<span class="string">'mongodb://localhost/playground'</span>,&#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">     .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span><span class="number">.1</span>og(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">     .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>，err)) ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库,"></a>创建数据库,</h3><p>在MongoDB中不需要显式创建数据库，如果正在使用的数据库不存在，MongoDB会自动创建。</p>
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，-是对对集合设定规则，二是创建集合,创建mongoose.Schema构造函数的实例即可创建集合。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">     name: <span class="built_in">String</span>,</span><br><span class="line">     author: <span class="built_in">String</span>,</span><br><span class="line">     isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;) ;</span><br><span class="line"><span class="comment">//创建集合并应用规则 首字母大写</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>,courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h3><p>创建文档实际上就是向集合中插入数据。<br>分为两步:<br>①创建集合实例。<br>②调用实例对象下的save方法将数据保存到数据库中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course (&#123;</span><br><span class="line">  name: <span class="string">'Node.js course'</span>,</span><br><span class="line">  author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">  tags: [<span class="string">'node'</span>,<span class="string">'backend'</span>],</span><br><span class="line">  isPublished: <span class="literal">true</span></span><br><span class="line">&#125;) ;</span><br><span class="line"><span class="comment">//将数据保存到数据库中</span></span><br><span class="line">course.save () ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建文档-1"><a href="#创建文档-1" class="headerlink" title="创建文档"></a>创建文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Course.create (&#123;<span class="attr">name</span>:<span class="string">'JavaScript基础'</span>,<span class="attr">author</span>: <span class="string">'黑马讲师'</span>,<span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123;</span><br><span class="line"><span class="comment">//错误对象</span></span><br><span class="line"><span class="built_in">console</span>.log (err)</span><br><span class="line"><span class="comment">//当前插入的文档</span></span><br><span class="line"><span class="built_in">console</span>.log (doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Course.create (&#123;<span class="attr">name</span>: <span class="string">' JavaScript基础'</span>，author: <span class="string">' 黑马讲师'</span>，isPublish: <span class="literal">true</span>&#125;)</span><br><span class="line">.then(doc = =&gt; <span class="built_in">console</span>. log (doc) )</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>. log(err) )</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h3><p>mongoimport -d数据库名称-c集合名称-file要导入的数据文件</p>
+<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据条件查找文档(条件为空则查找所有文档) </span></span><br><span class="line">Course. find() . then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>. log (result) )</span><br><span class="line"><span class="comment">//返回文档集合 数组</span></span><br><span class="line">[&#123;</span><br><span class="line">_id: <span class="number">5</span>c0917ed37ec9b03c07cf95f ，</span><br><span class="line">name :</span><br><span class="line"><span class="string">'node. js基础'</span></span><br><span class="line">author: <span class="string">' 黑马讲师、</span></span><br><span class="line"><span class="string">&#125;,&#123;</span></span><br><span class="line"><span class="string">id: 5c09dea28acfb814980ff827 ,</span></span><br><span class="line"><span class="string">name:'</span> Javascript <span class="string">' ,</span></span><br><span class="line"><span class="string">author:，黑马讲师、</span></span><br><span class="line"><span class="string">&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询文档-1"><a href="#查询文档-1" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// findOne方法返回一条文档默认返回当前集合中的第一条文档 返回格式</span></span><br><span class="line">Course.findone ( &#123;<span class="attr">name</span> :</span><br><span class="line"><span class="string">'node. js基础'</span> &#125;). then (<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>. log (result) )</span><br><span class="line"><span class="comment">//返回文档 对象</span></span><br><span class="line">&#123;</span><br><span class="line">id: <span class="number">5</span>c091 <span class="number">7</span>ed37ec9b03c07cf95f ,</span><br><span class="line">name: <span class="string">'node. js基础'</span>，</span><br><span class="line">author: <span class="string">'黑马 讲师、</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询文档-2"><a href="#查询文档-2" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匹配 大于$gt 小于$lt</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>，$lt: <span class="number">50</span>&#125;&#125;).then (<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//选择要查询的字段 字段前面加上'-' 不显示</span></span><br><span class="line">User.find().select(<span class="string">'name email'</span>) . then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//将数据按照年龄进行排序 默认升序  '-age'降序</span></span><br><span class="line">User.find().sort(<span class="string">'age'</span>) . then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">// skip 跳过多少条数据limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log (result))</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除单个</span></span><br><span class="line"><span class="comment">//查找到一条文档并且删除</span></span><br><span class="line"><span class="comment">//返回删除的文档</span></span><br><span class="line"><span class="comment">//如何查询条件匹配了多个文档那么将会删除第个匹配的文档</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//删除多个</span></span><br><span class="line"><span class="comment">//返回对象&#123;n:4,ok:1&#125; n数据数量，ok:1 删除成功</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更新单个  n受影响的数据 nModified修改了几条数据 ok:1 成功</span></span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//更新多个 查询条件为空&#123;&#125; 匹配所有</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>在创建集合规则时，可以设置当前字段的验证规则，验证失败就则输入插入失败。</p>
+<ul>
+<li>required: true必传字段</li>
+<li>minlength: 3<strong>字符串</strong>最小长度</li>
+<li>maxlength: 20<strong>字符串</strong>最大长度</li>
+<li>min: 2<strong>数值</strong>最小为2</li>
+<li>max: 100<strong>数值</strong>最大为100</li>
+<li>enum: [‘html’,’css’,’javascript’,’node.js’]</li>
+<li>trim: true去除字符串两边的空格</li>
+<li>validate: 自定义验证器</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postSchema = <span class="keyword">new</span> mongoose . Schema(&#123;</span><br><span class="line">title: &#123;</span><br><span class="line">type: <span class="built_in">String</span>,</span><br><span class="line"><span class="comment">//必选字段</span></span><br><span class="line">required: [<span class="literal">true</span>, <span class="string">'请传入文章标题'</span>]，</span><br><span class="line"><span class="comment">//字符串的最小长度</span></span><br><span class="line">minlength: [<span class="number">2</span>, <span class="string">'文章长度不能小于2'</span>],</span><br><span class="line"><span class="comment">//字符串的最大长度</span></span><br><span class="line">maxlength: [<span class="number">5</span>, <span class="string">'文章长度最大不能超过5'</span>],</span><br><span class="line"><span class="comment">//去除字符串两边的空格</span></span><br><span class="line">trim: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br><span class="line">    age:&#123;</span><br><span class="line">        type:<span class="built_in">Number</span>,</span><br><span class="line">        min:<span class="number">18</span>,</span><br><span class="line">        max:<span class="number">100</span></span><br><span class="line">    &#125;,</span><br><span class="line">     publishDate:&#123;</span><br><span class="line">         type: <span class="built_in">Date</span>,</span><br><span class="line">         <span class="comment">// 默认值</span></span><br><span class="line">         <span class="keyword">default</span>:<span class="built_in">Date</span>.now</span><br><span class="line">     &#125;,</span><br><span class="line">     category:&#123;</span><br><span class="line">         type:<span class="built_in">String</span>,</span><br><span class="line">         <span class="comment">// 列举出当前字段可以拥有的值</span></span><br><span class="line">         enum:&#123;</span><br><span class="line">             values:[<span class="string">'html'</span>,<span class="string">'css'</span>,<span class="string">'js'</span>,<span class="string">'node'</span>],</span><br><span class="line">             message:<span class="string">'分类名称要在范围内才可以'</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;，</span><br><span class="line">     author:&#123;</span><br><span class="line">         type:<span class="built_in">String</span>,</span><br><span class="line">         <span class="comment">// 自定义验证规则</span></span><br><span class="line">         validate:&#123;</span><br><span class="line">            validator: <span class="function"><span class="params">v</span> =&gt;</span>&#123;</span><br><span class="line">             <span class="comment">// 返回布尔值</span></span><br><span class="line">             <span class="comment">// true/false 成功/失败</span></span><br><span class="line">             <span class="comment">// v 要验证的值</span></span><br><span class="line">             <span class="keyword">return</span> v &amp;&amp; v.length &gt; <span class="number">4</span></span><br><span class="line">             &#125;,</span><br><span class="line">             <span class="comment">// 自定义错误信息</span></span><br><span class="line">             message:<span class="string">'传入的值不符合验证规则'</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取错误信息"><a href="#获取错误信息" class="headerlink" title="获取错误信息"></a>获取错误信息</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Post = mongoose . model( <span class="string">'Post'</span>, I</span><br><span class="line">postSchema) ;</span><br><span class="line">Post.create( &#123;<span class="attr">title</span>: <span class="string">' aa '</span>，</span><br><span class="line">age: <span class="number">60</span>, <span class="attr">category</span>: <span class="string">' java'</span>，author: <span class="string">' bd'</span>&#125;)</span><br><span class="line">then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span> <span class="number">.1</span>og( result) )</span><br><span class="line"><span class="keyword">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">I<span class="comment">//获取错误信息对象</span></span><br><span class="line"><span class="keyword">const</span></span><br><span class="line">err =</span><br><span class="line">error . errors ;</span><br><span class="line"><span class="comment">//循环错误信息对象</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> attr</span><br><span class="line"><span class="keyword">in</span> err) &#123;</span><br><span class="line"><span class="comment">//将错误信息打印到控制台中</span></span><br><span class="line"><span class="built_in">console</span> . log(err[attr][ <span class="string">' message'</span>]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="集合关联"><a href="#集合关联" class="headerlink" title="集合关联"></a>集合关联</h3><p>通常不同集合的数据之间是有关系的，例如文章信息和用户信息存储在不同集合中，但文章是某个用户发表的<br>，要查询文章的所有信息包括发表用户，就需要用到集合关联。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <hr style="margin-top: 3rem" />
+    <div class="level is-size-7 is-uppercase">
+      <div class="level-start">
+        <div class="level-item">
+          <i class="fas fa-tags has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/tags/mongoDB/" rel="tag">mongoDB</a>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+
+
+<div class="card">
+  <div class="card-content">
+    <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+    <div class="buttons is-centered">
+      
+      
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.png" alt="支付宝"></div>
+</a>
+
+      
+      
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.png" alt="微信"></div>
+</a>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card card-transparent">
+  <div class="level post-navigation is-flex-wrap is-mobile">
+    
+    
+    <div class="level-end">
+      <a class="level level-item has-link-grey  article-nav-next"
+        href="/2020/03/17/ES6/anync/">
+        <span class="level-item">async</span>
+        <i class="level-item fas fa-chevron-right"></i>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<div class="card">
+  <div class="card-content">
+    <h3 class="title is-5 has-text-weight-normal">评论</h3>
+    
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: '3NwpKPPr160NHldwq3Nst7NQ-gzGzoHsz',
+        app_key: 'bgQSBES9NfXk4pgYncPRRFlR',
+        placeholder: 'Say something...'
+    });
+</script>
+
+  </div>
+</div>
+</div>
+        
+
+
+
+
+<div
+  class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+  
+  
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/GitHub_loge.png" alt="Jinyang">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Jinyang
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        温 故 而 知 新
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Wuhan , China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            31
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            11
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            29
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Jinyang79" target="_blank" rel="noopener">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/Jinyang79">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Email" href="mailto:jinyang79@foxmail.com">
+                
+                <i class="fa fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Weibo" href="https://weibo.com/u/5394797263">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Zhihu" href="https://www.zhihu.com/people/jin-yang-1-87">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Dribbble" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+  
+  
+
+<div class="card widget column-left is-sticky" id="toc" style="max-height: 600px; overflow: auto;">
+  <div class="card-content">
+    <div class="menu">
+      <h3 class="menu-label">
+        目录
+      </h3>
+      <ul class="menu-list"><li>
+        <a class="is-flex" href="#Mongoose第三方包">
+        <span class="has-mr-6">1</span>
+        <span>Mongoose第三方包</span>
+        </a></li><li>
+        <a class="is-flex" href="#启动MongoDB">
+        <span class="has-mr-6">2</span>
+        <span>启动MongoDB</span>
+        </a></li><li>
+        <a class="is-flex" href="#数据库连接">
+        <span class="has-mr-6">3</span>
+        <span>数据库连接</span>
+        </a></li><li>
+        <a class="is-flex" href="#创建数据库">
+        <span class="has-mr-6">4</span>
+        <span>创建数据库,</span>
+        </a></li><li>
+        <a class="is-flex" href="#创建集合">
+        <span class="has-mr-6">5</span>
+        <span>创建集合</span>
+        </a></li><li>
+        <a class="is-flex" href="#创建文档">
+        <span class="has-mr-6">6</span>
+        <span>创建文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#创建文档-1">
+        <span class="has-mr-6">7</span>
+        <span>创建文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#mongoDB数据库导入数据">
+        <span class="has-mr-6">8</span>
+        <span>mongoDB数据库导入数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#查询文档">
+        <span class="has-mr-6">9</span>
+        <span>查询文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#查询文档-1">
+        <span class="has-mr-6">10</span>
+        <span>查询文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#查询文档-2">
+        <span class="has-mr-6">11</span>
+        <span>查询文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#删除文档">
+        <span class="has-mr-6">12</span>
+        <span>删除文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#更新文档">
+        <span class="has-mr-6">13</span>
+        <span>更新文档</span>
+        </a></li><li>
+        <a class="is-flex" href="#mongoose验证">
+        <span class="has-mr-6">14</span>
+        <span>mongoose验证</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#获取错误信息">
+        <span class="has-mr-6">14.1</span>
+        <span>获取错误信息</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#集合关联">
+        <span class="has-mr-6">15</span>
+        <span>集合关联</span>
+        </a></li></ul>
+    </div>
+  </div>
+</div>
+
+  
+  
+  <div class="column-right-shadow is-hidden-widescreen ">
+    
+  </div>
+  
+</div>
+
+        
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+  <div class="container">
+    <div class="level">
+      <div class="level-start has-text-centered-mobile">
+        <a class="footer-logo is-block has-mb-6" href="/">
+          
+          <img src="/images/goldsheep.png" alt="mongoDB入门" height="28">
+          
+        </a>
+        <p class="is-size-7">
+          &copy; 2020 Jinyang&nbsp;
+          Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+            href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+          
+          <br>
+          <!-- 配置是否开启不蒜子访问量统计功能 -->
+          <span id="busuanzi_container_site_uv">
+            ❤️ 感谢
+            <span id="busuanzi_value_site_uv">0</span>
+            位小伙伴的
+          </span>
+          <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv">0</span>
+            次陪伴 ❤️
+          </span>
+          <!-- <span id="busuanzi_container_site_uv">
+            共<span id="busuanzi_value_site_uv">0</span>个访客
+          </span> -->
+          
+        </p>
+      </div>
+      <div class="level-end">
+        
+        <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+          
+          <p class="control">
+            <a class="button is-white is-large" target="_blank" rel="noopener"
+              title="Creative Commons" href="https://creativecommons.org/">
+              
+              <i class="fab fa-creative-commons"></i>
+              
+            </a>
+          </p>
+          
+          <p class="control">
+            <a class="button is-white is-large" target="_blank" rel="noopener"
+              title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+              
+              <i class="fab fa-creative-commons-by"></i>
+              
+            </a>
+          </p>
+          
+          <p class="control">
+            <a class="button is-white is-large" target="_blank" rel="noopener"
+              title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+              
+              <i class="fab fa-github"></i>
+              
+            </a>
+          </p>
+          
+        </div>
+        
+        <!-- 网站上线时间展示 -->
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+          var now = new Date();
+          function createtime() {
+            var grt = new Date("10/28/2019 12:49:00");//此处修改你的建站时间或者网站上线时间 
+            now.setTime(now.getTime() + 250);
+            days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+            document.getElementById("timeDate").innerHTML = "⌚本站已安全运行 " + dnum + " 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+          }
+          setInterval("createtime()", 250);
+        </script>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: false,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+  
+  <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+  
+</body>
+
+</html>
