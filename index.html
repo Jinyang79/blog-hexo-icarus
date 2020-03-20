@@ -135,6 +135,103 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
+      <a class="has-link-black-ter" href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/">
+        <i class="fa fa-link" style="color:#3273dc"></i>express入门</a>
+      
+    </h1>
+    
+    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+      <div class="level-left">
+        <time class="level-item has-text-grey" datetime="2020-03-19T08:25:48.060Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-03-19</time>
+        
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-20T13:39:23.444Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-20</time>
+        
+        
+        <div class="level-item">
+          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+          <a class="has-link-grey -link" href="/categories/Node-js/">Node.js</a>
+        </div>
+        
+        
+        <span class="level-item has-text-grey">
+          <i class="far fa-clock"></i>&nbsp;
+          
+          
+          8 分钟 读完 (大约 1244 个字)
+        </span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="content">
+      <h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><p>Express是一个基于Node平台的web应用开发框架，它提供了一系列的强大特性，帮助你创建各种Web应用。我们可以使用 npm install express 命令进行下载。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入Express框架</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// 使用框架创建web服务器</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 当客户端以get方式访问/路由时</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 对客户端做出响应 send方法会根据内容的类型自动设置请求头</span></span><br><span class="line">   res.send(<span class="string">'Hello Express'</span>); <span class="comment">// &lt;h2&gt;Hello Express&lt;/h2&gt; &#123;say: 'hello'&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 程序监听3000端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h3><p>中间件就是一堆方法，可以接收客户端发来的请求、可以对请求做出响应，也可以将请求继续交给下一个中间件继续处理。</p>
+<p>中间件主要由两部分构成，中间件方法以及请求处理函数。<br>中间件方法由Express提供，负责拦截请求，请求处理函数由开发人员提供，负责处理请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'请求路径'</span>, <span class="string">'处理函数'</span>)   <span class="comment">// 接收并处理get请求</span></span><br><span class="line">app.post(<span class="string">'请求路径'</span>, <span class="string">'处理函数'</span>)  <span class="comment">// 接收并处理post请求</span></span><br></pre></td></tr></table></figure>
+
+<p>可以针对同一个请求设置多个中间件，对同一个请求进行多次处理。<br>默认情况下，请求从上到下依次匹配中间件，一旦匹配成功，终止匹配。<br>可以调用next方法将请求的控制权交给下一个中间件，直到遇到结束请求的中间件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/request'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">    req.name = <span class="string">"张三"</span>;</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/request'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(req.name);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="app-use中间件用法"><a href="#app-use中间件用法" class="headerlink" title="app.use中间件用法"></a>app.use中间件用法</h3><p>app.use 匹配所有的请求方式，可以直接传入请求处理函数，代表接收所有的请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>app.use 第一个参数也可以传入请求地址，代表不论什么请求方式，只要是这个请求地址就接收这个请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/admin'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="中间件应用"><a href="#中间件应用" class="headerlink" title="中间件应用"></a>中间件应用</h3><p>路由保护，客户端在访问需要登录的页面时，可以先使用中间件判断用户登录状态，用户如果未登录，则拦截请求，直接响应，禁止用户进入需要登录的页面。<br>网站维护公告，在所有路由的最上面定义接收所有请求的中间件，直接为客户端做出响应，网站正在维护中。<br>自定义404页面</p>
+<h3 id="错误处理中间件"><a href="#错误处理中间件" class="headerlink" title="错误处理中间件"></a>错误处理中间件</h3><p>在程序执行的过程中，不可避免的会出现一些无法预料的错误，比如文件读取失败，数据库连接失败。<br>错误处理中间件是一个集中处理错误的地方。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">err, req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    res.status(<span class="number">500</span>).send(<span class="string">'服务器发生未知错误'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当程序出现错误时，调用next()方法，并且将错误信息通过参数的形式传递给next()方法，即可触发错误处理中间件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> app.get(<span class="string">"/"</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">     fs.readFile(<span class="string">"/file-does-not-exist"</span>, (err, data) =&gt; &#123;</span><br><span class="line">         <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            next(err);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="捕获错误"><a href="#捕获错误" class="headerlink" title="捕获错误"></a>捕获错误</h3><p>在node.js中，异步API的错误信息都是通过回调函数获取的，支持Promise对象的异步API发生错误可以通过catch方法捕获。<br>异步函数执行如果发生错误要如何捕获错误呢？</p>
+<p>try catch 可以捕获异步函数以及其他同步代码在执行过程中发生的错误，但是不能其他类型的API发生的错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span>, <span class="keyword">async</span> (req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> User.find(&#123;<span class="attr">name</span>: <span class="string">'张三'</span>&#125;)</span><br><span class="line">    &#125;<span class="keyword">catch</span>(ex) &#123;</span><br><span class="line">        next(ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建模块化路由"><a href="#构建模块化路由" class="headerlink" title="构建模块化路由"></a>构建模块化路由</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// home.js</span></span><br><span class="line"><span class="keyword">const</span> home = express.Router(); </span><br><span class="line">home.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客展示页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = home;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> home = <span class="built_in">require</span>(<span class="string">'./route/home.js'</span>);</span><br><span class="line">app.use(<span class="string">'/home'</span>, home);</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET参数的获取"><a href="#GET参数的获取" class="headerlink" title="GET参数的获取"></a>GET参数的获取</h3><p>Express框架中使用req.query即可获取GET参数，框架内部会将GET参数转换为对象并返回。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接收地址栏中问号后面的参数</span></span><br><span class="line"><span class="comment">// 例如: http://localhost:3000/?name=zhangsan&amp;age=30</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(req.query); <span class="comment">// &#123;"name": "zhangsan", "age": "30"&#125;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST参数的获取"><a href="#POST参数的获取" class="headerlink" title="POST参数的获取"></a>POST参数的获取</h3><p>Express中接收post请求参数需要借助第三方包 body-parser。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入body-parser模块</span></span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="comment">// 配置body-parser模块</span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line"><span class="comment">// 接收请求</span></span><br><span class="line">app.post(<span class="string">'/add'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 接收请求参数</span></span><br><span class="line">   <span class="built_in">console</span>.log(req.body);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Express路由参数"><a href="#Express路由参数" class="headerlink" title="Express路由参数"></a>Express路由参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// localhost:3000/find/123</span></span><br><span class="line">app.get(<span class="string">'/find/:id'</span>, (req, res) =&gt; &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(req.params); <span class="comment">// &#123;id: 123&#125; </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="静态资源的处理"><a href="#静态资源的处理" class="headerlink" title="静态资源的处理"></a>静态资源的处理</h3><p>通过Express内置的express.static可以方便地托管静态文件，例如img、CSS、JavaScript 文件等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
+
+<p>现在，public 目录下面的文件就可以访问了。</p>
+<p><a href="http://localhost:3000/images/kitten.jpg">http://localhost:3000/images/kitten.jpg</a><br><a href="http://localhost:3000/css/style.css">http://localhost:3000/css/style.css</a><br><a href="http://localhost:3000/js/app.js">http://localhost:3000/js/app.js</a><br><a href="http://localhost:3000/images/bg.png">http://localhost:3000/images/bg.png</a><br><a href="http://localhost:3000/hello.html">http://localhost:3000/hello.html</a> </p>
+
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  
+  <div class="card-content article ">
+    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+      
       <a class="has-link-black-ter" href="/2020/03/17/mongoDB/mongDB%E5%85%A5%E9%97%A8/">
         <i class="fa fa-link" style="color:#3273dc"></i>mongoDB入门</a>
       
@@ -145,8 +242,8 @@
         <time class="level-item has-text-grey" datetime="2020-03-17T07:17:46.882Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-03-17</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-18T13:33:58.360Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-03-18</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-19T12:35:15.193Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-19</time>
         
         
         <div class="level-item">
@@ -535,69 +632,6 @@
 
 
 
-    
-<div class="card">
-  
-  <div class="card-content article ">
-    <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-      
-      <a class="has-link-black-ter" href="/2020/02/24/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/">
-        <i class="fa fa-link" style="color:#3273dc"></i>清除浮动</a>
-      
-    </h1>
-    
-    <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-      <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2020-02-24T10:57:22.656Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2020-02-24</time>
-        
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-03T10:39:48.264Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-03-03</time>
-        
-        
-        <div class="level-item">
-          <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-        </div>
-        
-        
-        <span class="level-item has-text-grey">
-          <i class="far fa-clock"></i>&nbsp;
-          
-          
-          4 分钟 读完 (大约 548 个字)
-        </span>
-        
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <p>清除浮动可以理解为清除浮动产生的影响。当元素浮动时也就是为当前元素创建了块格式化上下文（BFC），会对周围的元素或者父元素在布局上会产生一定的影响。</p>
-<p>比如：父元素因无法自动计算高度而产生的高度塌陷；因脱离文档流而使兄弟元素错位等。</p>
-<p>要清除浮动产生的影响，其实就是在解决这两方面的问题。方法是可以通过设置父元素高度，或利用BFC，或者使用自带属性 <code>clear</code>进行清除。</p>
-    </div>
-    
-    
-    <div class="level is-mobile">
-      <div class="level-start">
-        <div class="level-item">
-          <a class="button is-size-7 is-light" href="/2020/02/24/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/#more">阅读更多</a>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -667,7 +701,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            32
                         </p>
                     </a>
                 </div>
@@ -691,7 +725,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            29
+                            30
                         </p>
                     </a>
                 </div>
@@ -810,7 +844,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/CommonJs/" style="font-size: 10px;">CommonJs</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/ES6-Module/" style="font-size: 10px;">ES6 Module</a> <a href="/tags/ES7/" style="font-size: 10px;">ES7</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 17.5px;">JS</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
+        <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BFC/" style="font-size: 10px;">BFC</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/CommonJs/" style="font-size: 10px;">CommonJs</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/ES6-Module/" style="font-size: 10px;">ES6 Module</a> <a href="/tags/ES7/" style="font-size: 10px;">ES7</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Icarus/" style="font-size: 12.5px;">Icarus</a> <a href="/tags/JS/" style="font-size: 17.5px;">JS</a> <a href="/tags/Node-js/" style="font-size: 12.5px;">Node.js</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 12.5px;">Vuex</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-router/" style="font-size: 12.5px;">vue-router</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">学习日记</a> <a href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" style="font-size: 10px;">箭头函数</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a>
     </div>
 </div>
   
@@ -879,6 +913,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Express/">
+                        <span class="tag">Express</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Git/">
                         <span class="tag">Git</span>
                         <span class="tag is-grey">4</span>
@@ -902,7 +943,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Node-js/">
                         <span class="tag">Node.js</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1043,6 +1084,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919825.svg" alt="express入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-19T08:25:48.060Z">2020-03-19</time></div>
+                    <a href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">express入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Node-js/">Node.js</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/17/mongoDB/mongDB%E5%85%A5%E9%97%A8/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://pic.pngsucai.com/00/59/93/3fdb26ec225493a5.jpg" alt="mongoDB入门">
@@ -1117,25 +1177,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/02/Webpack/webpack%E5%85%A5%E9%97%A8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://camo.githubusercontent.com/d18f4a7a64244f703efcb322bf298dcb4ca38856/68747470733a2f2f7765627061636b2e6a732e6f72672f6173736574732f69636f6e2d7371756172652d6269672e737667" alt="webpack入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-02T07:01:26.837Z">2020-03-02</time></div>
-                    <a href="/2020/03/02/Webpack/webpack%E5%85%A5%E9%97%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">webpack入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1185,7 +1226,7 @@
                 <span class="level-item">Node.js</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Vue-js/">
@@ -1255,7 +1296,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1331,6 +1372,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://image.flaticon.com/icons/svg/919/919825.svg" alt="express入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-19T08:25:48.060Z">2020-03-19</time></div>
+                    <a href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">express入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Node-js/">Node.js</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/17/mongoDB/mongDB%E5%85%A5%E9%97%A8/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://pic.pngsucai.com/00/59/93/3fdb26ec225493a5.jpg" alt="mongoDB入门">
@@ -1405,25 +1465,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/02/Webpack/webpack%E5%85%A5%E9%97%A8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://camo.githubusercontent.com/d18f4a7a64244f703efcb322bf298dcb4ca38856/68747470733a2f2f7765627061636b2e6a732e6f72672f6173736574732f69636f6e2d7371756172652d6269672e737667" alt="webpack入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-02T07:01:26.837Z">2020-03-02</time></div>
-                    <a href="/2020/03/02/Webpack/webpack%E5%85%A5%E9%97%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">webpack入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
   
@@ -1473,7 +1514,7 @@
                 <span class="level-item">Node.js</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Vue-js/">
@@ -1543,7 +1584,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>

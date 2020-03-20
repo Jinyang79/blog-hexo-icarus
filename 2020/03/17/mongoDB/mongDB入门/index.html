@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.pngsucai.com/00/59/93/3fdb26ec225493a5.jpg">
 <meta property="article:published_time" content="2020-03-17T07:17:46.882Z">
-<meta property="article:modified_time" content="2020-03-18T13:33:58.360Z">
+<meta property="article:modified_time" content="2020-03-19T12:35:15.193Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="mongoDB">
 <meta name="twitter:card" content="summary">
@@ -152,8 +152,8 @@
         <time class="level-item has-text-grey" datetime="2020-03-17T07:17:46.882Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-03-17</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-18T13:33:58.360Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-03-18</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-19T12:35:15.193Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-19</time>
         
         
         <div class="level-item">
@@ -220,12 +220,12 @@
 
 <h3 id="创建文档-1"><a href="#创建文档-1" class="headerlink" title="创建文档"></a>创建文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Course.create (&#123;<span class="attr">name</span>:<span class="string">'JavaScript基础'</span>,<span class="attr">author</span>: <span class="string">'黑马讲师'</span>,<span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123;</span><br><span class="line"><span class="comment">//错误对象</span></span><br><span class="line"><span class="built_in">console</span>.log (err)</span><br><span class="line"><span class="comment">//当前插入的文档</span></span><br><span class="line"><span class="built_in">console</span>.log (doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Course.create (&#123;<span class="attr">name</span>: <span class="string">' JavaScript基础'</span>，author: <span class="string">' 黑马讲师'</span>，isPublish: <span class="literal">true</span>&#125;)</span><br><span class="line">.then(doc = =&gt; <span class="built_in">console</span>. log (doc) )</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>. log(err) )</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Course.create (&#123;<span class="attr">name</span>: <span class="string">' JavaScript基础'</span>，author: <span class="string">' 黑马讲师'</span>，isPublish: <span class="literal">true</span>&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>. log (doc) )</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>. log(err) )</span><br></pre></td></tr></table></figure>
 
 <h3 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h3><p>mongoimport -d数据库名称-c集合名称-file要导入的数据文件</p>
-<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据条件查找文档(条件为空则查找所有文档) </span></span><br><span class="line">Course. find() . then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>. log (result) )</span><br><span class="line"><span class="comment">//返回文档集合 数组</span></span><br><span class="line">[&#123;</span><br><span class="line">_id: <span class="number">5</span>c0917ed37ec9b03c07cf95f ，</span><br><span class="line">name :</span><br><span class="line"><span class="string">'node. js基础'</span></span><br><span class="line">author: <span class="string">' 黑马讲师、</span></span><br><span class="line"><span class="string">&#125;,&#123;</span></span><br><span class="line"><span class="string">id: 5c09dea28acfb814980ff827 ,</span></span><br><span class="line"><span class="string">name:'</span> Javascript <span class="string">' ,</span></span><br><span class="line"><span class="string">author:，黑马讲师、</span></span><br><span class="line"><span class="string">&#125;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据条件查找文档(条件为空则查找所有文档) </span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>. log (result) )</span><br><span class="line"><span class="comment">//返回文档集合 数组</span></span><br><span class="line">[&#123;</span><br><span class="line">_id: <span class="number">5</span>c0917ed37ec9b03c07cf95f ，</span><br><span class="line">name :</span><br><span class="line"><span class="string">'node. js基础'</span></span><br><span class="line">author: <span class="string">' 黑马讲师、</span></span><br><span class="line"><span class="string">&#125;,&#123;</span></span><br><span class="line"><span class="string">id: 5c09dea28acfb814980ff827 ,</span></span><br><span class="line"><span class="string">name:'</span> Javascript <span class="string">' ,</span></span><br><span class="line"><span class="string">author:，黑马讲师、</span></span><br><span class="line"><span class="string">&#125;]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="查询文档-1"><a href="#查询文档-1" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// findOne方法返回一条文档默认返回当前集合中的第一条文档 返回格式</span></span><br><span class="line">Course.findone ( &#123;<span class="attr">name</span> :</span><br><span class="line"><span class="string">'node. js基础'</span> &#125;). then (<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>. log (result) )</span><br><span class="line"><span class="comment">//返回文档 对象</span></span><br><span class="line">&#123;</span><br><span class="line">id: <span class="number">5</span>c091 <span class="number">7</span>ed37ec9b03c07cf95f ,</span><br><span class="line">name: <span class="string">'node. js基础'</span>，</span><br><span class="line">author: <span class="string">'黑马 讲师、</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="查询文档-1"><a href="#查询文档-1" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// findOne方法返回一条文档默认返回当前集合中的第一条文档 返回对象</span></span><br><span class="line">Course.findone ( &#123;<span class="attr">name</span> :</span><br><span class="line"><span class="string">'node. js基础'</span> &#125;). then (<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>. log (result) )</span><br><span class="line"><span class="comment">//返回文档 对象</span></span><br><span class="line">&#123;</span><br><span class="line">id: <span class="number">5</span>c091 <span class="number">7</span>ed37ec9b03c07cf95f ,</span><br><span class="line">name: <span class="string">'node. js基础'</span>，</span><br><span class="line">author: <span class="string">'黑马 讲师、</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="查询文档-2"><a href="#查询文档-2" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匹配 大于$gt 小于$lt</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>，$lt: <span class="number">50</span>&#125;&#125;).then (<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//选择要查询的字段 字段前面加上'-' 不显示</span></span><br><span class="line">User.find().select(<span class="string">'name email'</span>) . then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">//将数据按照年龄进行排序 默认升序  '-age'降序</span></span><br><span class="line">User.find().sort(<span class="string">'age'</span>) . then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">// skip 跳过多少条数据limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log (result))</span><br></pre></td></tr></table></figure>
 
@@ -304,6 +304,14 @@
 
 <div class="card card-transparent">
   <div class="level post-navigation is-flex-wrap is-mobile">
+    
+    <div class="level-start">
+      <a class="level level-item has-link-grey  article-nav-prev"
+        href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/">
+        <i class="level-item fas fa-chevron-left"></i>
+        <span class="level-item">express入门</span>
+      </a>
+    </div>
     
     
     <div class="level-end">
@@ -385,7 +393,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            32
                         </p>
                     </a>
                 </div>
@@ -409,7 +417,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            29
+                            30
                         </p>
                     </a>
                 </div>
