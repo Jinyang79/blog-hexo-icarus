@@ -12,16 +12,16 @@
 <title>express入门 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="ExpressExpress是一个基于Node平台的web应用开发框架，它提供了一系列的强大特性，帮助你创建各种Web应用。我们可以使用 npm install express 命令进行下载。 1234567891011&#x2F;&#x2F; 引入Express框架const express &#x3D; require(&#39;express&#39;);&#x2F;&#x2F; 使用框架创建web服务器const app &#x3D; express();&#x2F;&#x2F; 当">
+    <meta name="description" content="ExpressExpress是一个基于Node平台的web应用开发框架，它提供了一系列的强大特性，帮助你创建各种Web应用。我们可以使用 npm install express 命令进行下载。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="express入门">
 <meta property="og:url" content="http://yoursite.com/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="ExpressExpress是一个基于Node平台的web应用开发框架，它提供了一系列的强大特性，帮助你创建各种Web应用。我们可以使用 npm install express 命令进行下载。 1234567891011&#x2F;&#x2F; 引入Express框架const express &#x3D; require(&#39;express&#39;);&#x2F;&#x2F; 使用框架创建web服务器const app &#x3D; express();&#x2F;&#x2F; 当">
+<meta property="og:description" content="ExpressExpress是一个基于Node平台的web应用开发框架，它提供了一系列的强大特性，帮助你创建各种Web应用。我们可以使用 npm install express 命令进行下载。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://image.flaticon.com/icons/svg/919/919825.svg">
 <meta property="article:published_time" content="2020-03-19T08:25:48.060Z">
-<meta property="article:modified_time" content="2020-03-20T13:39:23.444Z">
+<meta property="article:modified_time" content="2020-03-21T13:28:56.976Z">
 <meta property="article:author" content="Jinyang">
 <meta property="article:tag" content="Node.js">
 <meta property="article:tag" content="Express">
@@ -153,8 +153,8 @@
         <time class="level-item has-text-grey" datetime="2020-03-19T08:25:48.060Z"><i
             class="far fa-calendar-alt">&nbsp;</i>2020-03-19</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-20T13:39:23.444Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-03-20</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-21T13:28:56.976Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-21</time>
         
         
         <div class="level-item">
@@ -167,7 +167,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          8 分钟 读完 (大约 1244 个字)
+          8 分钟 读完 (大约 1245 个字)
         </span>
         
         
@@ -181,6 +181,7 @@
     
     <div class="content">
       <h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><p>Express是一个基于Node平台的web应用开发框架，它提供了一系列的强大特性，帮助你创建各种Web应用。我们可以使用 npm install express 命令进行下载。</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入Express框架</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// 使用框架创建web服务器</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 当客户端以get方式访问/路由时</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 对客户端做出响应 send方法会根据内容的类型自动设置请求头</span></span><br><span class="line">   res.send(<span class="string">'Hello Express'</span>); <span class="comment">// &lt;h2&gt;Hello Express&lt;/h2&gt; &#123;say: 'hello'&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 程序监听3000端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
 
 <h3 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h3><p>中间件就是一堆方法，可以接收客户端发来的请求、可以对请求做出响应，也可以将请求继续交给下一个中间件继续处理。</p>
@@ -223,7 +224,11 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
 
 <p>现在，public 目录下面的文件就可以访问了。</p>
-<p><a href="http://localhost:3000/images/kitten.jpg">http://localhost:3000/images/kitten.jpg</a><br><a href="http://localhost:3000/css/style.css">http://localhost:3000/css/style.css</a><br><a href="http://localhost:3000/js/app.js">http://localhost:3000/js/app.js</a><br><a href="http://localhost:3000/images/bg.png">http://localhost:3000/images/bg.png</a><br><a href="http://localhost:3000/hello.html">http://localhost:3000/hello.html</a> </p>
+<p><a href="http://localhost:3000/images/kitten.jpg">http://localhost:3000/images/kitten.jpg</a></p>
+<p><a href="http://localhost:3000/css/style.css">http://localhost:3000/css/style.css</a></p>
+<p><a href="http://localhost:3000/js/app.js">http://localhost:3000/js/app.js</a></p>
+<p><a href="http://localhost:3000/images/bg.png">http://localhost:3000/images/bg.png</a></p>
+<p><a href="http://localhost:3000/hello.html">http://localhost:3000/hello.html</a> </p>
 
     </div>
     
@@ -358,7 +363,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            32
+                            33
                         </p>
                     </a>
                 </div>
@@ -370,7 +375,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            11
+                            12
                         </p>
                     </a>
                 </div>
@@ -382,7 +387,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            30
+                            31
                         </p>
                     </a>
                 </div>
