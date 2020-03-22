@@ -9,24 +9,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>npm常用命令 - Jinyang&#39;s blog</title>
+<title>观察者模式和发布订阅模式有什么不同？ - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="查看npm命令： 1$ npm help  始化一个基于node的项目，会创建一个配置文件package.json（两种方式）:">
+    <meta name="description" content="观察者模式和发布订阅模式有什么不同？发布订阅模式其实属于广义上的观察者模式  在观察者模式中，观察者需要直接订阅目标事件。在目标发出内容改变的事件后，直接接收事件并作出响应。  而在发布订阅模式中，发布者和订阅者之间多了一个调度中心。调度中心一方面从发布者接收事件，另一方面向订阅者发布事件，订阅者需要在调度中心中订阅事件。通过调度中心实现了发布者和订阅者关系的解耦。使用发布订阅者模式更利于我们代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm常用命令">
-<meta property="og:url" content="http://yoursite.com/2020/03/02/Node.js/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="观察者模式和发布订阅模式有什么不同？">
+<meta property="og:url" content="http://yoursite.com/2020/03/22/JS/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="查看npm命令： 1$ npm help  始化一个基于node的项目，会创建一个配置文件package.json（两种方式）:">
+<meta property="og:description" content="观察者模式和发布订阅模式有什么不同？发布订阅模式其实属于广义上的观察者模式  在观察者模式中，观察者需要直接订阅目标事件。在目标发出内容改变的事件后，直接接收事件并作出响应。  而在发布订阅模式中，发布者和订阅者之间多了一个调度中心。调度中心一方面从发布者接收事件，另一方面向订阅者发布事件，订阅者需要在调度中心中订阅事件。通过调度中心实现了发布者和订阅者关系的解耦。使用发布订阅者模式更利于我们代码">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://image.flaticon.com/icons/svg/919/919825.svg">
-<meta property="article:published_time" content="2020-03-02T10:00:15.688Z">
-<meta property="article:modified_time" content="2020-03-03T10:28:08.389Z">
+<meta property="og:image" content="https://image.flaticon.com/icons/svg/541/541509.svg">
+<meta property="article:published_time" content="2020-03-22T13:25:55.218Z">
+<meta property="article:modified_time" content="2020-03-22T13:32:26.466Z">
 <meta property="article:author" content="Jinyang">
-<meta property="article:tag" content="Node.js">
-<meta property="article:tag" content="npm">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.flaticon.com/icons/svg/919/919825.svg">
+<meta name="twitter:image" content="https://image.flaticon.com/icons/svg/541/541509.svg">
 
 
 
@@ -85,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="npm常用命令" height="28">
+                <img src="/images/goldsheep.png" alt="观察者模式和发布订阅模式有什么不同？" height="28">
             
             </a>
         </div>
@@ -144,22 +143,22 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <i class="fa fa-battery-full" style="color:#3273dc"></i>npm常用命令
+      <i class="fa fa-battery-full" style="color:#3273dc"></i>观察者模式和发布订阅模式有什么不同？
       
     </h1>
     
     <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
       <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2020-03-02T10:00:15.688Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2020-03-02</time>
+        <time class="level-item has-text-grey" datetime="2020-03-22T13:25:55.218Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-03-22</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-03T10:28:08.389Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-03-03</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-22T13:32:26.466Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-22</time>
         
         
         <div class="level-item">
           <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/Node-js/">Node.js</a>
+          <a class="has-link-grey -link" href="/categories/JS/">JS</a>
         </div>
         
         
@@ -167,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          4 分钟 读完 (大约 549 个字)
+          1 分钟 读完 (大约 223 个字)
         </span>
         
         
@@ -180,40 +179,10 @@
     </div>
     
     <div class="content">
-      <p>查看npm命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm help</span><br></pre></td></tr></table></figure>
-
-<p>始化一个基于node的项目，会创建一个配置文件package.json（两种方式）:</p>
-<a id="more"></a>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//<span class="number">1</span>.一般情况下 一路enter</span><br><span class="line"><span class="variable">$</span> npm init</span><br><span class="line"></span><br><span class="line">//<span class="number">2</span>.全部使用默认配置</span><br><span class="line"><span class="variable">$</span> npm init -<span class="literal">-yes</span></span><br></pre></td></tr></table></figure>
-
-<p>安装模块（包）：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//全局安装</span><br><span class="line"><span class="variable">$</span> npm install 模块名 <span class="literal">-g</span></span><br><span class="line">//本地安装</span><br><span class="line"><span class="variable">$</span> npm install 模块名</span><br><span class="line">//一次性安装多个</span><br><span class="line"><span class="variable">$</span> npm install 模块<span class="number">1</span> 模块<span class="number">2</span> 模块n -<span class="literal">-save</span></span><br><span class="line"></span><br><span class="line">//安装运行时依赖包</span><br><span class="line"><span class="variable">$</span> npm install 模块名 -<span class="literal">-save</span></span><br><span class="line">//安装开发时依赖包</span><br><span class="line"><span class="variable">$</span> npm install 模块名 -<span class="literal">-save</span><span class="literal">-dev</span></span><br></pre></td></tr></table></figure>
-
-<p>查看安装目录：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//查看本地安装的目录</span><br><span class="line"><span class="variable">$</span> npm root</span><br><span class="line"></span><br><span class="line">//查看全局安装的目录</span><br><span class="line"><span class="variable">$</span> npm root <span class="literal">-g</span></span><br></pre></td></tr></table></figure>
-
-<p>卸载模块（包）：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//卸载本地模块</span><br><span class="line"><span class="variable">$</span> npm uninstall 模块名</span><br><span class="line"></span><br><span class="line">//卸载全局模块</span><br><span class="line"><span class="variable">$</span> npm uninstall <span class="literal">-g</span> 模块名</span><br></pre></td></tr></table></figure>
-
-<p>更新模块（包）</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm update 模块名</span><br><span class="line"></span><br><span class="line"><span class="variable">$</span> npm update 模块名 <span class="literal">-g</span></span><br></pre></td></tr></table></figure>
-
-<p>查看当前安装的模块（包）</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm ls</span><br><span class="line"></span><br><span class="line"><span class="variable">$</span> npm ls <span class="literal">-g</span></span><br></pre></td></tr></table></figure>
-
-<p>查看模块（包）的信息：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm info 模块名</span><br></pre></td></tr></table></figure>
-
-<p>在使用 npm install 命令时，有许多指定参数的命令是可以进行缩写的，本文就简单梳理一下。</p>
-<p>npm install本身有一个别名，即npm i，可以使用这种缩写方式来运行命令，打到简化的效果。</p>
-<p>以下为指定的一些命令行参数的缩写方式：</p>
-<p>-g<br> –global，缩写为-g，表示安装包时，视作全局的包。安装之后的包将位于系统预设的目录之下，一般来说</p>
-<p>-S<br> –save，缩写为-S，表示安装的包将写入package.json里面的dependencies。 表示我们要在生产环境下使用该依赖。</p>
-<p>-D<br> –save-dev，缩写为-D，表示将安装的包将写入packege.json里面的devDependencies。则表示我们仅在开发环境使用该依赖。</p>
-<p>-O<br> –save-optional缩写为-O，表示将安装的包将写入packege.json里面的optionalDependencies。</p>
-<p>-E<br> –save-exact缩写为-E，表示安装的包的版本是精确指定的。</p>
-<p>-B<br> –save-bundle缩写为-B，表示将安装的包将写入packege.json里面的bundleDependencies。</p>
+      <h4 id="观察者模式和发布订阅模式有什么不同？"><a href="#观察者模式和发布订阅模式有什么不同？" class="headerlink" title="观察者模式和发布订阅模式有什么不同？"></a>观察者模式和发布订阅模式有什么不同？</h4><p>发布订阅模式其实属于广义上的观察者模式</p>
+<p> 在观察者模式中，观察者需要直接订阅目标事件。在目标发出内容改变的事件后，直接接收事件并作出响应。</p>
+<p> 而在发布订阅模式中，发布者和订阅者之间多了一个调度中心。调度中心一方面从发布者接收事件，另一方面向订阅者发布事件，订阅者需要在调度中心中订阅事件。通过调度中心实现了发布者和订阅者关系的解耦。使用发布订阅者模式更利于我们代码的可维护性。</p>
+<p><a href="https://juejin.im/post/5a14e9edf265da4312808d86">观察者模式 vs 发布-订阅模式</a></p>
 
     </div>
     
@@ -222,7 +191,7 @@
       <div class="level-start">
         <div class="level-item">
           <i class="fas fa-tags has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/tags/Node-js/" rel="tag">Node.js</a>,&nbsp;<a class="has-link-grey -link" href="/tags/npm/" rel="tag">npm</a>
+          <a class="has-link-grey -link" href="/tags/JS/" rel="tag">JS</a>
         </div>
       </div>
     </div>
@@ -268,19 +237,11 @@
 <div class="card card-transparent">
   <div class="level post-navigation is-flex-wrap is-mobile">
     
-    <div class="level-start">
-      <a class="level level-item has-link-grey  article-nav-prev"
-        href="/2020/03/03/JS/JS%E6%A8%A1%E5%9D%97%E5%8C%96/">
-        <i class="level-item fas fa-chevron-left"></i>
-        <span class="level-item">JS模块化</span>
-      </a>
-    </div>
-    
     
     <div class="level-end">
       <a class="level level-item has-link-grey  article-nav-next"
-        href="/2020/03/02/Webpack/webpack%E5%85%A5%E9%97%A8/">
-        <span class="level-item">webpack入门</span>
+        href="/2020/03/19/Node.js/express%E5%85%A5%E9%97%A8/">
+        <span class="level-item">express入门</span>
         <i class="level-item fas fa-chevron-right"></i>
       </a>
     </div>
@@ -438,6 +399,21 @@
   
   
 
+<div class="card widget column-left is-sticky" id="toc" style="max-height: 600px; overflow: auto;">
+  <div class="card-content">
+    <div class="menu">
+      <h3 class="menu-label">
+        目录
+      </h3>
+      <ul class="menu-list"><li>
+        <a class="is-flex" href="#观察者模式和发布订阅模式有什么不同？">
+        <span class="has-mr-6">1</span>
+        <span>观察者模式和发布订阅模式有什么不同？</span>
+        </a></li></ul>
+    </div>
+  </div>
+</div>
+
   
   
   <div class="column-right-shadow is-hidden-widescreen ">
@@ -456,7 +432,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="npm常用命令" height="28">
+          <img src="/images/goldsheep.png" alt="观察者模式和发布订阅模式有什么不同？" height="28">
           
         </a>
         <p class="is-size-7">
