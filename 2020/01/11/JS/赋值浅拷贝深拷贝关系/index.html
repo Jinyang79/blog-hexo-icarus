@@ -9,23 +9,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>学习笔记 - Jinyang&#39;s blog</title>
+<title>赋值浅拷贝深拷贝关系 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="Git常见操作 git status    查看当前项目中源代码的状态  git add .     全部添加到暂存区  git commit -m &quot;提交信息&quot;   把暂存区所有代码提交到本地仓库中  git branch    查看分支    *当前处于分支  git branch 分支名 创建分支  git checkout 分支名   切换分支  git checkou">
+    <meta name="description" content="– 和原数据是否指向同一对象 第一层数据为基本数据类型 原数据中包含子对象    赋值 是 改变会使原数据一同改变 改变会使原数据一同改变   浅拷贝 否 改变不会使原数据一同改变 改变会使原数据一同改变   深拷贝 否 改变不会使原数据一同改变 改变不会使原数据一同改变    js 深拷贝 vs 浅拷贝">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="赋值浅拷贝深拷贝关系">
+<meta property="og:url" content="http://yoursite.com/2020/01/11/JS/%E8%B5%8B%E5%80%BC%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%85%B3%E7%B3%BB/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="Git常见操作 git status    查看当前项目中源代码的状态  git add .     全部添加到暂存区  git commit -m &quot;提交信息&quot;   把暂存区所有代码提交到本地仓库中  git branch    查看分支    *当前处于分支  git branch 分支名 创建分支  git checkout 分支名   切换分支  git checkou">
+<meta property="og:description" content="– 和原数据是否指向同一对象 第一层数据为基本数据类型 原数据中包含子对象    赋值 是 改变会使原数据一同改变 改变会使原数据一同改变   浅拷贝 否 改变不会使原数据一同改变 改变会使原数据一同改变   深拷贝 否 改变不会使原数据一同改变 改变不会使原数据一同改变    js 深拷贝 vs 浅拷贝">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://image.flaticon.com/icons/svg/2620/2620272.svg">
-<meta property="article:published_time" content="2019-11-30T05:06:29.000Z">
-<meta property="article:modified_time" content="2020-02-27T12:27:33.858Z">
+<meta property="og:image" content="https://image.flaticon.com/icons/svg/541/541509.svg">
+<meta property="article:published_time" content="2020-01-11T12:06:23.726Z">
+<meta property="article:modified_time" content="2020-03-25T13:51:00.326Z">
 <meta property="article:author" content="Jinyang">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.flaticon.com/icons/svg/2620/2620272.svg">
+<meta name="twitter:image" content="https://image.flaticon.com/icons/svg/541/541509.svg">
 
 
 
@@ -84,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="学习笔记" height="28">
+                <img src="/images/goldsheep.png" alt="赋值浅拷贝深拷贝关系" height="28">
             
             </a>
         </div>
@@ -120,6 +120,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -139,22 +143,22 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <i class="fa fa-battery-full" style="color:#3273dc"></i>学习笔记
+      <i class="fa fa-battery-full" style="color:#3273dc"></i>赋值浅拷贝深拷贝关系
       
     </h1>
     
     <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
       <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2019-11-30T05:06:29.000Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2019-11-30</time>
+        <time class="level-item has-text-grey" datetime="2020-01-11T12:06:23.726Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-01-11</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:27:33.858Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-25T13:51:00.326Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-03-25</time>
         
         
         <div class="level-item">
           <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
+          <a class="has-link-grey -link" href="/categories/JS/">JS</a>
         </div>
         
         
@@ -162,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          7 分钟 读完 (大约 1000 个字)
+          1 分钟 读完 (大约 131 个字)
         </span>
         
         
@@ -175,91 +179,37 @@
     </div>
     
     <div class="content">
-      <h2 id="Git常见操作"><a href="#Git常见操作" class="headerlink" title="Git常见操作"></a>Git常见操作</h2><ul>
-<li><p><code>git status</code>    查看当前项目中源代码的状态</p>
-</li>
-<li><p><code>git add .</code>     全部添加到暂存区</p>
-</li>
-<li><p><code>git commit -m &quot;提交信息&quot;</code>   把暂存区所有代码提交到本地仓库中</p>
-</li>
-<li><p><code>git branch</code>    查看分支    *当前处于分支</p>
-</li>
-<li><p><code>git branch 分支名</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名</code>   切换分支</p>
-</li>
-<li><p><code>git checkout -b 分支名</code>  创建并切换到分支</p>
-</li>
-<li><p><code>git merge 分支名</code>          合并分支（合并到本地，云端并没有）</p>
-</li>
-<li><p><code>git push</code>  把本地分支中最新的代码推送到远程仓库中 默认master主分支</p>
-</li>
-<li><p><code>git push -u origin 分支名</code> 第一次推送到此分支的时候使用</p>
-</li>
-<li><h4 id="分支（login）合并到主分支（master）"><a href="#分支（login）合并到主分支（master）" class="headerlink" title="分支（login）合并到主分支（master）"></a>分支（login）合并到主分支（master）</h4></li>
-<li><p>1.切换到主分支 <code>git checkout master</code></p>
-</li>
-<li><p>2.合并分支 <code>git merge login</code></p>
-</li>
-<li><p>3.推送到云端（仓库）<code>git push</code> </p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="get和post请求区别-还有哪些http-method"><a href="#get和post请求区别-还有哪些http-method" class="headerlink" title="get和post请求区别 还有哪些http method"></a>get和post请求区别 还有哪些http method</h2><ul>
-<li><p>get和post本质上没有区别，他们都是http的请求方式，基于tcp协议，但因为在不同的浏览器实现，就有了不同。</p>
-</li>
-<li><p>get请求的数据放在url上，post请求的数据放在http的包体内，所以说post相对get更安全。</p>
-</li>
-<li><p>get是通过URL提交数据，因此get提交数据根据url长度有关，不同的浏览器不同，一般是2k，而post理论上是没有限制的。</p>
-</li>
-<li><p>get幂等，post不幂等。 幂等是指同一个请求方法执行多次和仅执行一次的效果完全相同。</p>
-</li>
-<li><p>GET在浏览器回退时是无害的，POST会再次提交请求。</p>
-</li>
-<li><p>GET请求只能进行url编码，而POST支持多种编码方式。</p>
-</li>
-<li><p>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</p>
-</li>
-<li><p>GET只接受ASCII字符的参数的数据类型，而POST没有限制</p>
-</li>
-<li><p>那么，post那么好为什么还用get？get效率高！。</p>
-</li>
-<li><p>其他请求方式（http method）</p>
-</li>
-<li><p>head、put、delete、trace、connect、options</p>
-</li>
-</ul>
-<h2 id="vue的computed属性和methods区别"><a href="#vue的computed属性和methods区别" class="headerlink" title="vue的computed属性和methods区别"></a>vue的computed属性和methods区别</h2><p>最大的区别是缓存</p>
-<p>计算属性是基于它们的依赖进行缓存的</p>
-<p>方法不存在缓存</p>
-<ul>
-<li><code>computed</code>是响应式的，<code>methods</code>并非响应式。</li>
-<li>调用方式不一样，<code>computed</code>定义的成员像属性一样访问，<code>methods</code>定义的成员必须以函数形式调用。</li>
-<li><code>computed</code>是带缓存的，只有其引用的响应式属性发生改变时才会重新计算，而<code>methods</code>里的函数在每次调用时都要执行。</li>
-<li><code>computed</code>中的成员可以只定义一个函数作为只读属性，也可以定义<code>get/set</code>变成可读写属性，这点是<code>methods</code>中的成员做不到的</li>
-</ul>
-<h3 id="初始化数据"><a href="#初始化数据" class="headerlink" title="初始化数据"></a>初始化数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">string:<span class="string">''</span>,</span><br><span class="line"><span class="comment">// 数组</span></span><br><span class="line">array:[],</span><br><span class="line"><span class="comment">// 数字</span></span><br><span class="line">number：<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="vue过滤器"><a href="#vue过滤器" class="headerlink" title="vue过滤器"></a>vue过滤器</h3><p>p237</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>p239</p>
-<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line"></span><br><span class="line"> render: h &#x3D;&gt; h(App)</span><br><span class="line"></span><br><span class="line">&#125;).$mount(&#39;#app&#39;)</span><br></pre></td></tr></table></figure>
-
-<p>render: h =&gt; h(App)  渲染到APP组件</p>
-<p>$mount(‘#app’) 挂载到#app上</p>
-<p>这是Vue 2.0新增的函数，可以直接给绑定节点渲染一个vue组件，如果在Vue 1.x下，就应该使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    components: &#123; App &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>然后在页面中写入标记：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;app&gt;&lt;&#x2F;app&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><p>trim() 方法用于删除字符串的头尾空格。</p>
-<p>trim() 方法不会改变原始字符串。</p>
-<h3 id="ES6，Array-find-和findIndex-函数的用法"><a href="#ES6，Array-find-和findIndex-函数的用法" class="headerlink" title="ES6，Array.find()和findIndex()函数的用法]"></a>ES6，Array.find()和findIndex()函数的用法]</h3><p>ES6为Array增加了find()，findIndex函数。</p>
-<p>find()函数用来查找目标元素，找到就返回该元素，找不到返回undefined。</p>
-<p>findIndex()函数也是查找目标元素，找到就返回元素的位置，找不到就返回-1。</p>
-<h3 id="json"><a href="#json" class="headerlink" title="json"></a>json</h3><p><code>**JSON.parse()**</code> 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。</p>
-<p><code>**JSON.stringify()**</code> 方法将一个 JavaScript 值（对象或者数组）转换为一个 JSON 字符串。</p>
+      <table>
+<thead>
+<tr>
+<th>–</th>
+<th>和原数据是否指向同一对象</th>
+<th>第一层数据为基本数据类型</th>
+<th>原数据中包含子对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>赋值</td>
+<td>是</td>
+<td>改变会使原数据一同改变</td>
+<td>改变会使原数据一同改变</td>
+</tr>
+<tr>
+<td>浅拷贝</td>
+<td>否</td>
+<td>改变<strong>不</strong>会使原数据一同改变</td>
+<td>改变会使原数据一同改变</td>
+</tr>
+<tr>
+<td>深拷贝</td>
+<td>否</td>
+<td>改变<strong>不</strong>会使原数据一同改变</td>
+<td>改变<strong>不</strong>会使原数据一同改变</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a href="https://juejin.im/post/59ac1c4ef265da248e75892b">js 深拷贝 vs 浅拷贝</a></p>
+</blockquote>
 
     </div>
     
@@ -268,7 +218,7 @@
       <div class="level-start">
         <div class="level-item">
           <i class="fas fa-tags has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/tags/Git/" rel="tag">Git</a>
+          <a class="has-link-grey -link" href="/tags/JS/" rel="tag">JS</a>
         </div>
       </div>
     </div>
@@ -316,12 +266,20 @@
     
     <div class="level-start">
       <a class="level level-item has-link-grey  article-nav-prev"
-        href="/2019/11/30/%E6%97%A5%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+        href="/2020/01/14/ES6/promise/">
         <i class="level-item fas fa-chevron-left"></i>
-        <span class="level-item">学习日记</span>
+        <span class="level-item">Promise(常用方法)</span>
       </a>
     </div>
     
+    
+    <div class="level-end">
+      <a class="level level-item has-link-grey  article-nav-next"
+        href="/2020/01/11/JS/JavaScript%E9%97%AD%E5%8C%85%EF%BC%88Closure%EF%BC%89/">
+        <span class="level-item">JavaScript闭包（Closure）</span>
+        <i class="level-item fas fa-chevron-right"></i>
+      </a>
+    </div>
     
   </div>
 </div>
@@ -365,7 +323,7 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="/images/GitHub_loge.png" alt="Jinyang">
+                        <img class="is-rounded" src="/images/avatar.png" alt="Jinyang">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -374,13 +332,13 @@
                     
                     
                     <p class="is-size-6 is-block">
-                        温 故 而 知 新
+                        ⛳__🕳__🏃‍♂️💨
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Wuhan , China</span>
+                        <span>Heart , China</span>
                     </p>
                     
                 </div>
@@ -394,7 +352,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            34
+                            32
                         </p>
                     </a>
                 </div>
@@ -406,7 +364,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            12
+                            11
                         </p>
                     </a>
                 </div>
@@ -418,7 +376,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            31
+                            30
                         </p>
                     </a>
                 </div>
@@ -475,6 +433,7 @@
 </div>
   
   
+
   
   
   <div class="column-right-shadow is-hidden-widescreen ">
@@ -493,7 +452,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="学习笔记" height="28">
+          <img src="/images/goldsheep.png" alt="赋值浅拷贝深拷贝关系" height="28">
           
         </a>
         <p class="is-size-7">
