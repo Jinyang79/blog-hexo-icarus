@@ -9,23 +9,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>清除浮动 - Jinyang&#39;s blog</title>
+<title>Proxy及其优势 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="清除浮动可以理解为清除浮动产生的影响。当元素浮动时也就是为当前元素创建了块格式化上下文（BFC），会对周围的元素或者父元素在布局上会产生一定的影响。 比如：父元素因无法自动计算高度而产生的高度塌陷；因脱离文档流而使兄弟元素错位等。 要清除浮动产生的影响，其实就是在解决这两方面的问题。方法是可以通过设置父元素高度，或利用BFC，或者使用自带属性 clear进行清除。">
+    <meta name="description" content="什么是 Proxy ？ Proxy 对象用于定义基本操作的自定义行为（如属性查找、赋值、枚举、函数调用等）。  Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。 Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意">
 <meta property="og:type" content="article">
-<meta property="og:title" content="清除浮动">
-<meta property="og:url" content="http://yoursite.com/2020/02/24/CSS/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/index.html">
+<meta property="og:title" content="Proxy及其优势">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/ES6+/proxy/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="清除浮动可以理解为清除浮动产生的影响。当元素浮动时也就是为当前元素创建了块格式化上下文（BFC），会对周围的元素或者父元素在布局上会产生一定的影响。 比如：父元素因无法自动计算高度而产生的高度塌陷；因脱离文档流而使兄弟元素错位等。 要清除浮动产生的影响，其实就是在解决这两方面的问题。方法是可以通过设置父元素高度，或利用BFC，或者使用自带属性 clear进行清除。">
+<meta property="og:description" content="什么是 Proxy ？ Proxy 对象用于定义基本操作的自定义行为（如属性查找、赋值、枚举、函数调用等）。  Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。 Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://image.flaticon.com/icons/svg/919/919826.svg">
-<meta property="article:published_time" content="2020-02-24T10:57:22.656Z">
-<meta property="article:modified_time" content="2020-03-03T10:39:48.264Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/es6/es6.png">
+<meta property="article:published_time" content="2020-04-10T08:08:39.371Z">
+<meta property="article:modified_time" content="2020-04-11T04:25:28.303Z">
 <meta property="article:author" content="Jinyang">
-<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Proxy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.flaticon.com/icons/svg/919/919826.svg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/es6/es6.png">
 
 
 
@@ -84,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="清除浮动" height="28">
+                <img src="/images/goldsheep.png" alt="Proxy及其优势" height="28">
             
             </a>
         </div>
@@ -143,22 +143,22 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <i class="fa fa-battery-full" style="color:#3273dc"></i>清除浮动
+      <i class="fa fa-battery-full" style="color:#3273dc"></i>Proxy及其优势
       
     </h1>
     
     <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
       <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2020-02-24T10:57:22.656Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2020-02-24</time>
+        <time class="level-item has-text-grey" datetime="2020-04-10T08:08:39.371Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-04-10</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-03T10:39:48.264Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-03-03</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-11T04:25:28.303Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-04-11</time>
         
         
         <div class="level-item">
           <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+          <a class="has-link-grey -link" href="/categories/ES6/">ES6+</a>
         </div>
         
         
@@ -166,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          4 分钟 读完 (大约 548 个字)
+          9 分钟 读完 (大约 1283 个字)
         </span>
         
         
@@ -179,19 +179,74 @@
     </div>
     
     <div class="content">
-      <p>清除浮动可以理解为清除浮动产生的影响。当元素浮动时也就是为当前元素创建了块格式化上下文（BFC），会对周围的元素或者父元素在布局上会产生一定的影响。</p>
-<p>比如：父元素因无法自动计算高度而产生的高度塌陷；因脱离文档流而使兄弟元素错位等。</p>
-<p>要清除浮动产生的影响，其实就是在解决这两方面的问题。方法是可以通过设置父元素高度，或利用BFC，或者使用自带属性 <code>clear</code>进行清除。</p>
+      <h2 id="什么是-Proxy-？"><a href="#什么是-Proxy-？" class="headerlink" title="什么是 Proxy ？"></a>什么是 Proxy ？</h2><blockquote>
+<p><strong>Proxy</strong> 对象用于定义基本操作的自定义行为（如属性查找、赋值、枚举、函数调用等）。</p>
+</blockquote>
+<p>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。</p>
+<p>Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。</p>
 <a id="more"></a>
-<hr>
-<h3 id="1-设置父元素的高度"><a href="#1-设置父元素的高度" class="headerlink" title="1. 设置父元素的高度"></a>1. 设置父元素的高度</h3><p>设置父元素的高度解决的是元素浮动产生的父元素高度塌陷问题，其内部元素浮动影响并未彻底清除，且需要进行计算然后再设置，比较固定，一旦子元素的高度发生改变，父元素的高度也需要再次计算设置，不够灵活。除非内容高度固定一成不变，否则不推荐使用。</p>
-<h3 id="2-利用BFC"><a href="#2-利用BFC" class="headerlink" title="2. 利用BFC"></a>2. 利用BFC</h3><p>根据BFC的规则计算BFC的高度时，浮动元素也参与计算, 父级元素设置为<code>overflow : hidden</code><br>该方法是需要把属性添加到父元素当中，以解决内部元素浮动影响。不能用于解决兄弟元素的浮动问题。</p>
-<hr>
-<h3 id="3-自带属性-clear"><a href="#3-自带属性-clear" class="headerlink" title="3. 自带属性 clear"></a>3. 自带属性 clear</h3><p>使用自带的属性可以非常好的解决浮动影响。该方法直观有效，哪里需要清除就在哪里添加一个兄弟元素，设置 <code>clear</code> 属性即可，一般属性值都设置为 <code>both</code> 清除两侧的浮动，也可以根据实际需要清除左侧或右侧，灵活方便直观。在 bootstrap 4.0 框架中的 <code>clearfix</code> 应用了该方法，其是在父元素中设置了伪元素，并设置了伪元素隐藏。</p>
-<p><strong>伪类元素（::after,::before）</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>推荐使用添加伪元素的方法</strong></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>ES6 原生提供 Proxy 构造函数，用来生成 Proxy 实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br></pre></td></tr></table></figure>
+
+<p>Proxy 对象的所有用法，都是上面这种形式，不同的只是<code>handler</code>参数的写法。</p>
+<p>其中：</p>
+<ul>
+<li><code>new Proxy()</code>表示生成一个<code>Proxy</code>实例。</li>
+<li><code>target</code>参数表示所要拦截的目标对象。</li>
+<li><code>handler</code>参数也是一个对象，用来定制拦截行为方法。</li>
+<li>同一个拦截器函数，可以设置拦截多个操作。</li>
+</ul>
+<p>下面是一个拦截读取属性行为的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function(target, propKey) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">35</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">proxy.time <span class="comment">// 35</span></span><br><span class="line">proxy.name <span class="comment">// 35</span></span><br><span class="line">proxy.title <span class="comment">// 35</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="handler-对象的方法-拦截方法）"><a href="#handler-对象的方法-拦截方法）" class="headerlink" title="handler 对象的方法(拦截方法）"></a>handler 对象的方法(拦截方法）</h2><p><strong>详细介绍见阮一峰老师的ES6入门或MDN</strong></p>
+<blockquote>
+<p>下面是 Proxy 支持的拦截操作一览，一共 13 种。</p>
+<ul>
+<li><strong>get(target, propKey, receiver)</strong>：拦截对象属性的读取，比如<code>proxy.foo</code>和<code>proxy[&#39;foo&#39;]</code>。</li>
+<li><strong>set(target, propKey, value, receiver)</strong>：拦截对象属性的设置，比如<code>proxy.foo = v</code>或<code>proxy[&#39;foo&#39;] = v</code>，返回一个布尔值。</li>
+<li><strong>has(target, propKey)</strong>：拦截<code>propKey in proxy</code>的操作，返回一个布尔值。</li>
+<li><strong>deleteProperty(target, propKey)</strong>：拦截<code>delete proxy[propKey]</code>的操作，返回一个布尔值。</li>
+<li><strong>ownKeys(target)</strong>：拦截<code>Object.getOwnPropertyNames(proxy)</code>、<code>Object.getOwnPropertySymbols(proxy)</code>、<code>Object.keys(proxy)</code>、<code>for...in</code>循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而<code>Object.keys()</code>的返回结果仅包括目标对象自身的可遍历属性。</li>
+<li><strong>getOwnPropertyDescriptor(target, propKey)</strong>：拦截<code>Object.getOwnPropertyDescriptor(proxy, propKey)</code>，返回属性的描述对象。</li>
+<li><strong>defineProperty(target, propKey, propDesc)</strong>：拦截<code>Object.defineProperty(proxy, propKey, propDesc）</code>、<code>Object.defineProperties(proxy, propDescs)</code>，返回一个布尔值。</li>
+<li><strong>preventExtensions(target)</strong>：拦截<code>Object.preventExtensions(proxy)</code>，返回一个布尔值。</li>
+<li><strong>getPrototypeOf(target)</strong>：拦截<code>Object.getPrototypeOf(proxy)</code>，返回一个对象。</li>
+<li><strong>isExtensible(target)</strong>：拦截<code>Object.isExtensible(proxy)</code>，返回一个布尔值。</li>
+<li><strong>setPrototypeOf(target, proto)</strong>：拦截<code>Object.setPrototypeOf(proxy, proto)</code>，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。</li>
+<li><strong>apply(target, object, args)</strong>：拦截 Proxy 实例作为函数调用的操作，比如<code>proxy(...args)</code>、<code>proxy.call(object, ...args)</code>、<code>proxy.apply(...)</code>。</li>
+<li><strong>construct(target, args)</strong>：拦截 Proxy 实例作为构造函数调用的操作，比如<code>new proxy(...args)</code>。</li>
+</ul>
+</blockquote>
+<h2 id="Proxy-与-Object-defineProperty-优劣对比"><a href="#Proxy-与-Object-defineProperty-优劣对比" class="headerlink" title="Proxy 与 Object.defineProperty 优劣对比"></a>Proxy 与 Object.defineProperty 优劣对比</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
+<li>Object.definedProperty 的作用是劫持一个对象的属性，劫持属性的getter和setter方法，在对象的属性发生变化时进行特定的操作。而 Proxy 劫持的是整个对象。</li>
+<li>Proxy 会返回一个代理对象，我们只需要操作新对象即可，而 <code>Object.defineProperty</code> 只能遍历对象属性直接修改。</li>
+<li>Object.definedProperty 不支持数组，更准确的说是不支持数组的各种API，因为如果仅仅考虑arry[i] = value 这种情况，是可以劫持的，但是这种劫持意义不大。而 Proxy 可以支持数组的各种API。</li>
+<li>尽管 Object.defineProperty 有诸多缺陷，但是其兼容性要好于 Proxy.</li>
+</ol>
+<p>PS: Vue2.x 使用 Object.defineProperty 实现数据双向绑定，V3.0 则使用了 Proxy.</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p><strong>Proxy 的优势如下:</strong></p>
+<ul>
+<li>Proxy 可以直接监听对象而非属性；</li>
+<li>Proxy 可以直接监听数组的变化；</li>
+<li>Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的；</li>
+<li>Proxy 返回的是一个新对象,我们可以只操作新的对象达到目的,而 Object.defineProperty 只能遍历对象属性直接修改；</li>
+<li>Proxy 作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的新标准的性能红利；</li>
+</ul>
+<p><strong>Object.defineProperty 的优势如下:</strong></p>
+<ul>
+<li>兼容性好，支持 IE9，而 Proxy 的存在浏览器兼容性问题,而且无法用 polyfill 磨平，因此 Vue 的作者才声明需要等到下个大版本( 3.0 )才能用 Proxy 重写。</li>
+</ul>
+<blockquote>
+<p>参考文章：</p>
+<p><a href="https://es6.ruanyifeng.com/#docs/proxy">ECMAScript 6 入门教程</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy">MDN-Proxy</a></p>
+<p><a href="https://juejin.im/post/5d59f2a451882549be53b170">Proxy 与 Object.defineProperty 优劣对比</a></p>
+<p><a href="https://github.com/YvetteLau/Blog/issues/25#">实现双向绑定 Proxy 与 Object.defineProperty 相比优劣如何?</a></p>
+</blockquote>
 
     </div>
     
@@ -200,7 +255,7 @@
       <div class="level-start">
         <div class="level-item">
           <i class="fas fa-tags has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/tags/CSS/" rel="tag">CSS</a>
+          <a class="has-link-grey -link" href="/tags/Proxy/" rel="tag">Proxy</a>
         </div>
       </div>
     </div>
@@ -246,19 +301,11 @@
 <div class="card card-transparent">
   <div class="level post-navigation is-flex-wrap is-mobile">
     
-    <div class="level-start">
-      <a class="level level-item has-link-grey  article-nav-prev"
-        href="/2020/02/27/JS/%E8%B7%A8%E5%9F%9F/">
-        <i class="level-item fas fa-chevron-left"></i>
-        <span class="level-item">跨域解决方案</span>
-      </a>
-    </div>
-    
     
     <div class="level-end">
       <a class="level level-item has-link-grey  article-nav-next"
-        href="/2020/02/24/CSS/BFC/">
-        <span class="level-item">BFC</span>
+        href="/2020/04/01/JS/%E8%B5%8B%E5%80%BC%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%85%B3%E7%B3%BB/">
+        <span class="level-item">赋值、浅拷贝、深拷贝关系以及实现</span>
         <i class="level-item fas fa-chevron-right"></i>
       </a>
     </div>
@@ -423,18 +470,30 @@
         目录
       </h3>
       <ul class="menu-list"><li>
-        <a class="is-flex" href="#1-设置父元素的高度">
+        <a class="is-flex" href="#什么是-Proxy-？">
         <span class="has-mr-6">1</span>
-        <span>1. 设置父元素的高度</span>
+        <span>什么是 Proxy ？</span>
         </a></li><li>
-        <a class="is-flex" href="#2-利用BFC">
+        <a class="is-flex" href="#语法">
         <span class="has-mr-6">2</span>
-        <span>2. 利用BFC</span>
+        <span>语法</span>
         </a></li><li>
-        <a class="is-flex" href="#3-自带属性-clear">
+        <a class="is-flex" href="#handler-对象的方法-拦截方法）">
         <span class="has-mr-6">3</span>
-        <span>3. 自带属性 clear</span>
-        </a></li></ul>
+        <span>handler 对象的方法(拦截方法）</span>
+        </a></li><li>
+        <a class="is-flex" href="#Proxy-与-Object-defineProperty-优劣对比">
+        <span class="has-mr-6">4</span>
+        <span>Proxy 与 Object.defineProperty 优劣对比</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#分析">
+        <span class="has-mr-6">4.1</span>
+        <span>分析</span>
+        </a></li><li>
+        <a class="is-flex" href="#结论">
+        <span class="has-mr-6">4.2</span>
+        <span>结论</span>
+        </a></li></ul></li></ul>
     </div>
   </div>
 </div>
@@ -457,7 +516,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="清除浮动" height="28">
+          <img src="/images/goldsheep.png" alt="Proxy及其优势" height="28">
           
         </a>
         <p class="is-size-7">
