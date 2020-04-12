@@ -9,23 +9,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>vue时间戳转化 - Jinyang&#39;s blog</title>
+<title>HTTPS协议 - Jinyang&#39;s blog</title>
 
 
-    <meta name="description" content="函数封装">
+    <meta name="description" content="HTTP 存在的问题 HTTP 报文使用明文方式发送，可能被第三方窃听。 HTTP 报文可能被第三方截取后修改通信内容，接收方没有办法发现报文内容的修改。 HTTP 还存在认证的问题，第三方可以冒充他人参与通信。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue时间戳转化">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/Vue.js/vue%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E5%8C%96/index.html">
+<meta property="og:title" content="HTTPS协议">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/HTTPS/HTTPS%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Jinyang&#39;s blog">
-<meta property="og:description" content="函数封装">
+<meta property="og:description" content="HTTP 存在的问题 HTTP 报文使用明文方式发送，可能被第三方窃听。 HTTP 报文可能被第三方截取后修改通信内容，接收方没有办法发现报文内容的修改。 HTTP 还存在认证的问题，第三方可以冒充他人参与通信。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cn.vuejs.org/images/logo.png">
-<meta property="article:published_time" content="2020-02-08T13:22:42.801Z">
-<meta property="article:modified_time" content="2020-02-27T12:01:41.020Z">
+<meta property="og:image" content="https://image.flaticon.com/icons/svg/2526/2526401.svg">
+<meta property="article:published_time" content="2020-04-11T12:23:59.526Z">
+<meta property="article:modified_time" content="2020-04-12T07:17:25.791Z">
 <meta property="article:author" content="Jinyang">
-<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="HTTPS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+<meta name="twitter:image" content="https://image.flaticon.com/icons/svg/2526/2526401.svg">
 
 
 
@@ -84,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/goldsheep.png" alt="vue时间戳转化" height="28">
+                <img src="/images/goldsheep.png" alt="HTTPS协议" height="28">
             
             </a>
         </div>
@@ -143,22 +143,22 @@
   <div class="card-content article ">
     <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
       
-      <i class="fa fa-battery-full" style="color:#3273dc"></i>vue时间戳转化
+      <i class="fa fa-battery-full" style="color:#3273dc"></i>HTTPS协议
       
     </h1>
     
     <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
       <div class="level-left">
-        <time class="level-item has-text-grey" datetime="2020-02-08T13:22:42.801Z"><i
-            class="far fa-calendar-alt">&nbsp;</i>2020-02-08</time>
+        <time class="level-item has-text-grey" datetime="2020-04-11T12:23:59.526Z"><i
+            class="far fa-calendar-alt">&nbsp;</i>2020-04-11</time>
         
-        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-27T12:01:41.020Z"><i
-            class="far fa-calendar-check">&nbsp;</i>2020-02-27</time>
+        <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-12T07:17:25.791Z"><i
+            class="far fa-calendar-check">&nbsp;</i>2020-04-12</time>
         
         
         <div class="level-item">
           <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/categories/Vue-js/">Vue.js</a>
+          <a class="has-link-grey -link" href="/categories/HTTPS/">HTTPS</a>
         </div>
         
         
@@ -166,7 +166,7 @@
           <i class="far fa-clock"></i>&nbsp;
           
           
-          1 分钟 读完 (大约 127 个字)
+          11 分钟 读完 (大约 1674 个字)
         </span>
         
         
@@ -179,13 +179,44 @@
     </div>
     
     <div class="content">
-      <h2 id="函数封装"><a href="#函数封装" class="headerlink" title="函数封装"></a>函数封装</h2><a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dateFilter.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">dateFilter</span> (<span class="params">timestamp</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">zero</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> time &lt; <span class="number">10</span> ? <span class="string">'0'</span> + time : time</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Number</span>(timestamp) * <span class="number">1000</span>)<span class="comment">// 时间戳为10位需*1000，时间戳为13位的话不需乘1000</span></span><br><span class="line">  <span class="keyword">let</span> Y = date.getFullYear() + <span class="string">'-'</span></span><br><span class="line">  <span class="keyword">let</span> M = (date.getMonth() + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">'0'</span> + (date.getMonth() + <span class="number">1</span>) : date.getMonth() + <span class="number">1</span>) + <span class="string">'-'</span></span><br><span class="line">  <span class="keyword">let</span> D = zero(date.getDate()) + <span class="string">' '</span></span><br><span class="line">  <span class="keyword">let</span> h = zero(date.getHours()) + <span class="string">':'</span></span><br><span class="line">  <span class="keyword">let</span> m = zero(date.getMinutes()) + <span class="string">':'</span></span><br><span class="line">  <span class="keyword">let</span> s = zero(date.getSeconds())</span><br><span class="line">  <span class="keyword">return</span> Y + M + D + h + m + s</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      <h2 id="HTTP-存在的问题"><a href="#HTTP-存在的问题" class="headerlink" title="HTTP 存在的问题"></a>HTTP 存在的问题</h2><ol>
+<li>HTTP 报文使用明文方式发送，可能被第三方窃听。</li>
+<li>HTTP 报文可能被第三方截取后修改通信内容，接收方没有办法发现报文内容的修改。</li>
+<li>HTTP 还存在认证的问题，第三方可以冒充他人参与通信。<a id="more"></a>
 
-<h2 id="引入注册全局组件"><a href="#引入注册全局组件" class="headerlink" title="引入注册全局组件"></a>引入注册全局组件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="comment">// 引入时间戳过滤器</span></span><br><span class="line"><span class="keyword">import</span> &#123; dateFilter &#125; <span class="keyword">from</span> <span class="string">'./filter/datefilter'</span></span><br><span class="line"><span class="comment">// 注册为全局过滤器</span></span><br><span class="line">Vue.filter(<span class="string">'dateFilter'</span>, dateFilter)</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span>&#123;&#123; data.time | dateFilter &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+</li>
+</ol>
+<h2 id="什么是-HTTPS"><a href="#什么是-HTTPS" class="headerlink" title="什么是 HTTPS"></a>什么是 HTTPS</h2><p>HTTPS 指的是超文本传输安全协议，HTTPS 是基于 HTTP 协议的，不过它会使用 TLS/SSL 来对数据加密。使用 TLS/ SSL 协议，所有的信息都是加密的，第三方没有办法窃听。并且它提供了一种校验机制，信息一旦被篡改，通信的双方会立刻发现。它还配备了身份证书，防止身份被冒充的情况出现。</p>
+<blockquote>
+<p> TLS（Transport Layer Security，安全传输层协议） SSL(Secure Sockets Layer 安全套接层) </p>
+</blockquote>
+<h2 id="HTTP-与-HTTPS-的区别"><a href="#HTTP-与-HTTPS-的区别" class="headerlink" title="HTTP 与 HTTPS 的区别"></a>HTTP 与 HTTPS 的区别</h2><ol>
+<li>HTTP 是明文传输，HTTPS 通过  TLS/ SSL 进行了加密传输。</li>
+<li>HTTP 的端口号是 80，HTTPS 是 443。</li>
+<li>HTTPS 需要到 CA 申请证书，一般免费证书很少，需要交费。</li>
+<li>HTTP的连接很简单，是无状态的；HTTPS 协议是由  TLS/ SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</li>
+</ol>
+<h1 id="HTTPS-原理"><a href="#HTTPS-原理" class="headerlink" title="HTTPS 原理"></a>HTTPS 原理</h1><p>一个<strong>简化的（例如下图没有包含Pre-Master Secret）</strong>https流程图如下</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="HTTPS原理"></p>
+<h4 id="TLS-握手过程"><a href="#TLS-握手过程" class="headerlink" title="TLS 握手过程"></a>TLS 握手过程</h4><ol>
+<li>第一步，客户端向服务器发起请求，请求中包含使用的协议版本号、生成的一个随机数、以及客户端支持的加密方法。</li>
+<li>第二步，服务器端接收到请求后，确认双方使用的加密方法、并给出服务器的证书、以及一个服务器生成的随机数。</li>
+<li>第三步，客户端确认服务器证书有效后，生成一个新的随机数，并使用数字证书中的公钥，加密这个随机数，然后发给服 务器。并且还会提供一个前面所有内容的 hash 的值，用来供服务器检验。</li>
+<li>第四步，服务器使用自己的私钥，来解密客户端发送过来的随机数。并提供前面所有内容的 hash 值来供客户端检验。</li>
+<li>第五步，客户端和服务器端根据约定的加密方法使用前面的三个随机数，生成对话秘钥，以后的对话过程都使用这个秘钥 来加密信息。</li>
+</ol>
+<h4 id="详细实现原理"><a href="#详细实现原理" class="headerlink" title="详细实现原理"></a>详细实现原理</h4><p>TLS 的握手过程主要用到了三个方法来保证传输的安全。</p>
+<p>首先是对称加密的方法，对称加密的方法是，双方使用同一个秘钥对数据进行加密和解密。但是对称加密的存在一个问题，就 是如何保证秘钥传输的安全性，因为秘钥还是会通过网络传输的，一旦秘钥被其他人获取到，那么整个加密过程就毫无作用了。 这就要用到非对称加密的方法。</p>
+<p>非对称加密的方法是，我们拥有两个秘钥，一个是公钥，一个是私钥。公钥是公开的，私钥是保密的。用私钥加密的数据，只 有对应的公钥才能解密，用公钥加密的数据，只有对应的私钥才能解密。我们可以将公钥公布出去，任何想和我们通信的客户， 都可以使用我们提供的公钥对数据进行加密，这样我们就可以使用私钥进行解密，这样就能保证数据的安全了。但是非对称加 密有一个缺点就是加密的过程很慢，因此如果每次通信都使用非对称加密的方式的话，反而会造成等待时间过长的问题。</p>
+<p>因此我们可以使用对称加密和非对称加密结合的方式，因为对称加密的方式的缺点是无法保证秘钥的安全传输，因此我们可以 非对称加密的方式来对对称加密的秘钥进行传输，然后以后的通信使用对称加密的方式来加密，这样就解决了两个方法各自存 在的问题。</p>
+<p>但是现在的方法也不一定是安全的，因为我们没有办法确定我们得到的公钥就一定是安全的公钥。可能存在一个中间人，截取 了对方发给我们的公钥，然后将他自己的公钥发送给我们，当我们使用他的公钥加密后发送的信息，就可以被他用自己的私钥 解密。然后他伪装成我们以同样的方法向对方发送信息，这样我们的信息就被窃取了，然而我们自己还不知道。</p>
+<p>为了解决这样的问题，我们可以使用数字证书的方式，首先我们使用一种 Hash 算法来对我们的公钥和其他信息进行加密生成 一个信息摘要，然后让有公信力的认证中心（简称 CA ）用它的私钥对消息摘要加密，形成签名。最后将原始的信息和签名合 在一起，称为数字证书。当接收方收到数字证书的时候，先根据原始信息使用同样的 Hash 算法生成一个摘要，然后使用公证 处的公钥来对数字证书中的摘要进行解密，最后将解密的摘要和我们生成的摘要进行对比，就能发现我们得到的信息是否被更改 了。这个方法最要的是认证中心的可靠性，一般浏览器里会内置一些顶层的认证中心的证书，相当于我们自动信任了他们，只有 这样我们才能保证数据的安全。</p>
+<blockquote>
+<p>参考文章：</p>
+<p><a href="https://mp.weixin.qq.com/s/StqqafHePlBkWAPQZg3NrA">一个故事讲完https</a></p>
+<p><a href="https://juejin.im/post/59e4c02151882578d02f4aca">谈谈 HTTPS</a></p>
+</blockquote>
 
     </div>
     
@@ -194,7 +225,7 @@
       <div class="level-start">
         <div class="level-item">
           <i class="fas fa-tags has-text-grey"></i>&nbsp;
-          <a class="has-link-grey -link" href="/tags/Vue-js/" rel="tag">Vue.js</a>
+          <a class="has-link-grey -link" href="/tags/HTTPS/" rel="tag">HTTPS</a>
         </div>
       </div>
     </div>
@@ -240,19 +271,11 @@
 <div class="card card-transparent">
   <div class="level post-navigation is-flex-wrap is-mobile">
     
-    <div class="level-start">
-      <a class="level level-item has-link-grey  article-nav-prev"
-        href="/2020/02/09/Vue.js/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/">
-        <i class="level-item fas fa-chevron-left"></i>
-        <span class="level-item">vue项目打包优化</span>
-      </a>
-    </div>
-    
     
     <div class="level-end">
       <a class="level level-item has-link-grey  article-nav-next"
-        href="/2020/02/08/Vue.js/vuex%E4%B8%AD%E7%9A%84%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0/">
-        <span class="level-item">vuex中的辅助函数</span>
+        href="/2020/04/10/ES6+/proxy/">
+        <span class="level-item">Proxy及其优势</span>
         <i class="level-item fas fa-chevron-right"></i>
       </a>
     </div>
@@ -416,19 +439,31 @@
       <h3 class="menu-label">
         目录
       </h3>
-      <ul class="menu-list"><li>
-        <a class="is-flex" href="#函数封装">
-        <span class="has-mr-6">1</span>
-        <span>函数封装</span>
+      <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#HTTP-存在的问题">
+        <span class="has-mr-6">1.1</span>
+        <span>HTTP 存在的问题</span>
         </a></li><li>
-        <a class="is-flex" href="#引入注册全局组件">
+        <a class="is-flex" href="#什么是-HTTPS">
+        <span class="has-mr-6">1.2</span>
+        <span>什么是 HTTPS</span>
+        </a></li><li>
+        <a class="is-flex" href="#HTTP-与-HTTPS-的区别">
+        <span class="has-mr-6">1.3</span>
+        <span>HTTP 与 HTTPS 的区别</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#HTTPS-原理">
         <span class="has-mr-6">2</span>
-        <span>引入注册全局组件</span>
+        <span>HTTPS 原理</span>
+        </a><ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#TLS-握手过程">
+        <span class="has-mr-6">2.1.1</span>
+        <span>TLS 握手过程</span>
         </a></li><li>
-        <a class="is-flex" href="#使用">
-        <span class="has-mr-6">3</span>
-        <span>使用</span>
-        </a></li></ul>
+        <a class="is-flex" href="#详细实现原理">
+        <span class="has-mr-6">2.1.2</span>
+        <span>详细实现原理</span>
+        </a></li></ul></ul></li></ul>
     </div>
   </div>
 </div>
@@ -451,7 +486,7 @@
       <div class="level-start has-text-centered-mobile">
         <a class="footer-logo is-block has-mb-6" href="/">
           
-          <img src="/images/goldsheep.png" alt="vue时间戳转化" height="28">
+          <img src="/images/goldsheep.png" alt="HTTPS协议" height="28">
           
         </a>
         <p class="is-size-7">
